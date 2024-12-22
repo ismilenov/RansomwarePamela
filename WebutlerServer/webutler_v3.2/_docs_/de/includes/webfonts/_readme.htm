@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Formulare per Mail versenden</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/webfonts/_readme.htm');
+					localStorage.setItem('flink', 'users');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Webfonts - @font-face</h1>
+	<p>In diesem Verzeichnis können verschiedene Webfonts abgelegt werden. Mittels Webfonts können beliebige Schriftarten in HTML-Seiten eingebunden werden (CSS: @font-face{...}). Der Bildeditor greift zur Beschriftung auf dieses Verzeichnis zu und der WYSIWYG-Editor listet die Schriften in der Schriftart-Auswahlbox auf. Dafür müssen die Schriftarten in den folgenden Formaten vorhanden sein.
+	</p>
+	<p>Der Name der Schriftart muß dem Dateinamen entsprechen:
+	</p>
+	<p><strong>Beispiel:</strong><br />
+	Dateiname: oswald_light.ttf<br />
+	@font-face: font-family:'oswald_light';
+	</p>
+	<p>Wenn Dateiname und die font-family Angabe nicht identisch sind, kann die Schriftart vom Editor nicht korrekt dargestellt und gesetzt werden.
+	</p>
+	<h2>Dateiformate</h2>
+    <p>TrueType: *.ttf<br />
+    Embedded OpenType: *.eot<br />
+    Web Open Font Format: *.woff<br /><br />
+    Kostenlose Schriftarten in diesen Formaten findet man z.B. bei <a href="http://www.fontsquirrel.com/" target="_blank">Font Squirrel</a>.
+    </p>
+</div>
+</body>
+</html>

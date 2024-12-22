@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact</title>
+	<meta charset="utf-8" />
+	<meta content="index,follow" name="robots" />
+	<meta content="author of new page" name="author" />
+	<meta content="copyright (c) 2016 by author" name="copyright" />
+	<meta content="description of new page" name="description" />
+	<meta content="keyword1,keyword2,keyword3" name="keywords" />
+	<link href="content/style/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<?PHP include "includes/forms/sendform.php"; ?>
+<div class="wrapper">
+	<div class="wb_blockelement">
+		<!-- begin_block_header -->
+			<!-- block_header -->
+		<!-- end_block_header -->
+	</div>
+	<div class="wb_menuelement">
+		<!-- begin_menu_navi -->
+			<!-- menu_navi -->
+		<!-- end_menu_navi -->
+	</div>
+	<div class="layertop">
+			<div class="wb_contentelement">
+				<!-- begin_content -->
+<h1>Contact</h1>
+
+<div class="wb_colgroup">
+	<div class="wb_colrow">
+		<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1">
+			<div class="wb_colalign_top">
+				<p>Imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+			</div>
+		</div>
+
+		<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2">
+			<div class="wb_colalign_top">
+				<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- end_content -->
+			</div>
+		</div>
+	<div class="layercontent">
+			<div class="wb_columnselement">
+	<div class="wb_colgroup">
+		<div class="wb_colrow">
+			<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_6 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1">
+				<div class="wb_colalign_full wb_contentelement">
+					<!-- begin_content -->
+<div class="imgfullheight">
+	<img src="content/media/image/contact/leaves.jpg" />
+</div>
+
+<!-- end_content -->
+				</div>
+			</div>
+			<div class="wb_colsmall_12 wb_colmedium_8 wb_collarge_6 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2">
+				<div class="wb_colalign_top wb_contentelement">
+					<!-- begin_content -->
+<form action="index.php?page=<?PHP echo $_GET['page']; ?>" method="post">
+<div class="intext">
+	<input name="Name" placeholder="Name:" required="required" type="text" />
+</div>
+
+<div class="intext">
+	<input name="eMail" placeholder="eMail:" required="required" type="email" />
+</div>
+
+<div class="intext">
+	<textarea name="Message" placeholder="Message:" required="required" rows="5"></textarea>
+</div>
+
+<div>
+	<input name="sendto" type="hidden" value="1" /> <input class="button" name="sendform" type="submit" value="Send" />
+</div>
+</form>
+
+<!-- end_content -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+		</div>
+	<div class="layerbottom">
+			<div class="wb_contentelement">
+				<!-- begin_content -->
+<div class="googlemap" data-source="googlemapsframe">
+	<script>
+  /*<![CDATA[*/
+    document.writeln('<scr' + 'ipt src="http://maps.google.com/maps/api/js?sensor=false"></scr' + 'ipt>' +
+    '    <scr' + 'ipt>' +
+    '    /*<![CDATA[*/' +
+    '    (function() {' +
+    '        if (window.addEventListener)' +
+    '            window.addEventListener(\'load\', initgooglemap, false);' +
+    '        else' +
+    '            window.attachEvent(\'onload\', initgooglemap);' +
+    '    })();' +
+    '    function initgooglemap() {' +
+    '        var mapZoom = 10;' +
+    '        var mapLat = 46.34692761055676;' +
+    '        var mapLng = -74.46807861328125;' +
+    '        var mapMarker = \'yes\';' +
+    '        var mapInfo = \'Indian Summer\';' +
+    '        var latlng = new google.maps.LatLng(mapLat,mapLng);' +
+    '        var myOptions = {' +
+    '            zoom: mapZoom,' +
+    '            center: latlng,' +
+    '            mapTypeId: google.maps.MapTypeId.ROADMAP' +
+    '        };' +
+    '        var map = new google.maps.Map(document.getElementById(\'googlemapcanvas\'), myOptions);' +
+    '        var marker = new google.maps.Marker({' +
+    '            position: latlng,' +
+    '            map: map' +
+    '        });' +
+    '        marker.setMap(map);' +
+    '        if(mapInfo != \'\') {' +
+    '            var infowindow = new google.maps.InfoWindow({' +
+    '                content: mapInfo' +
+    '            });' +
+    '            infowindow.open(map, marker);' +
+    '            google.maps.event.addListener(marker, \'click\', function() {' +
+    '                infowindow.open(map, marker);' +
+    '            });' +
+    '        }' +
+    '    };' +
+    '    /*]]>*/' +
+    '    </scr' + 'ipt>' +
+    '    <div id="googlemapcanvas" style="width: 100%; height: 100%"></div>');
+  /*]]>*/
+</script>
+</div>
+
+<!-- end_content -->
+			</div>
+		
+</div>
+	
+	<div class="wb_blockelement">
+		<!-- begin_block_footer -->
+			<!-- block_footer -->
+		<!-- end_block_footer -->
+	</div>
+
+</div>
+</body>
+</html>

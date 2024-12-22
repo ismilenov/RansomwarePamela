@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 658px;
+            margin: 0px;
+            padding: 40px 12px 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/_readme.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Define Fields</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Data output</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>Creating a module with the ModMaker</h1>
+	<p>With the ModMaker allows you to create simple in-/output modules. The ModMaker was inspired by the PostNuke module Pagesetter.
+</p>
+	<p>The ModMaker takes a programming work, but not the <strong>mental work</strong>. One should plan well and know what you want and need, and not any fields to the motto: &quot;Could I maybe sometimes use&quot; click together. Unnecessary fields are ultimately only in the way.
+</p>
+	<p>The generated module can <strong>not</strong> be updated by the ModMaker after downloading!
+</p>
+	<p>Are possible, for example, image galleries, news, FAQs, glossary, product catalogs, downloads or interactive modules such as guest books, blogs and forums or even simple mini administrations to issue in jQuery animations. For modes of operation such as the further processing (eg a shopping cart) or evaluation (eg surveys) data own functions must be written.
+</p>
+	<h3>A module is created in 4 steps:</h3>
+	<p><span class="einzug"></span>Set the structure of your module<br />
+		<span class="einzug"></span>Generate and download the module<br />
+		<span class="einzug">Designing templates</span><br />
+		<span class="einzug">Upload your module to the server</span>
+</p>
+	<h2>Creating a new module</h2>
+	<p>The ModMaker is accessed from the Adminmenu =&gt; System =&gt; ModMaker. First, a name for the module must be assigned. This name is used as a module directory name, it should only be a short name can be used. For the name of the module in the headline of the Administration the name can be changed later in the language file.
+</p>
+	<h2>Extend / change module</h2>
+	<p>All files in the module directory created are self-sufficient and can be changed at will.
+</p>
+	<p>For the extension of a module, it is advisable to write your own functions in a new class to load it into the view.php and evaluate data sent there. It also helps to simply detailed queries alternatively implement the latest entries, or the above-mentioned processing as a cart or survey evaluation.
+</p>
+</div>
+</body>
+</html>

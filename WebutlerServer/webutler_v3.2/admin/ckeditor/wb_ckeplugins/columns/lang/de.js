@@ -1,0 +1,20 @@
+CKEDITOR.plugins.setLang('columns', 'de',
+{
+	title : 'Spalten einfügen',
+	columnstext : 'Anzahl der Spalten wählen, jede Spalte individuell einstellen und anschließend in die Seite einfügen.',
+	columnslength : 'Anzahl der Spalten',
+	rowcss : 'Block CSS-Klasse',
+	column : 'Spalte',
+	align : 'Ausrichtung',
+	top : 'oben',
+	middle : 'mittig',
+	bottom : 'unten',
+	full : '100% hoch',
+	width : 'Breite',
+	order : 'Order',
+	colsmall : 'klein',
+	colmedium : 'normal',
+	collarge : 'groß',
+	hide : 'verstecken',
+	colcss : 'Spalten CSS-Klasse'
+});

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Formulare per Mail versenden</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        table.einzug {
+            margin-left: 60px;
+        }
+        span.einzug, div.einzug {
+            margin-left: 30px;
+        }
+		span.red {
+			color: #A32729;
+		}
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/forms/_readme.htm');
+					localStorage.setItem('flink', 'forms');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Send HTML Form per Mail</h1>
+	<p>The sendform.php sends all sorts of HTML forms as mail.
+</p>
+	<h2>Structure of the form page</h2>
+    <p>Immediately after body tag the sendform.php loaded:<br /><br />
+		<span class="einzug">&lt;?PHP include &quot;includes/forms/sendform.php&quot;; ?&gt;</span>
+</p>
+	<h3>Forms are created using the following template:</h3>
+    <p>It will sent to itself in the action attribute.</p>
+	<div class="einzug">&lt;form method=&quot;post&quot; action=&quot;index.php?page=_PAGENAME_&quot;&gt;</div>
+	<table class="einzug" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td>Name:*</td>
+		<td>&lt;input type=&quot;text&quot; name=&quot;Name&quot; required=&quot;required&quot; /&gt;</td>
+	  </tr>
+	  <tr>
+		<td>eMail:*</td>
+		<td>&lt;input type=&quot;email&quot; name=&quot;eMail&quot; required=&quot;required&quot; /&gt;</td>
+	  </tr>
+	  <tr>
+		<td>Comment:* &nbsp;</td>
+		<td>&lt;textarea rows=&quot;5&quot; name=&quot;Comment&quot; required=&quot;required&quot;&gt;&lt;/textarea&gt;</td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>&lt;input type=&quot;hidden&quot; name=&quot;sendto&quot; value=&quot;1&quot; /&gt;</td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>&lt;input type=&quot;submit&quot; name=&quot;sendform&quot; value=&quot;Send&quot; /&gt;</td>
+	  </tr>
+	</table>
+	<div class="einzug">&lt;/form&gt;</div>
+	<p>Both name and value of an input field will be sent, so the name should therefore be chosen accordingly. The HTML5 attributes &quot;required&quot; and &quot;placeholder&quot; are supported in the editor.
+</p>
+	<p>The text field someone has to be present, it is used as the sender field of shipping and the submit button must have the name &quot;sendform&quot; so that the mail will be sent. With the hidden field &quot;sendto&quot; can be sent to different recipients various forms.
+</p>
+	<p>Multiple options can be passed as an array. Example:<br /><br />
+		<span class="einzug">&lt;input type=&quot;checkbox&quot; name=&quot;Order[]&quot; value=&quot;Catalog&quot; /&gt;</span><br />
+		<span class="einzug">&lt;input type=&quot;checkbox&quot; name=&quot;Order[]&quot; value=&quot;Brochure&quot; /&gt;</span>
+</p>
+	<p>If sending occurs an error, the transmitted data can be reissued with echo $_POST['_FIELDNAME_']; inside value. Example:<br /><br />
+    <span class="einzug">&lt;input type=&quot;text&quot; name=&quot;<span class="red">Interests</span>&quot; value=&quot;</span><br />
+	<span class="einzug"><span class="einzug"><span class="red">&lt;?PHP echo isset($_POST['Interests']) ? $_POST['Interests'] : ''; ?&gt;</span></span></span><br />
+	<span class="einzug">&quot; /&gt;</span>
+</p>
+	<h2>Templates for mail delivery</h2>
+	<p>In the directory /tpls are 2 templates: usermail.tpl for sending a confirmation email to the visitor and adminmail.tpl for the mail to website operator.<br />
+		For each receiver ID from the &quot;sendto&quot; field can separate templates with the file name usermail_ID.tpl or adminmail_ID.tpl be created, eg usermail_2.tpl for ID 2. If there are no ID templates, the standard template will be used.
+</p>
+	<h3>Send pictures using the mail</h3>
+	<p>In the config.php different images can be stored for mail delivery. The image files must be exist in the directory /imgs. The key of the variable $forms_mailimages is used as the key of the template variable $mailcontent. The keys are freely selectable.
+</p>
+</div>
+</body>
+</html>

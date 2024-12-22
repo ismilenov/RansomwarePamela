@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.1 - www.webutler.de
+            Copyright (c) 2008 - 2012
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.0-2.1.htm');
+					localStorage.setItem('flink', 'update_21');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.0 » V2.1</h1>
+	<p>Der FCKeditor wurde durch den CKEditor ersetzt und EditArea durch CodeMirror. Außerdem wurde der Webutler zum betreiben mehrsprachiger Seiten erweitert.
+</p>
+	<p>Die Webutler-Plugins und Einstellungen für den CKEditor sind komplett ausgelagert, so daß ein unkompliziertes Updaten auf neuere CKEditor-Versionen möglich ist. Wer den Editor selbst updaten möchte, kann alles außer &quot;/wb_ckeplugins&quot;, &quot;/wb_ckeskin&quot; und &quot;wb_ckeconfig.js&quot; aus dem Verzeichnis /admin/ckeditor löschen und eine neue Version hochladen. Wer Fehler vermeiden möchte, sollte erstmal alles lokal testen.
+</p>
+	<h2>Was ist zu tun?</h2>
+	<ol>
+      <li>Mit FTP das komplette Verzeichnis /admin löschen</li>
+      <li>Das neue /admin Verzeichnis hochladen</li>
+      <li>Die Datei &quot;/index.php&quot; mit der neuen Datei überschreiben.</li>
+      <li>Die Datei &quot;/includes/functions.php&quot; mit der neuen Datei überschreiben.</li>
+      <li>Die Datei &quot;/content/access/offline.php&quot; auf den Server kopieren.</li>
+      <li>Das Verzeichnis &quot;/includes/languages&quot; auf den Server kopieren.</li>
+      <li>Mailempfänger können jetzt in der Administration angelegt und im Editor ausgewählt werden.
+    	<ul>
+          <li>Die Variablen $formssend aus der config.php des Formularmoduls müssen in die Administration übertragen werden.</li>
+          <li>Mit FTP das Verzeichnis /includes/forms löschen, vorher geänderte Einstellungen (config.php, Logodatei) in die neuen Dateien übertragen.</li>
+          <li>Das neue /forms Verzeichnis hochladen</li>
+        </ul>
+      </li>
+      <li>Der CKEditor nutzt zum laden eigener Styles und Vorlagen jetzt Javascripte statt XML-Dateien.<br />
+        Wenn die Dateien /content/style/fckstyles.xml und /fcktemplates.xml geändert wurden:
+    	<ul>
+          <li>Die Dateien fckstyles.xml und fcktemplates.xml aus /content/style herunterladen</li>
+          <li>Die eigenen Styles in die Datei &quot;ckestyles.js&quot; übertragen</li>
+          <li>Die eigenen Vorlagen in die Datei &quot;cketemplates.js&quot; übertragen</li>
+          <li><strong>Wichtig!</strong> Auf die Formatierung laut den Beispielen achten</li>
+          <li>fckstyles.xml und fcktemplates.xml aus /content/style vom Server löschen</li>
+          <li>Die Dateien ckestyles.js und cketemplates.js nach /content/style auf den Server laden<br />
+            Außerdem den Ordner /content/media/image/tpl_icons nach /content/media/image auf den Server kopieren. Das Verzeichnis enthält die Template-Vorschaubilder.</li>
+        </ul>
+      </li>
+      <li>In der Datei &quot;baseconfig.php&quot; ist die Variable $webutler_config['watermark_imgdir'] dazu gekommen. Diese müssen Sie in Ihrer baseconfig.php ergänzen.</li>
+      <li>In der Datei &quot;globalvars.php&quot; müssen folgende Variablen ergänzt werden:
+    	<ul>
+          <li>$webutler_config['urlgetvars'] für die Anzahl der URL GET-Parameter</li>
+          <li>$webutler_config['languages'] und $webutler_config['setnewlang'] für die Sprachen-Administration</li>
+          <li>$webutler_config['fullpageedit'] für die Platzierung des Menüpunktes &quot;Aktuelle Seite bearbeiten&quot;</li>
+          <li>$webutler_config['adminnewpage'] und $webutler_config['admindelpage'] zur Anzeige der Fenster &quot;Seite hinzufügen&quot; und &quot;Seite löschen&quot;</li>
+          <li>$webutler_config['adminlayouts'], $webutler_config['adminmenus'] und $webutler_config['adminblocks'] für die Bearbeitungsfunktionen von Layouts, Menüs und Blöcke im Fenster &quot;Erweiterte Administratorfunktionen&quot;</li>
+          <li>$webutler_config['mediabrowser_wh'] und $webutler_config['imageeditor_wh'] als zentrale Einstellmöglichkeit für die Größe des Mediabrowser- und Bildeditor-Popupfensters</li>
+        </ul>
+        Diese neuen Variablen können aus der neuen globalvars.php heraus kopiert werden.
+      </li>
+      <li>Das Google Maps Plugin des Editors nutzt jetzt die neue Maps-API V3. Es ist nur ein einfaches Plugin mit dem <strong>ein</strong> Standort mit Infofenster (Sprechblase) festgelegt werden kann. Bei der neuen API benötigt man keinen Key mehr. Mit dem FCKeditor erstellte Maps können mit dem neuen Plugin nicht bearbeitet werden. Wer umsteigen will, muß die alte Map löschen und eine Neue erstellen. Auf einer Seite kann nur eine Map platziert werden.</li>
+      <li><strong>Mehrsprachigkeit:</strong> Wer eine vorhandene Seite auf Mehrsprachigkeit umstellen will, muß noch die folgenden Module updaten. Wer Mehrsprachigkeit oder die betroffenen Module nicht benötigt, kann auf das Update verzichten.
+      <ol>
+      <li>Die Suchfunktion (Verzeichnis: /includes/search):
+    	<ul>
+          <li>Die Einträge aus der alten config.php in die neue config.php übernehmen.</li>
+          <li>In der plugins.php die Einträge der Includeseiten erweitern.</li>
+          <li>Wer Änderungen an den Dateien wbsearch.css oder wbsearch.tpl gemacht hat, muß diese ebenfalls in die neuen Dateien übernehmen.</li>
+          <li>Das alte Verzeichnis vom Server löschen, das Neue hochladen.</li>
+    	</ul>
+      </li>
+      <li>Die Benutzerverwaltung (Verzeichnis: /modules/users):
+    	<ul>
+          <li>Die Einträge aus der alten config.php in die neue config.php übernehmen.</li>
+          <li>Das Bild für den Mailversand herunterladen und ins neue Modulverzeichnis kopieren.</li>
+          <li>Wer Änderungen an den Dateien sendmail.php, loginblock.css, loginblock.tpl, userspage.css oder userspage.tpl gemacht hat, muß diese ebenfalls in die neuen Dateien übernehmen.</li>
+          <li>Das alte Verzeichnis vom Server löschen, das Neue hochladen.</li>
+    	</ul>
+      </li>
+      <li>Das News-Modul (Verzeichnis: /modules/news):
+    	<ul>
+          <li>die Datei config.php, die Datenbank (/db/news.sqlite) und das Verzeichnis /img sichern</li>
+          <li>das alte Newsmodul vom Server löschen</li>
+          <li>das neue Newsmodul auf den Server laden</li>
+          <li>die gesicherten Dateien config.php und news.sqlite und die Bilder aus dem Verzeichnis /img auf den Server laden</li>
+          <li>der Datei config.php und den Verzeichnissen /db und /img samt Inhalt CHMOD 777 geben</li>
+          <li>die Datei &quot;update_newsdb_20-21.php&quot; im Browser aufrufen und das Datenbankupdate durchführen</li>
+          <li>die update_newsdb_20-21.php kann nach dem Update gelöscht werden</li>
+    	</ul>Die Erweiterungen der Adminoberfläche sind nur sichtbar, wenn Mehrsprachigkeit in der globalvars.php aktiviert ist.
+      </li>
+     </ol>
+      </li>
+     </ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V1.1 - www.webutler.de
+            Copyright (c) 2008 - 2009
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_1.0-1.1.htm');
+					localStorage.setItem('flink', 'update_11');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V1.0 » V1.1</h1>
+	<p>Die Dateien &quot;fckstyles.xml&quot; und &quot;fcktemplates.xml&quot; sind jetzt online bearbeitbar und wurden aus dem FCKeditor-Verzeichnis nach &quot;/content/style&quot; verschoben. Die Datei &quot;style.css&quot; wurde ebenfalls in dieses Verzeichnis verschoben. Alle im Verzeichnis /content/style befindlichen Dateien können bearbeitet werden.
+</p>
+	<h2>Was ist zu tun?</h2>
+	<ol>
+      <li>Die style.css von /content nach /content/style verschieben</li>
+      <li>Alle Dateien aus dem Verzeichnis /pages öffnen und den Pfad zur style.css anpassen</li>
+      <li>Wer die Dateien fckstyles.xml und/oder fcktemplates.xml geändert hat, diese von /admin/fckeditor nach /content/style verschieben</li>
+     </ol>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Konfigurationsdateien</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin: 15px 0px 5px 0px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        table {
+            margin-top: -5px;
+        }
+        td {
+        	vertical-align: top;
+        	padding: 3px 0px 0px 30px;
+        }
+        td.head {
+        	font-weight: bold;
+        	font-style: italic;
+        	padding: 8px 0px 0px 0px;
+        }
+        td.var {
+        	font-weight: bold;
+        	color: #606060;
+        	width: 120px;
+        }
+        td.left {
+        	padding-left: 60px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'settings/_readme.htm');
+					localStorage.setItem('flink', 'settings');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Konfigurationsdateien</h1>
+	<h2>baseconfig.php</h2>
+	<p>In der Datei &quot;baseconfig.php&quot; werden die Konfig-Einstellungen aus der Administration gespeichert. Bei einem Serverumzug müssen nur die Variablen<br /><br />
+	<span class="einzug">$webutler_config['server_path'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['homepage'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['user_name'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['user_pass'] = &quot;&quot;;</span><br /><br />
+    gelöscht und die Installation erneut durchgeführt werden. Die Datei muß beschreibbar sein, um die Einstellungen aus der Administration speichern zu können.
+</p>
+	<h3>Variablen im Überblick</h3>
+	<table border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td class="var">server_path</td>
+		<td>absoluter Serverpfad &quot;/home/yoursite/htdocs&quot; </td>
+	  </tr>
+	  <tr>
+		<td class="var">homepage</td>
+		<td>Homepagedomain z.B. &quot;http://www.yoursite.de&quot; </td>
+	  </tr>
+	  <tr>
+		<td class="var">user_name</td>
+		<td>Benutzername - Zugang für den Administrator</td>
+	  </tr>
+	  <tr>
+		<td class="var">user_pass</td>
+		<td>Passwort für den Administrator</td>
+	  </tr>
+	  <tr>
+		<td class="var">user_lang</td>
+		<td>Sprache der Administration</td>
+	  </tr>
+	  <tr>
+		<td class="var">startseite</td>
+		<td>Startseite - Anzeige bei Aufruf der Index-Seite</td>
+	  </tr>
+	  <tr>
+		<td class="var">ownerrorpage</td>
+		<td>Eigene Fehlerseite</td>
+	  </tr>
+	  <tr>
+		<td class="var">imgsmallsize</td>
+		<td>Voreinstellung für die Bildskalierung im Mediabrowser</td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>array(Breite, Höhe)</td>
+	  </tr>
+	  <tr>
+		<td class="var">imgboxsize</td>
+		<td>Skalierung des Orginalbildes für die Lightbox</td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>array(Breite, Höhe)</td>
+	  </tr>
+	  <tr>
+		<td class="var">chmod</td>
+		<td>Schreibrechte setzen, laut den Angaben des Providers<br />
+            der erste Wert ist für Verzeichnisse, der zweite für Dateien
+        </td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>array(Ordner, Dateien)</td>
+	  </tr>
+	</table>
+	<h2>globalvars.php</h2>
+	<p>In der Datei &quot;globalvars.php&quot; können weitere nicht administrierbare Grundeinstellungen vorgenommen werden. Es handelt sich um einmalige Einstellungen, die im laufenden Betrieb nicht geändert werden sollten. Deshalb sind sie nicht administrierbar und befinden sich in einer separaten Datei.
+</p>
+	<p>In der globalvars.php kann man unter anderem verschiedene Menüpunkte deaktivieren. So läst sich eine individuelle Administration, abhängig vom Umfang der Homepage sowie der gewünschten Funktionen realisieren. Über den Webmaster-Login sind die meisten Funktionen trotz Deaktivierung erreichbar.
+</p>
+	<h3>Variablen im Überblick</h3>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tbody>
+	  <tr>
+		<td colspan="2" class="head">zusätzlicher Zugang für den Webmaster</td>
+	  </tr>
+	  <tr>
+		<td class="var">admin_name</td>
+		<td>Benutzername</td>
+	  </tr>
+	  <tr>
+		<td class="var">admin_pass</td>
+		<td>Passwort - md5(salt_key1.Passwort.salt_key2) verschlüsseln</td>
+	  </tr>
+	  <tr>
+		<td class="var">admin_lang</td>
+		<td>Webmaster-Sprache der Administration</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Salt Keys</td>
+	  </tr>
+	  <tr>
+		<td class="var">salt_key1</td>
+		<td>Zeichenfolge aus: A bis Z, a bis z, 0 bis 9 und #+-_*@%&amp;=!?</td>
+	  </tr>
+	  <tr>
+		<td class="var">salt_key2</td>
+		<td>Zeichenfolge aus: A bis Z, a bis z, 0 bis 9 und #+-_*@%&amp;=!?</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Die Salt Keys dürfen im laufenden Betrieb nicht geändert werden. Andernfalls müssen alle Passwörter neu vergeben werden.</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Login Fehlversuche</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Nach 5 fehlerhaften Loginversuchen wird die IP des User gesperrt.</td>
+	  </tr>
+	  <tr>
+		<td class="var">logattemptmin</td>
+		<td>Minuten die die Sperrung aktiv sein soll<br />
+		Leer für unbegrenzte Loginversuche
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Suchmaschinenfreundliche URLs</td>
+	  </tr>
+	  <tr>
+		<td class="var">modrewrite</td>
+		<td>0 = deaktiviert<br />
+        1 = aktiviert</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Dateiendung der SEO URLs</td>
+	  </tr>
+	  <tr>
+		<td class="var">urlendung</td>
+		<td>Punkt mit Zeichenfolge (nur Kleinbuchstaben) oder leer für keine Endung</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">GET-Variablen für Module</td>
+	  </tr>
+	  <tr>
+		<td class="var">urlgetvars</td>
+		<td>Anzahl der URL GET-Variablen - muß in der .htaccess entsprechend erweitert werden</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Standardsprache der Webseite</td>
+	  </tr>
+	  <tr>
+		<td class="var">defaultlang</td>
+		<td>diese Sprache wird geladen, wenn keine andere festgestellt ist</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Verlinkungen zu Benutzer- oder stillgelegten Seiten</td>
+	  </tr>
+	  <tr>
+		<td class="var">offline_links</td>
+		<td>0 = nichts ändern<br />
+		1 = Verlinkung (href) entfernen aber Linktext anzeigen<br />
+		2 = Link komplett entfernen (nur in Menüs; im Fliesstext bleibt das Wort erhalten = wie bei 1)</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Seitenänderung rückgängig machen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Wieviele &quot;Seitenänderung rückgängig machen&quot;-Schritte sollen zur Verfügung stehen</td>
+	  </tr>
+	  <tr>
+		<td class="var">schritte_zurueck</td>
+		<td>Anzahl der Schritte eintragen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Erweiterte Administratorfunktionen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Fenster &quot;Erweiterte Administratorfunktionen&quot; nur für den Webmaster anzeigen</td>
+	  </tr>
+	  <tr>
+		<td class="var">admin_erweitert</td>
+		<td>1 = nur Webmaster<br />
+		2 = immer anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Anzeige &quot;Aktuelle Seite bearbeiten&quot;</td>
+	  </tr>
+	  <tr>
+		<td class="var">fullpageedit</td>
+		<td>1 = Im Adminmenü<br />
+		2 = Im Admin-Fenster &quot;Erweiterte Einstellungen&quot;</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Spalten-Elemente einfügen</td>
+	  </tr>
+	  <tr>
+		<td class="var">insertcolumns</td>
+		<td>0 = deaktiviert: Spalten einfügen nicht anzeigen<br />
+        1 = aktiviert: Spalten einfügen anzeigen<br />
+        2 = aktiviert: Spalten einfügen nur im Editor anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Anzeige der Einfügepunkte nach dem zusammenstellen der Spalten</td>
+	  </tr>
+	  <tr>
+		<td class="var">insertpoints</td>
+		<td>1 = auch an Blöcken und Menüs anzeigen<br />
+		2 = nur an anderen Spalten- und Inhaltselementen anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">individuelle Eingabe des Spalten-Abstandes nach oben</td>
+	  </tr>
+	  <tr>
+		<td class="var">insertmargin</td>
+		<td>0 = deaktiviert: Margin-Top Eingabe nicht anzeigen<br />
+        1 = aktiviert: Margin-Top Eingabe anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Kategorien anbieten</td>
+	  </tr>
+	  <tr>
+		<td class="var">categories</td>
+		<td>0 = deaktiviert: Kategorien nicht anzeigen<br />
+        1 = aktiviert: Kategorien anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Das Formular Modul nutzen</td>
+	  </tr>
+	  <tr>
+		<td class="var">forms_modul</td>
+		<td>0 = deaktiviert: schaltet die Empfänger-Administration aus<br />
+		1 = aktiviert: Empfänger anlegen und im Editor auswählen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Mehrsprachigkeit</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Seiten verschiedenen Sprachen zuordnen</td>
+	  </tr>
+	  <tr>
+		<td class="var">languages</td>
+		<td>0 = nicht aktiviert<br />
+		1 = aktiviert</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Sprache als URL-Verzeichnis anzeigen</td>
+	  </tr>
+	  <tr>
+		<td class="var">langfolder</td>
+		<td>0 = nicht aktiviert<br />
+		1 = aktiviert</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">&quot;Neue Sprachen hinzufügen&quot; im Adminmenü nur für den Webmaster anzeigen</td>
+	  </tr>
+	  <tr>
+		<td class="var">setnewlang</td>
+		<td>1 = nur Webmaster<br />
+		2 = immer anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Zugriffsrechte-Steuerung anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Seiten sperren, Benutzer und Benutzergruppen anlegen</td>
+	  </tr>
+	  <tr>
+		<td class="var">userlogs</td>
+		<td>0 = nicht anzeigen<br />
+		1 = anzeigen </td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Suchfunktion</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Soll über der Suchergebnisliste ein Suchformular angezeigt werden?</td>
+	  </tr>
+	  <tr>
+		<td class="var">searchshowinput</td>
+		<td>0 = nicht anzeigen<br />
+		1 = anzeigen </td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Wieviele Ergebnisse sollen pro Seite angezeigt werden?</td>
+	  </tr>
+	  <tr>
+		<td class="var">searchlistitems</td>
+		<td>Anzahl angeben</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Auf wieviele Zeichen soll das Suchergebnis gekürzt werden?</td>
+	  </tr>
+	  <tr>
+		<td class="var">searchresultlen</td>
+		<td>Länge angeben</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Script zum erzeugen einfacher Ein-/Ausgabe Module</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Den ModMaker im Adminmenü anzeigen</td>
+	  </tr>
+	  <tr>
+		<td class="var">makemod</td>
+		<td>0 = nicht anzeigen<br />
+		1 = anzeigen </td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Modul-Administrationsbereiche anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Linkpflege in der Datei settings/modulebox.php</td>
+	  </tr>
+	  <tr>
+		<td class="var">modsonlog</td>
+		<td>0 = überhaupt nicht anzeigen - z.B. wenn es keine Module gibt<br />
+		1 = nur unter dem Login anzeigen<br />
+		2 = nur im Administrationsmenü anzeigen<br />
+		3 = unter dem Login UND im Administrationsmenü anzeigen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Administration Seiten hinzufügen, umbenennen und löschen</td>
+	  </tr>
+	  <tr>
+		<td class="var">adminnewpage</td>
+		<td>hinzufügen:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td class="var">adminpagename</td>
+		<td>umbenennen:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td class="var">admindelpage</td>
+		<td>löschen:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Administration Vorlagen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Vorlagen für den Editor anlegen</td>
+	  </tr>
+	  <tr>
+		<td class="var">adminpattern</td>
+		<td>Vorlagen:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Administration Layouts, Menüs und Blöcke</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">Bearbeitungsfunktionen für Layouts, Menüs und Blöcke im Fenster &quot;Erweiterte Administratorfunktionen&quot;</td>
+	  </tr>
+	  <tr>
+		<td class="var">adminlayouts</td>
+		<td>Layouts:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td class="var">adminmenus</td>
+		<td>Menüs:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td class="var">adminblocks</td>
+		<td>Blöcke:<br />
+		0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Mediabrowser-Popup</td>
+	  </tr>
+	  <tr>
+		<td class="var">mediabrowser_wh</td>
+		<td>Wert oder Prozentwert: array(Fensterbreite, Fensterhöhe)</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Bildeditor-Popup</td>
+	  </tr>
+	  <tr>
+		<td class="var">imageeditor_wh</td>
+		<td>Wert oder Prozentwert: array(Fensterbreite, Fensterhöhe)</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Bildkomprimierung</td>
+	  </tr>
+	  <tr>
+		<td class="var">jpg_quality</td>
+		<td>JPG Qualität (Standardwert: 75)</td>
+	  </tr>
+	  <tr>
+		<td class="var">png_compress</td>
+		<td>PNG Komprimierung (Standardwert: 9)</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">CSS Dateien, die nicht im Editor geladen werden sollen</td>
+	  </tr>
+	  <tr>
+		<td class="var">cssnotineditor</td>
+		<td>mehrere Dateien kommagetrennt eintragen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Schriftfarben nach CI im Editor</td>
+	  </tr>
+	  <tr>
+		<td class="var">editorcicolors</td>
+		<td>maximal 8 Webfarbcodes, kommagetrennt ohne Raute</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Flashplayer</td>
+	  </tr>
+	  <tr>
+		<td class="var">playercolor</td>
+		<td>Farbe der Bedienelemente einstellen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Icon für PHP- und Javascript-Code im Editor zeigen</td>
+	  </tr>
+	  <tr>
+		<td class="var">codeicon</td>
+		<td>0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Zur Text-Ausrichtung und für Text-Einzug CSS-Klassen nutzen statt dem style-Attribut</td>
+	  </tr>
+	  <tr>
+		<td class="var">ckecssclasses</td>
+		<td>0 = deaktiviert<br />
+		1 = aktiviert 
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">
+		Wenn diese Option aktiviert wird, müssen folgende Klassen in der CSS Datei vorhanden sein:<br />
+		Zur Text-Ausrichtung: alignleft, aligncenter, alignright und alignjustify<br />
+		Für Text-Einzug: indent1, indent2, indent3, indent4 und indent5
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Provider für das Embed Media Plugin</td>
+	  </tr>
+	  <tr>
+		<td class="var">ckeembed</td>
+		<td>default = //ckeditor.iframe.ly/api/oembed?url={url}&amp;callback={callback}</td>
+	  </tr>
+	  <tr>
+		<td colspan="2">
+		Sollte es Probleme wegen zuvieler Zugriffe, kann man sich bei <a href="https://iframely.com/" target="_blank">iframe.ly</a> einen eigenen Account anlegen. Es gibt aber auch andere Anbieter.
+		</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Hintergrundfarbe Menüeditor</td>
+	  </tr>
+	  <tr>
+		<td class="var">ckemenubg</td>
+		<td>Webfarbcode einstellen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Hintergrundfarbe Blockeditor</td>
+	  </tr>
+	  <tr>
+		<td class="var">ckeblockbg</td>
+		<td>Webfarbcode einstellen</td>
+	  </tr>
+	  <tr>
+		<td colspan="2" class="head">Hintergrundfarbe Editor Comboboxen</td>
+	  </tr>
+	  <tr>
+		<td class="var">ckecombobg</td>
+		<td>Webfarbcode einstellen</td>
+	  </tr>
+	</tbody>
+	</table>
+	<h2>modulebox.php</h2>
+	<p>In der &quot;modulebox.php&quot; werden Links zu Administrationsbereichen einzelner Module eingetragen. Wenn es Module gibt und diese direkt aus der Webutler-Administration aufrufbar sein sollen, kann die Variable $webutler_moduleslist entsprechend erweitert werden.
+</p>
+	<p>Schema:<br />
+	<span class="einzug">Liste = Modul('Name des Moduls', 'Link zur Moduladministration', 'Anzeige auf Loginseite')</span>
+</p>
+	<p>Beispiel:<br />
+	<span class="einzug">$webutler_moduleslist = array(</span><br />
+    <span class="einzug"><span class="einzug">array('News', 'news/admin.php'),</span></span><br />
+    <span class="einzug"><span class="einzug">array('Galery', 'galery/admin.php', '-')</span></span><br />
+    <span class="einzug">);</span><a name="searching"></a>
+</p>
+	
+	<p>Bei der Einstellung $webutler_config['modsonlog'] = 1 oder 3 (globalvars.php) kann mit einem zusätzlichen Minuszeichen als dritten Parameter die Anzeige auf der Loginseite unterdrückt werden.
+</p>
+	<h2>searching.php</h2>
+    <p>
+    In der Datei &quot;searching.php&quot; kann eingestellt werden was durchsucht werden soll. Die Variable $webutler_pagesearches kann auf Null gesetzt werden, <br /><br />
+    <span class="einzug">$webutler_pagesearches = 0;</span><br /><br />
+	wenn Seiten aus dem Verzeichnis /content/pages <strong>nicht</strong> durchsucht werden sollen. In der Variablen $webutler_modulesearches werden die Suchplugins einzelner Module eingetragen. Der Eintrag erfolgt nach folgendem Muster:<br /><br />
+    <span class="einzug">$webutler_modulesearches[] = array('__PFAD_DES_SUCHPLUGINS__', '__DATEINAME_INCLUDESEITE__');</span><br /><br />
+    Für den Platzhalter __PFAD_DES_SUCHPLUGINS__ wird der Pfad zur Suchplugin-Datei eingetragen, ausgehend von Verzeichnis /modules - also i.d.R. der Modulname. Für den Platzhalter __DATEINAME_INCLUDESEITE__ wird die Seite eingetragen, die das Modul lädt.<br /><br />
+    <span class="einzug">Beispiel: $webutler_modulesearches[] = array('news', 'aktuelles');</span><br /><br />
+    Bei mehrsprachigen Seiten muß für jede Sprache eine Includeseite existieren. Diese werden dann kommagetrennt eingetragen. Im Beispiel gibt es die deutsche Seite &quot;aktuelles&quot;, die englische Seite &quot;news&quot; und die französische Seite &quot;actuel&quot;.<br /><br />
+    <span class="einzug">Beispiel: $webutler_modulesearches[] = array('news', 'aktuelles,news,actuel');</span><br /><br />
+	Wenn in einem ModMaker Modul Kategorien als Einstiegspunkte angelegt wurden, muß die ID der Kategorie als dritter Wert im Array angegeben werden:<a name="sitemaps"></a><br /><br />
+    <span class="einzug">Beispiel: $webutler_modulesearches[] = array('comments', 'seite,page', 3);</span>
+</p>
+	<h2>sitemaps.php</h2>
+    <p>
+    In der Datei &quot;sitemaps.php&quot; kann eingestellt welche Module in die Sitemap aufgenommen werden sollen. Mit der Variablen $revisit_after kann eingestellt werden, nach wieviel Sekunden die Sitemap erneuert werden soll. Grundeinstellung ist 24 Stunden. In der Variablen $webutler_modulesitemaps werden der Modulname sowie die Includeseiten eingetragen. Die Eintrag ist identisch zur Variablen $webutler_modulesearches der Suchfunktion. Er erfolgt nach folgendem Muster:<br /><br />
+    <span class="einzug">$webutler_modulesitemaps[] = array('__PFAD_ZUR_SITEMAPDATEI__', '__DATEINAME_INCLUDESEITE__');</span><br /><br />
+    Für den Platzhalter __PFAD_ZUR_SITEMAPDATEI__ wird der Pfad zur Sitemap-Datei eingetragen, ausgehend von Verzeichnis /modules - also i.d.R. der Modulname. Für den Platzhalter __DATEINAME_INCLUDESEITE__ wird die Seite eingetragen, die das Modul lädt.<br /><br />
+    <span class="einzug">Beispiel: $webutler_modulesitemaps[] = array('news', 'aktuelles');</span><br /><br />
+    Bei mehrsprachigen Seiten muß für jede Sprache eine Includeseite existieren. Diese werden dann kommagetrennt eingetragen. Im Beispiel gibt es die deutsche Seite &quot;aktuelles&quot;, die englische Seite &quot;news&quot; und die französische Seite &quot;actuel&quot;.<br /><br />
+    <span class="einzug">Beispiel: $webutler_modulesitemaps[] = array('news', 'aktuelles,news,actuel');</span><br /><br />
+	Wenn in einem ModMaker Modul Kategorien als Einstiegspunkte angelegt wurden, muß die ID der Kategorie als dritter Wert im Array angegeben werden:<br /><br />
+    <span class="einzug">Beispiel: $webutler_modulesearches[] = array('comments', 'seite,page', 3);</span>
+</p>
+	<h2>extradata.php</h2>
+    <p>Header- und Footerdateien global laden:<br /><br />
+	<span class="einzug">$webutler_autoheaderdata[] = '&lt;script src=&quot;headerscript.js&quot;&gt;&lt;/script&gt;';</span><br />
+	<span class="einzug">$webutler_autofooterdata[] = '&lt;script src=&quot;footerscript.js&quot;&gt;&lt;/script&gt;';</span>
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

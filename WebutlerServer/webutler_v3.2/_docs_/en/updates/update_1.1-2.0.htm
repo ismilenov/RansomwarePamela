@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.0 - www.webutler.de
+            Copyright (c) 2008 - 2011
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_1.1-2.0.htm');
+					localStorage.setItem('flink', 'update_2');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V1.1 » V2.0</h1>
+	<p>A big version jump with major changes. The Webutler V2 has evolved from an online HTML editor to a small CMS. The basic idea to allow an uncomplicated, individual page design was kept.
+</p>
+	<p>For a better handling and order to keep track of a few restructuring and renaming were necessary. Some extensions require new directories. The Webutler still uses the old FCKeditor. The new version of CKEditor, unfortunately not all the features necessary for the Webutler so that an update was not yet possible.
+</p>
+	<h2>What to do?</h2>
+	<p>Due to the extensive changes a little hand work is called for.
+</p>
+	<h3>Preparation</h3>
+	<ol>
+		<li>unzip the new version locally</li>
+		<li>delete the demo files from the following directories</li>
+		<ul>
+			<li>/content/blocks (everything except the .htaccess)</li>
+			<li>/content/menus (everything except the .htaccess)</li>
+			<li>/content/pages (everything except the .htaccess)</li>
+			<li>/content/layouts (everything except the .htaccess)</li>
+			<li>/content/media/image</li>
+			<li>/content/media/file</li>
+			<li>/content/media/flash</li>
+			<li>/content/media/track</li>
+		</ul>
+     </ol>
+	<p>Download the /content directory of the old version from web space and the files to the new directories this way:
+</p>
+	<ol>
+		<li>Files from /content/menus (old) to /content/menus (new)</li>
+		<li>Files from /content/pages (alt) to /content/pages (new)</li>
+		<li>Files from /content/templates to /content/layouts</li>
+		<li>Files from /content/media/image (old) to /content/media/image (new)</li>
+		<ul>
+			<li>If you want to use the lightbox for existing images must create a subdirectory /.box and save an enlarged view of the image in this directory</li>
+			<li>Example: /imagepath/image.jpg (small) /imagepath/.box/image.jpg (large)</li>
+			<li>For new images, this is done automatically</li>
+		</ul>
+		<li>Files from /content/media/files (alt) to /content/media/files (neu)</li>
+		<li>Files from /content/media/flash (old) to /content/media/flash (new)</li>
+		<li>The /content/style/style.css (old) to /content/style (new), overwrite the existing file </li>
+	</ol>
+	<p>Further still, the directories /content/blocks and /content/media/track added, but which play no role for the update. When all files have been moved, the loaded from the web space /content directory can be deleted.<br />
+		<strong>Important!</strong> The file names in /content/pages may contain more hyphens. The hyphen is used for the separation of GET variables/required.
+</p>
+	<h3>Updates</h3>
+	<p>Open all files of /content/pages and /content/layouts with a local HTML editor and update the content via search and replace. In the files menu, no changes should be necessary.
+</p>
+	<ol>
+		<li>In the comment placeholders from begin_MENUNAME » begin_menu_MENUNAME from MENUNAME » menu_MENUNAME and from end_MENUNAME » end_menu_MENUNAME</li>
+		<li>for future blocks following comments are set: begin_block_BLOCKNAME, block_BLOCKNAME and end_block_BLOCKNAME</li>
+		<li>From class=&quot;menu_border&quot; is class=&quot;block_border&quot; same highlight color for menus and blocks</li>
+	</ol>
+	<h3>Forms</h3>
+	<p>Who uses forms and sendform.php, still must make the following changes in the form pages:
+</p>
+	<ol>
+		<li>&lt;script src=&quot;scripts/checkform.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; remove the &quot;checkform.js&quot; is loaded automatically</li>
+		<li>The sendform.php load after openable bodytag the page<br />
+		&lt;?PHP include &quot;includes/forms/sendform.php&quot;; ?&gt;</li>
+		<li>Send forms in action attribute no longer &quot;scripts/sendform.php&quot; but to yourself<br />
+		&lt;?PHP echo $_SERVER['REQUEST_URI']; ?&gt;</li>
+		<li>The submit button has to have the name of the sending form (name=&quot;sendform&quot;)</li>
+		<li>The sendform.php from the web space download and fill in the sender information in the file /includes/forms/config.php</li>
+	</ol>
+	<h3>Config adapt</h3>
+	<p>The /admin/config.inc.php download from the web space and enter the following variables in the file /settings/baseconfig.php file:
+</p>
+	<ol>
+		<li>$server_path » $webutler_config['server_path']</li>
+		<li>$homepage » $webutler_config['homepage']</li>
+		<li>$admin_name » $webutler_config['user_name']</li>
+		<li>$admin_pass » $webutler_config['user_pass']</li>
+		<li>$start » $webutler_config['startseite']</li>
+	</ol>
+	<p>The variable $rewrite from the config.inc.php is in the variable $webutler_config['modrewrite'] in the file is moved globalvars.php and is adjustable so no longer have the administration.
+</p>
+	<h3>Upload and Chmod</h3>
+	<p>To conclude, all upload to the web space. Give the directory /content and all subdirectories and /baseconfig.php CHMOD file settings 777.
+</p>
+	<p>Is of course better before they are uploaded everything first to test locally in XAMPP. The variables $webutler_config[server_path] and $webutler_config['homepage'] in the baseconfig.php be adapted for short-term need.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

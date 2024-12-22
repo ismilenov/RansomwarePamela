@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: inline-block;
+        }
+        p.einzug {
+            margin: -5px 0px 20px 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/config.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Define Fields</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Data output</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Module installation</h1>
+	<h2>Download</h2>
+	<p>Under the tab Download the created module is downloaded as a ZIP file. After downloading the zip file unzip and upload to the /modules directory.
+</p>
+	<h2>Module installation</h2>
+	<h3>Write permissions</h3>
+	<p>The file <strong>/data/_MODUL_NAME_.db</strong> and the folders in the directory <strong>/media</strong> must be writable. Please use FTP to CHMOD as specified by your provider set. 
+</p>
+	<h3>Settings</h3>
+	<p>Log in to the Webutler and access the module installation /modules/_MODULE_NAME_/admin.php. The Settings page is displayed. After save the installation is completed.
+</p>
+	<h3>Output</h3>
+	<p>That records are displayed on the website, the module must be loaded in a page:
+</p>
+	<p><span class="einzug">&lt;?PHP require 'modules/_MODULE_NAME_/view.php'; ?&gt;<br />
+	(Replace _MODUL_NAME_ by your module/directory name)</span><a name="multipage"></a>
+</p>
+	<h3>Entry point for multi-page support</h3>
+	<p>When a module should be used in different pages, categories can be created as entry points. The category ID must be specified in each case prior the loading of the view.php:
+</p>
+	<p><span class="einzug">&lt;?PHP</span><br />
+	<span class="einzug"><span class="einzug">$_MMVAR['_MODULE_NAME_basecat'] = _CATEGORY_ID_;</span></span><br />
+	<span class="einzug"><span class="einzug">require 'modules/_MODULE_NAME_/view.php';</span></span><br />
+	<span class="einzug">?&gt;</span>
+</p>
+	<p>For the <a href="#search">search function</a> (/settings/searching.php) and <a href="#sitemap">sitemaps</a> (/settings/sitemaps.php) the category ID must be set as the third value in the array.
+</p>
+	<h2>Display category tree and latest records</h2>
+	<p>For the category tree or the latest records must be before the load of the view.php additional variables are set. Charging can be performed in menu/block files or directly into pages.
+</p>
+	<h3>Category tree:</h3>
+	<p><span class="einzug">&lt;?PHP</span><br />
+		<span class="einzug"><span class="einzug">$_MMVAR['_MODULE_NAME_catmenu'] = '1';</span></span><br />
+		<span class="einzug"><span class="einzug">$_MMVAR['_MODULE_NAME_modpage'] = '_PAGE_NAME_';</span></span><br />
+		<span class="einzug"><span class="einzug">//$_MMVAR['_MODULE_NAME_basecat'] = _CATEGORY_ID_; (if needed)</span></span><br />
+		<span class="einzug"><span class="einzug">require 'modules/_MODULE_NAME_/view.php';</span></span><br />
+		<span class="einzug">?&gt;</span>
+</p>
+	<h3>Latest records:</h3>
+	<p><span class="einzug">&lt;?PHP</span><br />
+		<span class="einzug"><span class="einzug">$_MMVAR['_MODULE_NAME_newest'] = '1';</span></span><br />
+		<span class="einzug"><span class="einzug">$_MMVAR['_MODULE_NAME_modpage'] = '_PAGE_NAME_';</span></span><br />
+		<span class="einzug"><span class="einzug">//$_MMVAR['_MODULE_NAME_basecat'] = _CATEGORY_ID_; (if needed)</span></span><br />
+		<span class="einzug"><span class="einzug">require 'modules/_MODULE_NAME_/view.php';</span></span><br />
+		<span class="einzug">?&gt;</span>
+</p>
+	<p>_MODULE_NAME_ must be replaced by the selected modul/directory name. In _PAGE_NAME_ the page name must be entered, which should be called. So the page into which the module is loaded.
+</p>
+	<p>In catsmenu.tpl a UL list of all categories will be displayed. The output of the latest records is generated newest.tpl in the template.<a name="search"></a>
+</p>
+	<h2>Search function: can search the database module</h2>
+	<p>In order to integrate a module database in the search function, the module must be entered in the file /settings/searching.php:
+</p>
+	<p><span class="einzug">$webutler_modulesearches[] = array('_MODULE_NAME_', '_PAGE_NAME(S)_');</span>
+</p>
+	<p>On multi page suppot the category ID must be set as the third value in the array:
+</p>
+	<p><span class="einzug">$webutler_modulesearches[] = array('_MODULE_NAME_', '_PAGE_NAME(S)_', _CATEGORY_ID_);</span><a name="sitemap"></a>
+</p>
+	<h2>Sitemap</h2>
+	<p>If the links of the module should be integrate in the sitemap, it must be included in the file /settings/sitemaps.php:
+</p>
+	<p><span class="einzug">$webutler_modulesitemaps[] = array('_MODULE_NAME_', '_PAGE_NAME(S)_');</span>
+</p>
+	<p>On multi page suppot the category ID must be set as the third value in the array:
+</p>
+	<p><span class="einzug">$webutler_modulesitemaps[] = array('_MODULE_NAME_', '_PAGE_NAME(S)_', _CATEGORY_ID_);</span>
+</p>
+	<h1 style="margin-top: 40px">Settings in config.php</h1>
+	<p>The config.php file is located in the directory /data. The fields listed below are only available if the appropriate settings have been made in ModMaker.
+</p>
+	<h2>These fields can not be changed!</h2>
+	<p><span class="einzug">_conf [ <strong>cat</strong> ]</span><br />
+		<span class="einzug">_conf [ <strong>topic</strong> ]</span><br />
+		<span class="einzug">_conf [ <strong>data</strong> ]</span><br />
+		<span class="einzug">_conf [ <strong>base</strong> ]</span><br />
+		<span class="einzug">_conf [ <strong>types</strong> ]</span><br /><br />
+		If changes to these fields are made, the module will no longer work properly.
+</p>
+	<h2>Adjust settings</h2>
+	<p><strong>_conf [ catsperpage ]</strong>
+</p>
+	<p class="einzug">When setting category tree can be defined here how many categories to be displayed in the administration per page.
+</p>
+	<p><strong>_conf [ imgsize ]</strong>
+</p>
+	<p class="einzug">When you upload images they will be in front of the store scaled and trimmed in various sizes. Subsequent change of values ​​has no effect on already uploaded images.
+</p>
+	<p class="einzug">
+		<strong>optimage</strong> = images in option group (adjustable width and height)<br />
+		<strong>catimage</strong> = category images (width and height adjustable)<br />
+		<span class="einzug"><strong>box</strong> = image size in the lightbox</span><br />
+		<span class="einzug"><strong>view</strong> = image size on the page</span><br />
+		Other fields have the names of the awarded in ModMaker DB field name for images. In each case, the width and height of an image set for:<br />
+		<span class="einzug"><strong>box</strong> = image size in the lightbox</span><br />
+		<span class="einzug"><strong>view</strong> = image size in list view</span><br />
+		<span class="einzug"><strong>full</strong> = image size on the page</span><br />
+		<strong>bbcode</strong> image width adjustable<br />
+		<span class="einzug">If enabled in the BBCode editor image URLs, they are scaled to this width.</span>
+</p>
+	<p><strong>_conf [ urlparams ]</strong>
+</p>
+	<p class="einzug">As a URL parameter, there are settings for:<br />
+		<span class="einzug"><strong>cat</strong> = ID of the category</span><br />
+		<span class="einzug"><strong>order</strong> = ID path of the category tree</span><br />
+		<span class="einzug"><strong>topic</strong> = ID of the topic</span><br />
+		<span class="einzug"><strong>data</strong> = ID of the record</span><br />
+		<span class="einzug"><strong>load</strong> = call up the input mask</span><br />
+		The values ​​for cat, order, topic, data and load can be changed arbitrarily. Each parameter requires a unique name. Default is _MODULE_NAME_cat, _MODULE_NAME_order, _MODULE_NAME_topic, _MODULE_NAME_data and _MODULE_NAME_load.
+</p>
+		<p><strong>_conf [ userinputs ]</strong>
+</p>
+	<p class="einzug">Here are all generated DB fields for visitor entries. Fields should not be available for visitors, can/should be removed. The fields must also be removed from the template.
+</p>
+	<p><strong>_conf [ required ]</strong>
+</p>
+	<p class="einzug">All mentioned DB fields are required for visitors submissions. Fields not mandatory to be able to be removed.<br />
+	For the administration, there is no mandatory!
+</p>
+</div>
+</body>
+</html>

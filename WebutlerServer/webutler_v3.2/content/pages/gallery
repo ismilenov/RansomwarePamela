@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	<meta charset="utf-8" />
+	<meta content="index,follow" name="robots" />
+	<meta content="author of new page" name="author" />
+	<meta content="copyright (c) 2016 by author" name="copyright" />
+	<meta content="description of new page" name="description" />
+	<meta content="keyword1,keyword2,keyword3" name="keywords" />
+	<link href="content/style/styles.css" rel="stylesheet" type="text/css" />
+	<script src="includes/javascript/lightbox/lightbox_plus.js"></script>
+	
+	
+</head>
+<body>
+<div class="wrapper">
+	<div class="wb_blockelement">
+		<!-- begin_block_header -->
+			<!-- block_header -->
+		<!-- end_block_header -->
+	</div>
+
+	<div class="wb_menuelement">
+		<!-- begin_menu_navi -->
+			<!-- menu_navi -->
+		<!-- end_menu_navi -->
+	</div>
+
+	<div class="layertop">
+		<div class="wb_contentelement">
+			<!-- begin_content -->
+				<h1>Gallery</h1>
+
+				<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+			<!-- end_content -->
+		</div>
+	</div>
+
+	<div class="layercontent">
+		<div class="wb_contentelement">
+			<!-- begin_content -->
+			<div id="gallery">
+				<a href="content/media/image/gallery/.box/leaves01.jpg" rel="lightbox1"><img alt="" src="content/media/image/gallery/leaves01.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves02.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves02.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves03.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves03.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves04.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves04.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves05.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves05.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves06.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves06.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves07.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves07.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves08.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves08.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves09.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves09.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves10.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves10.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves11.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves11.jpg" /> </a> <a href="content/media/image/gallery/.box/leaves12.jpg" rel="lightbox1"> <img alt="" src="content/media/image/gallery/leaves12.jpg" /> </a>
+			</div>
+			<!-- end_content -->
+		</div>
+	</div>
+
+	<div class="wb_blockelement">
+		<!-- begin_block_footer -->
+			<!-- block_footer -->
+		<!-- end_block_footer -->
+	</div>
+</div>
+</body>
+</html>

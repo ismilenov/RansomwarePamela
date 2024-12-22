@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEBUTLER</title>
+	<meta charset="utf-8" />
+	<meta content="index,follow" name="robots" />
+	<meta content="author of example page" name="author" />
+	<meta content="copyright (c) 2016 by author" name="copyright" />
+	<meta content="description of example page" name="description" />
+	<meta content="keyword1,keyword2,keyword3" name="keywords" />
+	<link href="content/style/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrapper">
+	<div class="wb_blockelement">
+		<!-- begin_block_header -->
+<!-- block_header -->
+<!-- end_block_header -->
+	</div>
+
+	<div class="wb_menuelement">
+		<!-- begin_menu_navi -->
+<!-- menu_navi -->
+<!-- end_menu_navi -->
+	</div>
+
+	<section>
+		<div class="layertop">
+			<div class="wb_columnselement">
+				<div class="wb_colgroup">
+					<div class="wb_colrow">
+						<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s2 wb_colorder_m1 wb_colorder_l1">
+							<div class="wb_colalign_full wb_col_overflow wb_contentelement">
+								<!-- begin_content -->
+<div class="imgfullheight">
+	<img alt="no sea takimata sanctus" src="content/media/image/front/leaves.jpg" />
+</div>
+
+<!-- end_content -->
+							</div>
+						</div>
+
+						<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s1 wb_colorder_m2 wb_colorder_l2">
+							<div class="wb_colalign_top wb_contentelement">
+								<!-- begin_content -->
+<h1>Lorem ipsum dolor</h1>
+
+<article>
+	<h2>At vero eos et accusam</h2>
+
+	<p>
+Somethinhg
+</p>
+
+	<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nullafdggdfg fdgfdjklsnbgfjklj facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.</p>
+</article>
+
+<!-- end_content -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="layercontent">
+			<div class="wb_columnselement">
+				<div class="wb_colgroup">
+					<div class="wb_colrow">
+						<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1">
+							<div class="wb_colalign_top wb_contentelement">
+								<!-- begin_content -->
+<article>
+	<h2 class="aligncenter">Sed diam</h2>
+
+	<div>
+		<img alt="labore et dolore" class="imgresponsive" src="content/media/image/front/leaves1.jpg" />
+	</div>
+
+	<p>Ciusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+	<p class="alignright"><a href="index.php?page=service_1a">ut aliquip »</a></p>
+</article>
+
+<!-- end_content -->
+							</div>
+						</div>
+
+						<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2">
+							<div class="wb_colalign_top wb_contentelement">
+								<!-- begin_content -->
+<article>
+	<h2 class="aligncenter">Stet clita</h2>
+
+	<div>
+		<img alt="libe soluta nobis" class="imgresponsive" src="content/media/image/front/leaves2.jpg" />
+	</div>
+
+	<p>Et harumd dereud facilis est er expedit distinct. Nam libe soluta nobis eligent optio est congue nihil impedit doming id Lorem ipsum dolor sit amet, consectetur adipiscing elit, set eiusmod tempor incidunt et labore et dolore.</p>
+
+	<p class="alignright"><a href="index.php?page=service_1b">consectetur »</a></p>
+</article>
+
+<!-- end_content -->
+							</div>
+						</div>
+
+						<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s3 wb_colorder_m3 wb_colorder_l3">
+							<div class="wb_colalign_top wb_contentelement">
+								<!-- begin_content -->
+<article>
+	<h2 class="aligncenter">Iusto odio</h2>
+
+	<div>
+		<img alt="trenz ucu hugh" class="imgresponsive" src="content/media/image/front/leaves3.jpg" />
+	</div>
+
+	<p>Trenz pruca beynocguon doas nog apoply su trenz ucu hugh rasoluguon monugor or trenz ucugwo jag scannar. Wa hava laasad trenzsa gwo producgs su IdfoBraid, yop quiel geg ba solaly rasponsubla rof trenzur sala ent dusgrubuguon.</p>
+
+	<p class="alignright"><a href="index.php?page=service_1c">dereud est »</a></p>
+</article>
+
+<!-- end_content -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="layerbottom">
+			<div class="wb_columnselement">
+				<div class="wb_colgroup">
+					<div class="wb_colrow">
+						<div class="wb_colsmall_12 wb_colmedium_8 wb_collarge_8 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1">
+							<div class="wb_colalign_top wb_contentelement">
+								<!-- begin_content -->
+<article>
+	<blockquote>
+	<h2>Hendrerit in Vulputate velit esse</h2>
+
+	<p>Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercitation ulliam corper suscipit lobortis nisl ut aliquip ex ea commodo consequat. <a href="content/media/file/forest.pdf" target="_blank">Consectetuer nonummy</a></p>
+	</blockquote>
+
+	<div class="wb_innercolumns" style="margin-top: 30px">
+		<div class="wb_colgroup">
+			<div class="wb_colrow">
+				<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1">
+					<div class="wb_colalign_top">
+						<h3><a href="index.php?page=company">Reprehenderit in voluptate</a></h3>
+
+						<p>Officia deserunt mollit anim id est laborum Et harumd dereud facilis est er expedit distinct. Nam liber te conscient to factor tum poen legum odioque civiuda et tam. Neque pecun modut est neque nonor et imper ned libidig met, consectetur adipiscing elit, sed ut labore et dolore magna aliquam is nostrud exercitation ullam mmodo consequet. Duis aute in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+						<p>Nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat. Duis autem vel eum iriure dolor in hendrerit in vulputate.</p>
+					</div>
+				</div>
+
+				<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2">
+					<div class="wb_colalign_top">
+						<h3><a href="index.php?page=contact">Tia non ob ea soluad</a></h3>
+
+						<p>Nam liber te conscient to factor tum poen legum odioque civiuda. Et tam neque pecun modut est neque nonor et imper ned libidig met, consectetur adipiscing elit, sed ut labore et dolore magna aliquam makes one wonder who would ever read this stuff? Bis nostrud exercitation ullam mmodo consequet. Velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+
+						<p>Duis aute in voluptate velit esse cillum dolore eu fugiat nulla pariatur. At vver eos et accusam dignissum qui blandit est praesent luptatum delenit aigue excepteur sint occae. Et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum.</p>
+
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+
+<!-- end_content -->
+							</div>
+						</div>
+
+						<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2">
+							<div class="wb_colalign_top">
+								<section>
+									<h2>News</h2>
+
+									<div class="newsest">
+										<?PHP
+                                        $_MMVAR['newsnewest'] = '1';
+                                        $_MMVAR['newsmodpage'] = 'news';
+                                        require 'modules/news/view.php';
+                                    ?>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="wb_blockelement">
+		<!-- begin_block_footer -->
+<!-- block_footer -->
+<!-- end_block_footer -->
+	</div>
+</div>
+</body>
+</html>

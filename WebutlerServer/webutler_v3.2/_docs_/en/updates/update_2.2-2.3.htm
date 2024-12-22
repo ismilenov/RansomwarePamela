@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.3 - www.webutler.de
+            Copyright (c) 2008 - 2014
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.2-2.3.htm');
+					localStorage.setItem('flink', 'update_23');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.2 » V2.3</h1>
+	<p>New functions include delete, and move media files renaming pages and. The URL can be supplemented by virtual categories. Highlight the default links in the menu has been removed from the config and is now administered.
+</p>
+	<p>Update CKEditor to version 3.6.5, switching to version 4 comes the next time.
+</p>
+	<p>All PHP files was converted to classes that SQLite databases to version 3. Prerequisite for the operation of version 2.3 is therefore PHP 5.4 or higher.<br />
+		In the array of files /access/languages.php and /access/offline.php the keys and values ​​must be enclosed in apostrophes. PHP 5.4 are otherwise Feher messages:<br /><br />
+		<span class="einzug">change $var[key] to $var[<span class="red">'</span>key<span class="red">'</span>]</span><br />
+		<span class="einzug">change $var = array(value1,value2); to $var = array(<span class="red">'</span>value1<span class="red">'</span>,<span class="red">'</span>value2<span class="red">'</span>);</span><br />
+		<span class="einzug">change $var = array(key =&gt; value); to  $var = array(<span class="red">'</span>key<span class="red">'</span> =&gt; <span class="red">'</span>value<span class="red">'</span>);</span>
+</p>
+	<p>Users can now be sorted into several groups of users. Who has enabled the user administration and side panels must locked in its pages, change<br /><br />
+		<span class="einzug">&lt;?PHP if($showpartfor == 'GROUPID') { ?&gt;</span><br />to<br />
+		<span class="einzug">&lt;?PHP if(in_array('GROUPID', $showpartfor)) { ?&gt;</span>
+</p>
+	<p>All file and folder names are now checked on the characters a-z, 0-9, and the underscore (_). Other characters are no longer allowed. 
+</p>
+	<p>In the file &quot;/settings/baseconfig.php&quot; the variable $webutler_config['chmod'] is added, in the file &quot;/settings/globalvars.php&quot; the variables $webutler_config['categories'], $webutler_config['highlite_current' ] and $webutler_config['admin pagename'].
+</p>
+	<h2>What to do?</h2>
+	<ol>
+		<li>Using FTP, delete the complete directory /admin</li>
+		<li>Upload the new /admin directory</li>
+		<li>Delete the index.php file and upload the new index.php</li>
+		<li>Delete the &quot;/includes/functions.php&quot; file and upload the files for &quot;loader.php&quot; and &quot;wbclass.php&quot; into the /includes directory.</li>
+		<li>By switching to PHP classes musten all PHP and template files for the modules to be changed. The simplest variant is the directories /includes and /modules secure from ftp, then delete and upload the new directories. Adjust the config files.</li>
+		<li>Who made changes to the templates can also perform the following steps.<br />
+			<ul>
+				<li>Replace all PHP files with the new.</li>
+				<li>In the template files to replace $webutler_ by $webutlercouple-&gt;.<br />
+					If necessary, in separate include files, this change also perform.</li>
+			</ul>
+		</li>
+		<li>In the file &quot;/settings/baseconfig.php&quot; the entire lower part from &quot;if ($webutler_config[server_path] != '')&quot; In the file &quot;/settings/globalvars.php&quot; the entire lower part after the line &quot;$webutler_htmlsource['page_footer']&quot; delete and copy the new variables pure.</li>
+		<li>Adjust the values ​​in the files &quot;/access/languages.php&quot; and &quot;/access/offline.php&quot; (see description above).</li>
+		<li>Check all filenames in the directory &quot;/content&quot; and adjust. There are allowed only the characters a-z, 0-9 and the underscore character. If filenames need to be renamed, the name must also be adjusted in the files themselves, otherwise they are not callable.</li>
+	</ol>
+	<h2>SQLite 2 databases to convert SQLite3 (Windows)</h2>
+	<ol>
+		<li>Create a local directory (for example /mydbs).</li>
+		<li><a href="http://www.sqlite.org/sqlite-2_8_17.zip">download sqlite.exe</a></li>
+		<li><a href="http://www.sqlite.org/sqlite-shell-win32-x86-3071501.zip">download sqlite3.exe</a></li>
+		<li>Download DB files from the web space</li>
+		<li>sqlite.exe, sqlite3.exe and copy the DB files in the local directory</li>
+		<li>Click: Start &gt; Run &gt; cmd</li>
+		<li>Call directory: cd /mydbs</li>
+		<li>Command to convert a DB-Files:<br />
+			<span class="einzug">sqlite filename.db .dump | sqlite3 filename_new.db</span></li>
+		<li>Back up the old DB files (remove _new) the new rename, and load it back onto your webspace.</li>
+		<li>If everything works, the old DB files can be deleted.</li>
+    </ol>
+</div>
+</body>
+</html>

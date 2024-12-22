@@ -1,0 +1,37 @@
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+(function()
+{var jg_linearea;var jg_movearea;var WBcontvar_xstart='';var WBcontvar_ystart='';var WBcontvar_xpos='';var WBcontvar_ypos='';var WBcontvar_xnull='';var WBcontvar_ynull='';var linealtop=0;var WBeditor_position=function(){var master=document.getElementById('WBeditor_linealdiv');var element=document.getElementById('WBeditor_paintdiv');var xmnull=0;var ymnull=0;var xenull=0;var yenull=0;var xdnull=0;var ydnull=0;WBcontvar_xnull=0;WBcontvar_ynull=0;if(master&&typeof master.offsetParent!="undefined"){while(master&&typeof master.offsetLeft=="number"&&typeof master.offsetTop=="number"){xmnull+=master.offsetLeft;ymnull+=master.offsetTop;master=master.offsetParent;}}
+if(element&&typeof element.offsetParent!="undefined"){while(element&&typeof element.scrollLeft=="number"&&typeof element.scrollTop=="number"){xenull+=element.scrollLeft;yenull+=element.scrollTop;element=element.offsetParent;}}
+if(xenull<=0)
+xdnull=parseInt(xmnull+(xenull*(-1)));else
+xdnull=parseInt(xmnull-xenull);if(yenull<=0)
+ydnull=parseInt(ymnull+(yenull*(-1)));else
+ydnull=parseInt(ymnull-yenull);WBcontvar_xnull=parseInt(xmnull+xdnull);WBcontvar_ynull=parseInt(ymnull+ydnull);};var WBeditor_setzen=function(e){if(WBcontvar_xstart==''&&WBcontvar_ystart==''){WBcontvar_xstart=WBcontvar_xpos;WBcontvar_ystart=WBcontvar_ypos;}};var WBeditor_ziehen=function(e){WBcontvar_xpos=e.pageX;WBcontvar_ypos=e.pageY+linealtop;WBeditor_position();if(WBcontvar_xstart!=''&&WBcontvar_ystart!=''){jg_linearea.clear();jg_linearea.setColor("#ff0000");jg_linearea.setStroke(Stroke.DOTTED);jg_linearea.drawLine(parseInt(WBcontvar_xstart-WBcontvar_xnull),parseInt(WBcontvar_ystart-WBcontvar_ynull),parseInt(WBcontvar_xpos-WBcontvar_xnull),parseInt(WBcontvar_ystart-WBcontvar_ynull));jg_linearea.drawLine(parseInt(WBcontvar_xstart-WBcontvar_xnull),parseInt(WBcontvar_ystart-WBcontvar_ynull),parseInt(WBcontvar_xstart-WBcontvar_xnull),parseInt(WBcontvar_ypos-WBcontvar_ynull));jg_linearea.paint();WBeditor_zahl('x',parseInt(WBcontvar_xstart-WBcontvar_xnull),parseInt(WBcontvar_ystart-WBcontvar_ynull),parseInt(WBcontvar_xpos-WBcontvar_xnull),parseInt(WBcontvar_ystart-WBcontvar_ynull));WBeditor_zahl('y',parseInt(WBcontvar_xstart-WBcontvar_xnull),parseInt(WBcontvar_ystart-WBcontvar_ynull),parseInt(WBcontvar_xstart-WBcontvar_xnull),parseInt(WBcontvar_ypos-WBcontvar_ynull));}};var WBeditor_leeren=function(){jg_linearea.clear();document.getElementById('WBeditor_massdivx').style.display='none';document.getElementById('WBeditor_massdivy').style.display='none';WBcontvar_xstart='';WBcontvar_ystart='';};var WBeditor_zahl=function(div,x_start,y_start,x_pos,y_pos){var x_value,y_value,d_value;if(x_pos>x_start){x_value=(x_pos-x_start);}else if(x_start>x_pos){x_value=-(x_start-x_pos);}else if(x_start==x_pos){x_value=0;}
+if(y_pos>y_start){y_value=-(y_pos-y_start);}else if(y_start>y_pos){y_value=(y_start-y_pos);}else if(y_start==y_pos){y_value=0;}
+d_value=parseInt(Math.sqrt(x_value*x_value+y_value*y_value));if(x_value==0){d_value=y_value;}
+if(y_value==0){d_value=x_value;}
+var mleft,mtop;if(parseInt(x_pos-x_start)>=50||parseInt(x_start-x_pos)>=50||parseInt(y_pos-y_start)>=30||parseInt(y_start-y_pos)>=30){mleft=parseInt(x_start+parseInt(x_value/2))-22;mtop=parseInt(y_start-parseInt(y_value/2))-6;}
+else{mleft='';mtop='';}
+if(mleft!=''&&mtop!=''){if(d_value<0)d_value=d_value*(-1);document.getElementById('WBeditor_massdiv'+div).style.display='block';document.getElementById('WBeditor_massdiv'+div).style.left=mleft+'px';document.getElementById('WBeditor_massdiv'+div).style.top=mtop+'px';document.getElementById('WBeditor_massdiv'+div).innerHTML=d_value+'px';}
+else{document.getElementById('WBeditor_massdiv'+div).style.display='none';}};var WBeditor_setlinealheight=function(){if(document.getElementById('WBeditor_linealdiv').style.display=='block'){if(document.getElementById('fulleditor')){linealtop=parseInt(document.getElementById('cke_1_top').offsetHeight);var linealheight=parseInt(document.getElementById('cke_1_contents').offsetHeight);var linealwidth=parseInt(document.getElementById('cke_1_contents').offsetWidth);document.getElementById('WBeditor_linealdiv').style.top=linealtop+'px';}
+else{var linealheight=parseInt(document.body.scrollHeight);var linealwidth=parseInt(document.body.scrollWidth);}
+document.getElementById('WBeditor_linealdiv').style.height=linealheight+'px';document.getElementById('WBeditor_linealdiv').style.width=linealwidth+'px';document.getElementById('WBeditor_paintdiv').style.height=linealheight+'px';document.getElementById('WBeditor_movediv').style.height=linealheight+'px';}};var WBeditor_loadlineal=function(){if(!document.getElementById('WBeditor_paintdiv')){var newPaintDiv=document.createElement('div');var addPaintDiv=document.getElementById('WBeditor_linealdiv').appendChild(newPaintDiv);addPaintDiv.id='WBeditor_paintdiv';}
+if(!document.getElementById('WBeditor_movediv')){var newMoveDiv=document.createElement('div');var addMoveDiv=document.getElementById('WBeditor_linealdiv').appendChild(newMoveDiv);addMoveDiv.id='WBeditor_movediv';}
+if(!document.getElementById('WBeditor_massdivx')){var newMassDivx=document.createElement('div');var addMassDivx=document.getElementById('WBeditor_linealdiv').appendChild(newMassDivx);addMassDivx.id='WBeditor_massdivx';}
+if(!document.getElementById('WBeditor_massdivy')){var newMassDivy=document.createElement('div');var addMassDivy=document.getElementById('WBeditor_linealdiv').appendChild(newMassDivy);addMassDivy.id='WBeditor_massdivy';}
+document.getElementById('WBeditor_linealdiv').onmousedown=WBeditor_setzen;document.getElementById('WBeditor_linealdiv').onmousemove=WBeditor_ziehen;document.getElementById('WBeditor_linealdiv').onmouseup=WBeditor_leeren;jg_linearea=new jsGraphics("WBeditor_linealdiv");jg_movearea=new jsGraphics("WBeditor_movediv");};CKEDITOR.plugins.add('measuretool',{lang:[CKEDITOR.lang.detect(CKEDITOR.config.language)],icons:'measure,measure-rtl',hidpi:true,init:function(editor)
+{var savedState=CKEDITOR.TRISTATE_OFF;editor.addCommand('measuretool',{exec:function()
+{if(!document.getElementById('WBeditor_paintdiv')){WBeditor_loadlineal();}
+if(document.getElementById('WBeditor_linealdiv').style.display=='block'){savedState=CKEDITOR.TRISTATE_OFF;document.getElementById('WBeditor_linealdiv').style.display='none';}
+else{savedState=CKEDITOR.TRISTATE_ON;document.getElementById('WBeditor_linealdiv').style.display='block';WBeditor_setlinealheight();}
+switch(this.state)
+{case CKEDITOR.TRISTATE_ON:editor.readOnlyToolbar(false,true);break;case CKEDITOR.TRISTATE_OFF:editor.readOnlyToolbar(true,true);break;}
+this.toggleState();savedState=this.state;},canUndo:false});editor.ui.addButton('Measure',{label:editor.lang.measuretool.title,command:'measuretool'});editor.on('mode',function()
+{editor.getCommand('measuretool').setState(savedState);},null,null,100);}});var WBeditor_addEditorResizeEvent=function(func){var oldonresize=window.onresize;if(typeof window.onresize!='function'){window.onresize=func;}else{window.onresize=function(){if(oldonresize){oldonresize();}
+func();}}};WBeditor_addEditorResizeEvent(WBeditor_setlinealheight);})();

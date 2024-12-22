@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Module Sitemap</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/sitemap/_readme.htm');
+					localStorage.setItem('flink', 'sitemap');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>SEO</h1>
+	<h2>Module sitemap</h2>
+	<p>The sitemap for your website is generated automatically and will be automatically updated after a specified time (variable $revisit_after in the &quot;/settings/sitemaps.php&quot; file).
+</p>
+	<h3>Which URLs are included in the sitemap?</h3>
+    <p>All pages in the directory &quot;/content/pages&quot; and all links specified by modules. In the file &quot;/settings/sitemaps.php&quot; can be set which modules to include - <a onclick="top.document.getElementById('readmes').src = 'settings/_readme.htm#sitemaps'; top.document.getElementById('link_sitemap').removeAttribute('class'); top.document.getElementById('link_settings').className = 'aktiv';" href="../../settings/_readme.htm#sitemaps">more Infos</a>.
+</p>
+	<h3>Sitemap links for own modules</h3>
+    <p>Your module must be in the directory &quot;/modules&quot;. In the module directory the file sitemap.php and in the file, the function &quot;modulessitemap_ __MODULE_DIRECTORY_NAME__&quot; must exist. The function must provide an array containing the URLs of the module.<br /><br />
+		Example:<br />
+		<span class="einzug">Array(</span><br />
+		<span class="einzug"><span class="einzug">[0] =&gt; 'http://yourpage.com/module-site1.htm',</span></span><br />
+		<span class="einzug"><span class="einzug">[1] =&gt; 'http://yourpage.com/module-site2.htm',</span></span><br />
+		<span class="einzug"><span class="einzug">[2] =&gt; 'http://yourpage.com/module-site3.htm'</span></span><br />
+		<span class="einzug">)</span>
+</p>
+	<h2>Meta tags</h2>
+    <p>Title, description and keywords can be easily entered via the button document properties of the editor.<br />
+	If these fields have been enabled in a ModMaker module administration, description and keywords must not exist in the HTML page. The tags appear twice otherwise.
+	</p>
+	<h3>Robots</h3>
+    <p>In HTML-Seiten kann der Meta-Tag Robots nur über den Quelltext gesetzt werden. Am besten setzt man ihn direkt in der Layoutdatei. ModMaker Module setzen den Meta-Tag Robots automatisch, dann darf er nicht in der HTML-Seite existieren. Kategorien-, Themen- und Beitragsseiten bekommen 'index,follow', Kopien (wenn angelegt) 'noindex,follow'.
+	
+	In HTML pages the robots meta tag can be set only on the source code. It is best to set it directly in the layout file. ModMaker modules automatically set the robots meta tag, then it must not exist in the HTML page. Category, topic and record pages get 'index,follow', copies (if applied) 'noindex,follow'.
+</p>
+	<h2>Canonical tag</h2>
+    <p>In all pages and ModMaker module pages the canonical tag will be added automatically to avoid double content.
+</p>
+</div>
+</body>
+</html>

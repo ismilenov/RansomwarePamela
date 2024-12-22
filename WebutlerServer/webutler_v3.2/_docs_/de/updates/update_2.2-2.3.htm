@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.3 - www.webutler.de
+            Copyright (c) 2008 - 2014
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.2-2.3.htm');
+					localStorage.setItem('flink', 'update_23');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.2 » V2.3</h1>
+	<p>Neue Funktionen sind das Umbenennen von Seiten sowie löschen und verschieben von Mediendateien. Die URL kann durch virtuelle Kategorien ergänzt werden. Highlight des default Links im Menü wurde aus der Config entfernt und ist jetzt administrierbar.
+</p>
+	<p>Update des CKEditors auf Version 3.6.5, Umstellung auf Version 4 kommt beim nächsten mal.
+</p>
+	<p>Alle PHP-Dateien wurden auf Klassen und die SQLite-Datenbanken auf Version 3 umgestellt. Vorraussetzung für den Betrieb von Version 2.3 ist deshalb PHP 5.4 oder höher.<br />
+    In den Arrays der Dateien /access/languages.php und /access/offline.php müssen die Schlüssel und Werte in Hochkommas gesetzt werden. PHP 5.4 gibt sonst Fehermeldungen aus:<br /><br />
+	<span class="einzug">aus $var[key] wird $var[<span class="red">'</span>key<span class="red">'</span>]</span><br />
+	<span class="einzug">aus $var = array(value1,value2); wird $var = array(<span class="red">'</span>value1<span class="red">'</span>,<span class="red">'</span>value2<span class="red">'</span>);</span><br />
+	<span class="einzug">aus $var = array(key => value); wird  $var = array(<span class="red">'</span>key<span class="red">'</span> => <span class="red">'</span>value<span class="red">'</span>);</span>
+</p>
+	<p>Benutzer können jetzt in mehrere Benutzergruppen einsortiert werden. Wer die Benutzerverwaltung aktiviert und Seitenteile gesperrt hat muß in seinen Seiten<br /><br />
+	<span class="einzug">&lt;?PHP if($showpartfor == 'GROUPID') { ?&gt;</span><br /><br />durch<br /><br />
+	<span class="einzug">&lt;?PHP if(in_array('GROUPID', $showpartfor)) { ?&gt;</span><br /><br />
+    ersetzen.
+</p>
+	<p>Alle Datei- und Ordnernamen werden jetzt auf die Zeichen a bis z, 0 bis 9 und den Unterstrich (_) geprüft. Andere Zeichen sind nicht mehr erlaubt.
+</p>
+	<p>In der Datei &quot;/settings/baseconfig.php&quot; ist die Variable $webutler_config['chmod'] hinzugekommen, in der Datei &quot;/settings/globalvars.php&quot; die Variablen $webutler_config['categories'], $webutler_config['highlite_current'] und $webutler_config['adminpagename'].
+</p>
+	<h2>Was ist zu tun?</h2>
+	<ol>
+      <li>Mit FTP das komplette Verzeichnis /admin löschen</li>
+      <li>Das neue /admin Verzeichnis hochladen</li>
+      <li>Die Datei index.php löschen und die neue index.php hochladen</li>
+      <li>Die Datei &quot;/includes/functions.php&quot; löschen und dafür die Dateien &quot;loader.php&quot; und &quot;wbclass.php&quot; ins /includes Verzeichnis hochladen.</li>
+      <li>Durch die Umstellung auf PHP-Klassen musten alle PHP- und Template-Dateien der Module geändert werden. Die einfachste Variante ist die Verzeichnisse /includes und /modules vom Webspace sichern, dann löschen und die neuen Verzeichnisse hochladen. Anschießend die Config-Dateien anpassen.</li>
+      <li>Wer Änderungen an den Templates gemacht hat kann auch folgende Schritte durchführen.
+    	<ul>
+          <li>Alle PHP-Dateien durch die neuen ersetzen.</li>
+          <li>In den Template-Dateien $webutler_ durch $webutlercouple-> ersetzen.<br />
+          Wenn nötig, in eigenen Includedateien diese Änderung ebenfalls durchführen.</li>
+        </ul>
+      </li>
+      <li>In der Datei &quot;/settings/baseconfig.php&quot; den kompletten unteren Teil ab &quot;if($webutler_config['server_path'] != '')&quot;, in der Datei &quot;/settings/globalvars.php&quot; den kompletten unteren Teil nach der Zeile &quot;$webutler_htmlsource['page_footer']&quot; löschen und die neuen Variablen rein kopieren.</li>
+      <li>Die Werte in den Dateien &quot;/access/languages.php&quot; und &quot;/access/offline.php&quot; anpassen (siehe Beschreibung oben).</li>
+      <li>Alle Dateinamen im Verzeichnis &quot;/content&quot; prüfen und gegebenenfals anpassen. Es sind nur noch die Zeichen a-z, 0-9 und der Unterstrich erlaubt. Wenn Dateinamen umbenannt werden müssen, müssen die Namen auch in den Dateien selbst angepasst werden, sonst sind sie nicht aufrufbar.</li>
+    </ol>
+	<h2>SQLite2 Datenbanken in SQLite3 umwandeln (Windows)</h2>
+	<ol>
+      <li>Ein lokales Verzeichnis (z.B. /mydbs) anlegen.</li>
+      <li><a href="http://www.sqlite.org/sqlite-2_8_17.zip">sqlite.exe herunterladen</a></li>
+      <li><a href="http://www.sqlite.org/sqlite-shell-win32-x86-3071501.zip">sqlite3.exe herunterladen</a></li>
+      <li>DB-Files vom Webspace herunterladen</li>
+      <li>sqlite.exe, sqlite3.exe und die DB-Files ins lokale Verzeichnis kopieren</li>
+      <li>Start &gt; Ausführen &gt; cmd</li>
+      <li>Verzeichnis aufrufen: cd /mydbs</li>
+      <li>Befehl zum umwandeln eines DB-Files:<br />
+    	<span class="einzug">sqlite filename.db .dump | sqlite3 filename_new.db</span></li>
+      <li>Die alten DB-Files sichern, die Neuen umbenennen (_new entfernen) und wieder auf den Webspace laden.</li>
+      <li>Wenn alles funktioniert, können die alten DB-Files gelöscht werden.</li>
+    </ol>
+</div>
+</body>
+</html>

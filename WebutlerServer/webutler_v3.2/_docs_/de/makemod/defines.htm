@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: block;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/defines.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Felder definieren</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Datenausgabe</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Felder des Moduls definieren</h1>
+	<h2>Datenfelder</h2>
+	<p>Als erstes müssen die Datenfelder für das gewünschte Modul definiert werden. Vergeben Sie eine Bezeichnung für Ihr Feld, den Namen für das Datenbankfeld und wählen Sie den Feldtypen.
+</p>
+	<h2>Mögliche Feldtypen</h2>
+	<p><strong>Datumsfeld:</strong><br />
+    <span class="einzug">Erzeugt ein Feld für die Auswahl eines Kalenderdatums.</span>
+</p>
+	<p><strong>Benutzername:</strong><br />
+    <span class="einzug">Speichert bei einer Besuchereingabe die ID des Users, der den Beitrag erstellt hat und gibt bei Aufruf der Seite den Usernamen aus.</span>
+</p>
+	<p><strong>Textfeld einzeilig:</strong><br />
+	<span class="einzug">Erzeugt ein einzeiliges Textfeld (input type=text).</span>
+</p>
+	<p><strong>Textfeld mehrzeilig:</strong><br />
+	<span class="einzug">Erzeugt ein mehrzeiliges Textfeld (textarea).</span>
+</p>
+	<p><strong>HTML Editor:</strong><br />
+	<span class="einzug">Erzeugt einen Editor zur Eingabe von HTML Quellcode (CKEditor). Bei diesem Feld werden Eingaben nicht gefiltert! Für Besucher-Eingaben sollte der BBCode-Editor genutzt werden.</span>
+</p>
+	<p><strong>BBCode Editor:</strong><br />
+	<span class="einzug">Erzeugt einen Editor für BBCode formatierte Eingaben (CKEditor).</span>
+</p>
+	<p><strong>Zahlenfeld:</strong><br />
+	<span class="einzug">Erzeugt ein Eingabefeld für Zahlen.</span>
+</p>
+	<p><strong>Dateiupload:</strong><br />
+	<span class="einzug">Erzeugt ein Uploadfeld für Dateien. In der Administration des Modules können die Dateitypen eingeschränkt werden. Dem Besucher wird ein Downloadlink zur Datei und ein Downloadzähler angezeigt.</span>
+	<span class="einzug"><strong>!!!</strong> Wenn Videos hochgeladen werden, die im FLV-Player abgespielt werden sollen, muß die Templatevariable $db_data['link_of_DB-FELDNAME'] encodiert werden: rawurlencode($db_data['link_of_DB-FELDNAME']).</span>
+</p>
+	<p><strong>Bildupload:</strong><br />
+	<span class="einzug">Erzeugt ein Uploadfeld für ein Einzelbild. Ein Bild wird in 3 verschiedenen Größen abgespeichert. Größe für die Listenansicht, Größe für die Datensatzansicht und Größe für die Lightbox. Die Skalierungsinformationen können nachträglich in der Datei /data/config.php des erstellten Modules geändert werden.</span>
+</p>
+	<p><strong>Mehrfach-Bildupload:</strong><br />
+	<span class="einzug">Erzeugt Felder für den gleichzeitigen Upload mehrerer Bilder. Für die Bildgrößen gilt gleiches wie beim Einzel-Bildupload.</span>
+</p>
+	<p><strong>Auswahlfeld:</strong><br />
+	<span class="einzug">Erzeugt in der Administration und in Besuchereingabemasken ein Auswahlfeld (select). Die Optionen des Auswahlfeldes werden in der Administration des Modules festgelegt. Dem Besucher wird die gespeicherte Auswahl angezeigt. Wert und Text können Sprachdefines sein. Defines müssen im /view/lang Verzeichnis gesetzt werden.</span>
+</p>
+	<p><strong>Checkboxen:</strong><br />
+	<span class="einzug">Erzeugt in der Administration und in Besuchereingabemasken Checkboxen (input type=checkbox). Die Werte der Checkboxen werden in der Administration des Modules festgelegt. Dem Besucher wird die gespeicherte Auswahl angezeigt. Wert und Text können Sprachdefines sein, der Name nicht. Der Name darf nur aus den Zeichen A-Z, a-z, 0-9, Bindenstrichen, Unterstrichen und Punkten bestehen. Defines müssen im /view/lang Verzeichnis gesetzt werden.</span>
+</p>
+	<p><strong>Verstecktes Feld:</strong><br />
+	<span class="einzug">Erzeugt in der Administration ein einzeiliges Textfeld zur Eingabe und in Besuchereingabemasken ein verstecktes Feld (input type=hidden). Dem Besucher wird der gespeicherte Inhalt angezeigt. Über dieses Feld könnte man z.B. die IP des Users speichern.</span>
+</p>
+	<p><strong>Statusfeld:</strong><br />
+	<span class="einzug">Erzeugt in der Administration eine einfache Checkbox die 0 oder 1 in der Datenbank speichert. Damit kann man z.B. die Ausgabe von Daten manipulieren.</span>
+</p>
+</div>
+</body>
+</html>

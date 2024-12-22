@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Modulerweiterungen</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/modexts/_readme.htm');
+					localStorage.setItem('flink', 'modexts');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Modulerweiterungen</h1>
+	<p>Die hier hinterlegten Scripte werden in verschiedenen Modulen genutzt.</p>
+	<h2>Datepicker / Kalender</h2>
+	<p>Im /calendar Verzeichnis befindet sich ein kleines Datepicker-Javascript, daß zur Datumsauswahl verwendet werden kann.</p>
+	<h2>PHPMailer</h2>
+	<p>Die PHPMailer Klasse wird zum versenden von eMail-Formularen genutzt.</p>
+	<h2>FPDF</h2>
+	<p>Mit der FPDF-Klasse können PDFs mit PHP erzeugt werden. Im Verzeichnis /tutorial findet man einige Beispiele zur Verwendung von FPDF.</p>
+	<h2>CKEditor</h2>
+	<p>Mit dem CKEditor wird eine Textarea in einen WYSIWYG-Editor umgewandelt. Diese CKEditor Version ist nur eine Basisversion zur Textformatierung, die Ausgabe kann in HTML oder BBCode erfolgen.
+</p>
+	<p>CKEditor-Script in den Header laden:
+</p>
+	<p><span class="einzug">&lt;script src=&quot;includes/modexts/ckeditor/ckeditor.js&quot;&gt;&lt;/script&gt;</span>
+</p>
+	<p>Config zur HTML Ausgabe (nach der Textarea setzen):
+</p>
+	<p><span class="einzug">&lt;script&gt;</span><br />
+    <span class="einzug">/* &lt;![CDATA[ */</span><br />
+    <span class="einzug"><span class="einzug">CKEDITOR.replace('name-Attribut der Textarea', {</span></span><br />
+    <span class="einzug"><span class="einzug"><span class="einzug">customConfig : 'html_config.js',</span></span></span><br />
+    <span class="einzug"><span class="einzug"><span class="einzug">language : 'de'</span></span></span><br />
+    <span class="einzug"><span class="einzug">});</span></span><br />
+    <span class="einzug">/* ]]&gt; */</span><br />
+    <span class="einzug">&lt;/script&gt;</span>
+</p>
+	<p>Config zur BBCode Ausgabe (nach der Textarea setzen):
+</p>
+	<p><span class="einzug">&lt;script&gt;</span><br />
+    <span class="einzug">/* &lt;![CDATA[ */</span><br />
+    <span class="einzug"><span class="einzug">CKEDITOR.replace('name-Attribut der Textarea', {</span></span><br />
+    <span class="einzug"><span class="einzug"><span class="einzug">customConfig : 'bbcode_config.js',</span></span></span><br />
+    <span class="einzug"><span class="einzug"><span class="einzug">language : 'de'</span></span></span><br />
+    <span class="einzug"><span class="einzug">});</span></span><br />
+    <span class="einzug">/* ]]&gt; */</span><br />
+    <span class="einzug">&lt;/script&gt;</span>
+</p>
+</div>
+</body>
+</html>

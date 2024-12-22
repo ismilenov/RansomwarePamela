@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'updates/update_3.1-3.2.htm');
+					localStorage.setItem('flink', 'update_32');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V3.1 » V3.2</h1>
+	<h2>CKEditor</h2>
+	<p>
+	CKEditor is updated to Version 4.5 and there are some new plugins.
+</p>
+	<ul>
+	  <li><strong>pastedupload</strong>: You can copy images directly into the editor and they will be automatically uploaded to your webspace.</li>
+	  <li><strong>embed media</strong>: Media content of external providers (like Youtube etc.) can be easily loaded via typing URLs. The provider can be changed in the variable $webutler_config['ckeembed'] in the globalvars.php.</li>
+	  <li><strong>audio / video</strong>: Audio and video files can be displayed with the corresponding HTML5 elements.</li>
+	  <li><strong>googlemap</strong>: The googlemap plugin in Webutler &lt;V3.2 sat a DIV with the CSS class googlemapsframe. Through this class, the Google map could be opened and edited in the editor again. The class attribute has been replaced by data-source and you can now assign your own classes in the dialog window.</li>
+	  <li>For the text alignment and text indent CSS classes can be used. With the variable $webutler_config['ckecssclasses'] in the globalvars.php the classes are enabled. If activated the following classes with corresponding definitions in the CSS file must be present<br />
+		<strong>text alignment</strong>: alignleft, aligncenter, alignright und alignjustify<br />
+		<strong>text indent</strong>: indent1, indent2, indent3, indent4 und indent5
+	  </li>
+</ul>
+	<h2>ModMaker</h2>
+	<p>
+	The Lightbox was set automatically when image elements were placed. The Lightbox must now be selected when creating a new module. In the ModMaker database (file makemod.db) in table admin, there is a new field autolightbox.<br />
+	If you no longer needed the settings of your modules, you can delete the file /content/access/makemod.db.<br />
+	Alternatively you can open the database with a SQLite3 admin tool. Ssupplemente the field &quot;autolightbox&quot; in table &quot;admin&quot;. The field type is INTEGER, only the state of the checkbox will be saved.
+</p>
+	<h2>Flexbox Columns</h2>
+	<p>
+	The Grid element were removed and replaced with flexible columns. Who does not want to replace all of the elements in its files can before deleting the contents of the file /content/grids/css/columns.css copy into your own CSS file.<br />
+	The new columns based on a grid of 12 and are not compatible with the gridelements. The easiest way for the change is to insert a new column element in the page and copy the contents of a gridelements column in the new column.
+</p>
+	<h2>Link Highlight</h2>
+	<p>
+	The highlighting of links in menu files has been changed. The CSS classes are no longer attributed to the a tag, but to the li tag. This change not only the color of the current links can be changed, but the complete design of the enclosing list element.
+</p>
+	<h2>Header, Footer files</h2>
+	<p>
+	In directory /settings there is the new file extradata.php. The file is the central place to involve header and footer files from.
+</p>
+	<h2>Image editor</h2>
+	<p>
+	In Image editor now images in the /.box directory can also be edited. For this, you select the small image in the Media Manager, and then, in the Image editor you can change to the big image.
+</p>
+	<h3>Watermark images</h3>
+	<p>
+	Watermark images have now to be placed in the directory /content/media/image/watermarks. The directory is no longer adjustable, /watermarks may not have any sub directories, sub directories are ignored.
+</p>
+	<h2>Advanced htaccess</h2>
+	<p>
+	For search engine optimization, the .htaccess file has been added GZIP, Expire and Cache-Control functionality. If the corresponding Apache modules exist, the loading time of your pages are improved.<br />
+	There is also a mod_rewrite check for the installation.
+</p>
+	<h2>Compression</h2>
+	<p>
+	All Javascript and stylesheet files have been compressed. The uncompressed original files are located in the subdirectory /source.<br />
+	For image compression, there are 2 new variables in the globalvars.php<br />
+	$webutler_config['png_compress'] for compressing images in PNG format (default is 6) and<br />
+	$webutler_config['jpg_quality'] for compressing images in JPG format (default is 75)
+</p>
+	<h2>Update from version 3.1 - What to do?</h2>
+	<ol>
+      <li>With FTP delete the complete directory /admin</li>
+      <li>Upload the new /admin directory</li>
+      <li>Upload the files loader.php, wbclass.php and mmclass.php from directory /includes</li>
+      <li>Upload the file includes/sitemap/index.php</li>
+	  <li>Upload the new file /settings/extradata.php</li>
+	  <li>Upload the new root htaccess file</li>
+	  <li>In directory /content/style create a new folder named /source</li>
+	  <li>Change the CSS classes for link colors in your stylesheet file from a tag to the li tag</li>
+	  <li>In your pages replace the class attribute in Google Maps by data-source</li>
+	  <li>Gridelements were removed and replaced with column elements
+		<ul>
+		  <li>delete the old folder /content/grids</li>
+		  <li>upload the new folder /content/columns</li>
+		</ul>
+	  </li>
+      <li>Changes in the baseconfig.php
+		<ul>
+		  <li>$webutler_config['watermark_imgdir'] has been removed</li>
+		  <li>$webutler_config['imgthumbsize'] has been replaced by</li>
+		  <li>$webutler_config['imgsmallsize'] = array(width, height)</li>
+		  <li>$webutler_config['imgorgsize'] has been replaced by</li>
+		  <li>$webutler_config['imgboxsize'] = array(width, height)</li>
+		</ul>
+	  </li>
+      <li>Changed/new variables in the globalvars.php
+		<ul>
+		  <li>$webutler_config['insertgrid'] has changed to $webutler_config['insertcolumns']</li>
+		  <li>$webutler_config['highlite_current'] wurde entfernt</li>
+		  <li>$webutler_config['admingrids'] has been removed</li>
+		  <li>$webutler_config['png_compress'] - Compression PNG images</li>
+		  <li>$webutler_config['jpg_quality'] - quality JPG images</li>
+		  <li>$webutler_config['codeicon'] - show icon for PHP and Javascript code in the editor<br />
+				Bug in CKEditor: Code icons in list items (&lt;ol&gt; und &lt;ul&gt;) will be deleted.
+		  </li>
+		  <li>$webutler_config['ckecssclasses'] - instead of use the style attribute CSS classes can be used for text alignment and text indent<br />
+				Bug in CKEditor: In the styles combo only a single class can be selected. This has the effect that the alignment / indent classes are deleted.
+		  </li>
+		  <li>$webutler_config['ckeembed'] - embed provider to load embedded media</li>
+		  <li>$webutler_config['ckemenubg'] - background color menu editor</li>
+		  <li>$webutler_config['ckeblockbg'] - background color block editor</li>
+		  <li>$webutler_config['ckecombobg'] - background color editor combo boxes</li>
+		</ul>
+	  </li>
+    </ol>
+</div>
+</body>
+</html>

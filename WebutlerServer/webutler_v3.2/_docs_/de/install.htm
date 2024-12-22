@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Installation</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.link {
+            cursor: pointer;
+            cursor: hand;
+            text-decoration: underline;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'install.htm');
+					localStorage.setItem('flink', 'install');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Installation</h1>
+	<p>Vor der Installation müssen in der Datei /settings/globalvars.php die Salt Keys eingetragen werden.<br /><br />
+	<span class="einzug">$webutler_config['salt_key1'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['salt_key2'] = &quot;&quot;;</span><br /><br />
+	Erlaubt sind die Zeichen: A bis Z, a bis z, 0 bis 9 und #+-_*@%&=!?<br />
+	Jeder Salt Key sollte eine Zeichenkette von mindestens 10 Zeichen enthalten. Kopieren Sie anschließend den Webutler auf Ihren Webspace und rufen Sie die Installationsroutine auf.<br /><br />
+	<span class="einzug">http://_IHRE_DOMAIN_/admin/install.php</span><br /><br />
+    Wenn die Installationsroutine auf nicht beschreibbare Dateien und Verzeichnisse hinweist, vergeben Sie dem Verzeichnis /content sowie allen Unterverzeichnissen und Dateien CHMOD laut den Angaben Ihres Providers. Die Datei /settings/baseconfig.php benötigt ebenfalls CHMOD.<br /><br />
+	Geben Sie Ihren Benutzernamen sowie Ihr Passwort ein und speichern Sie Ihre Einstellungen. Ein separater, nicht administrierbarer Webmaster-Zugang kann in der Datei &quot;/settings/globalvars.php&quot; eingetragen werden. Wenn Sie mit dem Webutler auf einen anderen Server oder in ein anderes Verzeichnis umziehen, müssen Sie nur folgende Variablen aus der Datei &quot;/settings/baseconfig.php&quot; löschen und die Installationsroutine erneut durchführen.<br /><br />
+	<span class="einzug">$webutler_config['server_path'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['homepage'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['user_name'] = &quot;&quot;;</span><br />
+	<span class="einzug">$webutler_config['user_pass'] = &quot;&quot;;</span>
+</p>
+	<h2>Alte Apache-Version</h2>
+	<p>Wenn noch eine alte Apache-Version (1.3) läuft, muß in der Datei &quot;/settings/globalvars.php&quot; die Variable <strong>$webutler_config['urlgetvars']</strong> auf 5 gesetzt werden und in der .htaccess müssen alle RewriteRule-Zeilen gelöscht werden, die <strong>$10</strong> enthalten (die letzten 3). Das gilt natürlich nur, wenn die SEO-URLs genutzt werden.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

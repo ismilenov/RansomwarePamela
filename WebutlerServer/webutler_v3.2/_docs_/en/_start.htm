@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Webutler version 3.2</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		html, body {
+		    overflow: hidden;
+		    height: 100%;
+		}
+		body {
+		    font-family: verdana, arial, sans-serif;
+		    font-size: 11px;
+		    color: #000000;
+		    line-height: 16px;
+		    background-color: #E9E9E9;
+		    margin: 0px;
+		    padding: 0px;
+		}
+		h1 {
+		    font-size: 15px;
+		    height: 25px;
+		    margin: 0px;
+		    padding: 0px 0px 5px 0px;
+		    display: inline;
+		}
+		h1 img {
+		    margin-bottom: -2px;
+		}
+		h1 span {
+		    font-size: 28px;
+			font-weight: normal;
+			color: #A32729;
+		    margin: 0px 9px 0px 7px;
+		}
+		h2 {
+		    font-size: 13px;
+		    margin-top: 20px;
+		}
+		h3 {
+		    font-size: 11px;
+		    margin-top: 15px;
+		}
+		div#layer {
+		    width: 940px;
+		    margin: 0px auto;
+		    padding: 20px 0px;
+		}
+		div#layer table {
+		    width: 940px;
+		    margin-top: 27px;
+		}
+		div#layer table td {
+		    vertical-align: top;
+		}
+		div#folderpath {
+		    position: absolute;
+		    margin: 5px 0px 0px 25px;
+		    padding: 3px 6px;
+			background-color: #ffffff;
+			color: #A32729;
+		}
+		iframe#readmes {
+		    width: 720px;
+		    border: 0px;
+			margin-left: 10px;
+		}
+		#menutd {
+		    width: 209px;
+		    border-right: 1px solid #000000;
+		}
+		#navi {
+		    overflow: auto;
+		}
+		#navi ul {
+			margin: 0px 0px 0px 20px;
+			padding: 0px;
+			list-style: none;
+		}
+		#navi ul#menu {
+		    margin: 48px 0px 45px 0px;
+		}
+		#navi ul li {
+		    margin: 0px;
+			padding: 2px 0px 0px 0px;
+		}
+		#navi a {
+			cursor: hand;
+			cursor: pointer;
+		}
+		#navi li, #navi a:link, #navi a:visited, #navi a:hover, #navi a:active {
+			font-size: 11px; 
+			font-weight: bold; 
+			font-style: normal;
+			color: #000000;
+		}
+		#navi a:link, #navi a:visited {
+			text-decoration: none;
+		}
+		#navi a:hover, #navi a:active {
+			text-decoration: underline;
+		}
+		#navi a.aktiv {
+			color: #A32729;
+		}
+		a:focus {
+			outline-style: none;
+		}
+		#translated {
+			position: absolute;
+		    width: 170px;
+			padding: 10px 0px 10px 0px;
+		    background-color: #E9E9E9;
+		}
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        var lang = 'en';
+        var folder = 'Directory';
+        
+		function set_path(page, link) {
+		    readmes.location.href = page;
+		    document.getElementById('readmes').src = page;
+		    reset_linkcolor();
+		    link.className = 'aktiv';
+		}
+		
+		function reset_linkcolor() {
+		    var links = document.getElementsByTagName('a');
+		    for(var i = 0; i < links.length; i++) {
+		        links[i].removeAttribute('class');
+		    }
+		}
+		
+		function set_page(url) {
+		    var path = '';
+		    var padd = '0px';
+		    var testpath;
+		    var rootpath = '/_docs_/' + lang;
+		    if(document.domain) {
+		        testpath = url.substring(parseInt(url.indexOf(document.domain)+document.domain.length), url.lastIndexOf('/'));
+		    }
+		    else {
+		        var fileurl = window.location.href;
+		        var filepath = fileurl.substring(0, fileurl.lastIndexOf('_docs_/' + lang + '/_start.htm'));
+		        testpath = url.substring(filepath.length-1, url.lastIndexOf('/'));
+		    }
+			var folderpath = testpath.substring(rootpath.length, testpath.length);
+		    if(testpath != rootpath && folderpath != '/modules' && folderpath != '/makemod' && folderpath != '/updates') {
+		        padd = '3px 6px';
+		        path = '<strong>' + folder + ':</strong> ' + folderpath;
+		    }
+		    document.getElementById('folderpath').style.padding = padd;
+		    document.getElementById('folderpath').innerHTML = path;
+		}
+		
+		function set_frameheight() {
+		    if(document.all)
+		    	var frameheight = document.body.clientHeight;
+		    else if(document.getElementById && !document.all)
+		    	var frameheight = window.innerHeight;
+		    document.getElementById('readmes').style.height = parseInt(frameheight-100) + 'px';
+		    document.getElementById('navi').style.height = parseInt(frameheight-100) + 'px';
+		}
+        
+        window.onresize = function() {
+            set_frameheight();
+        }
+        
+        window.onload = function() {
+            set_frameheight();
+			if(('localStorage' in window) && (window['localStorage'] != null) && localStorage.getItem('furl') != null && localStorage.getItem('flink') != null) {
+				var furl = localStorage.getItem('furl');
+				var flink = localStorage.getItem('flink');
+				set_path(furl, document.getElementById('link_' + flink));
+				localStorage.clear();
+			}
+			else {
+				set_path('general.htm', document.getElementById('link_general'));
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body scroll="no">
+  <div id="layer">
+	<h1>
+    <img src="webutler.png" alt="Webutler" /> <span>V3.2</span> Help for Webmasters / Administrators - Construction of the system</h1>
+	<table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td id="menutd">
+        <div id="translated">translated by Google</div>
+        <div id="navi">
+    	  <ul id="menu">
+            <li><a id="link_general" onclick="set_path('general.htm', this)">Front page</a></li>
+            <li><a id="link_admin" onclick="set_path('admin.htm', this)">Administration</a>
+        	  <ul>
+                <li><a id="link_install" onclick="set_path('install.htm', this)">Installation</a></li>
+                <li><a id="link_settings" onclick="set_path('settings/_readme.htm', this)">Settings</a></li>
+                <li><a id="link_functions" onclick="set_path('functions.htm', this)">Functions</a></li>
+                <li><a id="link_makemod" onclick="set_path('makemod/_readme.htm', this)">ModMaker</a></li>
+              </ul>
+            </li>
+            <li><a id="link_content" onclick="set_path('content.htm', this)">Content directory</a></li>
+            <li>Includes directory
+        	  <ul>
+                <li><a id="link_users" onclick="set_path('includes/users/_readme.htm', this)">Users</a></li>
+                <li><a id="link_search" onclick="set_path('includes/search/_readme.htm', this)">Search function</a></li>
+                <li><a id="link_forms" onclick="set_path('includes/forms/_readme.htm', this)">Forms</a></li>
+                <li><a id="link_language" onclick="set_path('includes/language/_readme.htm', this)">Languages</a></li>
+                <li><a id="link_javascript" onclick="set_path('includes/javascript/_readme.htm', this)">Javascript</a>
+            	  <ul>
+                    <li><a id="link_lightbox" onclick="set_path('includes/javascript/lightbox/_readme.htm', this)">Lightbox</a></li>
+                    <li><a id="link_player" onclick="set_path('includes/javascript/player/_readme.htm', this)">Player</a></li>
+                  </ul>
+                </li>
+                <li><a id="link_sitemap" onclick="set_path('includes/sitemap/_readme.htm', this)">Sitemap / SEO</a></li>
+                <li><a id="link_modexts" onclick="set_path('includes/modexts/_readme.htm', this)">Extensions</a></li>
+                <li><a id="link_webfonts" onclick="set_path('includes/webfonts/_readme.htm', this)">Webfonts</a></li>
+              </ul>
+            </li>
+            <li>Modules directory
+        	  <ul>
+                <li><a id="link_news" onclick="set_path('modules/news/_readme.htm', this)">News</a></li>
+                <li><a id="link_ownmods" onclick="set_path('modules/ownmods.htm', this)">Own modules</a></li>
+                <li><a onclick="set_path('makemod/_readme.htm', document.getElementById('link_makemod'))">ModMaker</a></li>
+              </ul>
+            </li>
+            <li>Update notes
+        	  <ul>
+                <li><a id="link_update_11" onclick="set_path('updates/update_1.0-1.1.htm', this)">V1.0 » V1.1</a></li>
+                <li><a id="link_update_2" onclick="set_path('updates/update_1.1-2.0.htm', this)">V1.1 » V2.0</a></li>
+                <li><a id="link_update_21" onclick="set_path('updates/update_2.0-2.1.htm', this)">V2.0 » V2.1</a></li>
+                <li><a id="link_update_22" onclick="set_path('updates/update_2.1-2.2.htm', this)">V2.1 » V2.2</a></li>
+                <li><a id="link_update_23" onclick="set_path('updates/update_2.2-2.3.htm', this)">V2.2 » V2.3</a></li>
+                <li><a id="link_update_3" onclick="set_path('updates/update_2.3-3.0.htm', this)">V2.3 » V3.0</a></li>
+                <li><a id="link_update_31" onclick="set_path('updates/update_3.0-3.1.htm', this)">V3.0 » V3.1</a></li>
+                <li><a id="link_update_32" onclick="set_path('updates/update_3.1-3.2.htm', this)">V3.1 » V3.2</a></li>
+              </ul>
+            </li>
+            <li><a id="link_licence" onclick="set_path('licence.htm', this)">Licence GPL</a></li>
+          </ul>
+        </div>
+        </td>
+        <td>
+        <div id="folderpath"></div>
+        <iframe name="readmes" id="readmes" onload="set_page(this.src);" scrolling="auto" frameborder="0" allowtransparency="true"></iframe>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

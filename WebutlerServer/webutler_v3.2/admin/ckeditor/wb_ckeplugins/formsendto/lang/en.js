@@ -1,0 +1,2 @@
+
+CKEDITOR.plugins.setLang('formsendto','en',{properties:'recipient properties',recipient:'recipient',choose:'Choose a recipient to send the form to.'});CKEDITOR.lang['en'].fakeobjects['sendtofield']='recipient';

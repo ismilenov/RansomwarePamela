@@ -1,0 +1,2 @@
+
+CKEDITOR.plugins.setLang('insertscript','en',{insertjs:'Insert JavaScript',choose:'Please choose your Javascripts from <strong>/includes/javascript</strong> folder,<br />you want to insert in HEAD section of your page.'});

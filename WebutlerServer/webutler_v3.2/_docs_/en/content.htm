@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contentverzeichnis</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'content.htm');
+					localStorage.setItem('flink', 'content');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Content Directory</h1>
+	<p>In the directory /content editable by all Webutler files are stored. The directory and all subdirectories must be writable.
+</p>
+	<h2>Directory /media</h2>
+	<p>In the /media directory are all in the media browser selectable or uploaded to the server files like images, videos or PDFs. FLV and MP3 files must be loaded into the subdirectory /track if they are to be playable on the integrated players.
+</p>
+	<h2>The directories /pages, /menus und /blocks</h2>
+	<p>In these directories, you will find all pages, menus and blocks.
+</p>
+	<h2>Directory /layouts</h2>
+	<p>This directory contains various layout files of the homepage is stored. Layouts are the templates used to create new pages. Any layout can be created. Columnar, multi-column, one or more processing areas, different menus for different page ranges to be, what you want.
+</p>
+	<h2>Directory /pattern</h2>
+	<p>The files from /pattern/files are loaded directly into the editor toolbar. The templates are placeable in the editing area of ​​the editor over &quot;Insert Template&quot;. New templates can created by using &quot;System &gt; Pattern&quot;. 
+</p>
+	<h2>Directory /columns</h2>
+	<p>The directory contains the CSS file for the columns elements. The file is automatically loaded into all pages.
+</p>
+	<h2>Directory /style</h2>
+	<p>Here all stylesheet files of the website are stored.<br /><br />
+		CSS classes for the Styles drop in the editor are loaded directly from the stylesheet files. The prerequisite is that the HTML element stands in front of the class.<br /><br />
+		<span class="einzug"><strong>Example:</strong></span><br />
+		<span class="einzug">.blackborder { border: 1px solid #000; } - is <strong>not</strong> displayed in the editor</span><br />
+		<span class="einzug">img.blackborder { border: 1px solid #000; } - is displayed in the editor</span>
+</p>
+	<h2>Directory /access</h2>
+	<p>In the directory /access various files, such as are access control, the language settings or the user database stored.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

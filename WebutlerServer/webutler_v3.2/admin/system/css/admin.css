@@ -1,0 +1,154 @@
+
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+
+html, body {
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	overflow: auto;
+	background-color: #FFFFFF;
+}
+
+body, td, div, input, select, a {
+	font-family: Verdana, Arial, Helvetica, sans-serif !important;
+	font-size: 10px !important;
+	color: #333333 !important;
+	line-height: 12px !important;
+    outline: none;
+}
+
+.webutler_input {
+    margin: 0px;
+    padding: 2px 3px;
+	border: 1px solid #888888;
+	border-radius: 3px;
+    width: 152px;
+    height: 14px;
+}
+
+.webutler_select {
+    margin: 0px;
+    padding: 0px;
+	border: 1px solid #888888;
+	border-radius: 3px;
+    width: 160px;
+    height: 20px;
+}
+
+.webutler_select option {
+    padding: 1px 3px;
+}
+
+.webutler_button {
+    margin: 0px;
+    padding: 1px 8px;
+	border: 1px solid #888888;
+	border-radius: 3px;
+    width: 160px;
+    height: 20px;
+	background-image: linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -moz-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -webkit-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -ms-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -o-linear-gradient(top, #f3f2f2, #cfcdcc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f2f2', endColorstr='#cfcdcc');
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_install {
+	position: absolute;
+	left: 50%;
+	width: 400px;
+	margin-left: -206px;
+	padding: 5px;
+	border: 1px solid #333333;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+	background: #eaeaea;
+	text-align: left;
+}
+
+.webutler_installlangs {
+	border: 1px solid #888888;
+	border-radius: 3px;
+	display: inline-block;
+	text-align: center;
+	background-color: #ffffff;
+	padding: 8px;
+	margin: 8px;
+	white-space: nowrap;
+}
+
+.webutler_installlangs .webutler_langradio {
+	padding: 0px;
+	margin: 0px;
+}
+
+.webutler_installlangs img {
+	margin-left: 5px;
+}
+
+.webutler_installlangs .webutler_installflag {
+	border: 1px solid #777777;
+	width: 14px;
+	height: 9px;
+	font-family: Arial !important;
+	font-size: 9px !important;
+	line-height: 9px !important;
+	text-align: center;
+	display: inline-block;
+	overflow: hidden;
+	margin-left: 5px;
+}
+
+#webutler_installnext {
+    padding: 5px;
+	text-align: center;
+}
+
+table td.webutler_loginborder {
+	border: 1px solid #333333;
+	padding: 10px;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+	background: #eaeaea;
+	-moz-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+table td.webutler_loginborder td {
+	text-align: left;
+}
+
+table td.webutler_loginborder strong {
+	font-size: 11px;
+}
+
+.webutler_input.webutler_loginput {
+    width: 122px;
+}
+
+.webutler_button.webutler_logbutton {
+    width: 130px;
+}
+
+.webutler_errortext {
+    width: 80%;
+	padding: 200px 10%;
+	text-align: center;
+}

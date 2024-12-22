@@ -1,0 +1,2 @@
+
+CKEDITOR.plugins.setLang('formsendto','de',{properties:'Empfänger Eigenschaften',recipient:'Empfänger',choose:'Wählen Sie den Empfänger an den das Formular gesendert werden soll.'});CKEDITOR.lang['de'].fakeobjects['sendtofield']='Empfänger';

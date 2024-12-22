@@ -1,0 +1,96 @@
+
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+
+
+.wb_contentelement {
+    outline: 1px dashed #D50C0C !important;
+}
+
+.wb_colgroup:before, .wb_colgroup:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+}
+
+.wb_blockelement, .wb_menuelement {
+    outline: 1px dashed #120EAF !important;
+}
+
+.wb_contentelement .wb_colgroup .wb_colalign_top,
+.wb_contentelement .wb_colgroup .wb_colalign_middle,
+.wb_contentelement .wb_colgroup .wb_colalign_bottom,
+.wb_contentelement .wb_colgroup .wb_colalign_full  {
+    outline: 1px dashed #b2b2b2 !important;
+}
+
+.WBeditor_blockframe {
+	background-image: url('../images/blank.gif');
+}
+
+.WBeditor_menuframe {
+	background-image: url('../images/blank.gif');
+}
+
+#WBeditor_toolbar {
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	z-index: 9000;
+}
+
+#WBeditor_linealdiv {
+    display: none;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+	width: 100%;
+	height: 100%;
+    top: 0px;
+    left: 0px;
+    cursor: crosshair;
+    z-index: 8999;
+}
+
+#WBeditor_movediv {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+	height: 100%;
+    z-index: 8920;
+    background-color: #ffffff;
+	filter: alpha(opacity=10);
+	opacity: 0.1;
+}
+
+#WBeditor_paintdiv {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+	height: 100%;
+    z-index: 8930;
+}
+
+#WBeditor_massdivx, #WBeditor_massdivy {
+    display: none;
+    position: absolute;
+    width: 44px;
+    height: 12px;
+    background-color: #ffffff;
+    border: 1px dotted #ff0000;
+    font-family: verdana;
+    font-size: 10px;
+    line-height: 11px;
+    color: #000000;
+    text-align: center;
+    z-index: 8940;
+}
+

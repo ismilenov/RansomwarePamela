@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Administration</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.link {
+            cursor: pointer;
+            cursor: hand;
+            text-decoration: underline;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'admin.htm');
+					localStorage.setItem('flink', 'admin');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Administration</h1>
+	<h2>Verzeichnisstruktur</h2>
+	<p>Das System ist größtenteils dateibasiert. Für die Benutzerverwaltung und für manche Module, muß der Server SQLite3 unterstützen.
+</p>
+<ul>
+    <li>
+        Das <strong>/admin</strong> Verzeichnis enthält die Editoren sowie die Bearbeitungs- und Speicherscripte.
+    </li>
+    <li>
+        Im Verzeichnis <strong>/settings</strong> liegen die Konfigurationsdateien.
+    </li>
+    <li>
+        Das Verzeichnis <strong>/content</strong> sowie alle Unterverzeichnisse und Dateien müssen beschreibbar sein, CHMOD setzen laut den Angaben des Providers. In /content befinden sich alle von der Administration aus bearbeitbaren Dateien.
+    </li>
+    <li>
+        In <strong>/includes</strong> sind ein paar Basiserweiterungen abgelegt, die (mehr oder weniger) direkt mit der Administration zusammenarbeiten.
+    </li>
+    <li>
+        Das Verzeichnis <strong>/modules</strong> ist der Platz für eigene Erweiterungen.
+    </li>
+</ul>
+	<h2>Vorhandene HTML-Seiten integrieren</h2>
+	<h3>HTML5 Doctype</h3>
+	<p>Der Webutler und die Editoren bauen auf dem Darstellungsmodus von HTML5 auf.<br />
+	<span class="einzug">&lt;!DOCTYPE html&gt;</span><br />
+	Wer Webseiten im Quirks Mode (ohne Doctype), in HTML 4 oder XHTML erstellt hat sollte sie erstmal auf HTML5 umstellen, um plötzlichen Änderungen in der Darstellung aus dem Weg zu gehen.
+</p>
+	<h3>Die Welt spricht UTF-8</h3>
+	<p>Sowohl der Webutler als auch der CKEditor arbeiten mit dem Unicode-Zeichensatz. Damit es keine Probleme mit Umlauten oder anderen Sonderzeichen gibt müssen alle Dateien, die <strong>nicht</strong> mit dem Webutler erstellt wurden, in UTF-8 gespeichert werden. Zwei Dinge gilt es zu beachten:
+</p>
+    <ol>
+        <li>Die Dateien selbst müssen als &quot;UTF-8 ohne BOM&quot; gespeichert werden. Dazu muß man natürlich einen Unicode-fähigen Editor benutzen, z.B. Notepad++ oder PSPad.</li>
+        <li>Die Charset Angabe im Header der Datei muß angepasst werden:<br />
+        <span class="einzug">&lt;meta charset=&quot;utf-8&quot; /&gt;</span></li>
+    </ol>
+	<h3>Seiten anpassen/umstellen</h3>
+	<p>Fertige HTML-Seiten lassen sich recht unproblematisch in den Webutler einfügen. Alle Vorbereitungen sollten lokal erfolgen. Daß sie in UTF-8 und HTML5 sind wird an dieser Stelle vorrausgesetzt. Folgende Anpassungen sind zwingend erforderlich:
+</p>
+    <ol>
+        <li>kopieren Sie Ihre CSS-Dateien nach /content/style</li>
+        <li>kopieren Sie Ihre Javascripte nach /includes/javascript</li>
+        <li>kopieren Sie Bilder und andere eingebundene Medien in die vorgesehenen Unterverzeichnisse von /content/media</li>
+        <li>öffnen Sie Ihre HTML-Seiten
+        <ul>
+            <li>passen Sie die Pfade zu den CSS-, Javascript- und Mediendateien an<br />
+                (evtl. müssen auch Pfade in den Dateien selbst angepasst werden)</li>
+            <li>ersetzen Sie alle Links zu Ihren Seiten: aus DATEINAME.html wird index.php?page=DATEINAME</li>
+            <li>Dateinamen dürfen nur aus Buchstaben, Ziffern und dem Unterstrich bestehen (keine Umlaute oder Slashs)</li>
+            <li>speichern Sie alle Seiten ohne Dateiendung in /content/pages</li>
+            <li>Unterverzeichnisse können mit den Kategorien simuliert werden (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)</li>
+        </ul>
+        </li>
+    </ol>
+	<p>Außerdem können noch folgende Änderungen, die die Pflege der Homepage wesentlich erleichtern, gemacht werden. Wer diese Möglichkeit nicht nutzen möchte, sollte die Einstellung $webutler_config['fullpageedit'] in der Datei &quot;/settings/globalvars.php&quot; auf &quot;1&quot; setzen.
+</p>
+    <ol>
+        <li>Im HTML-Quellcode können Platzhalter für Menüs, Blöcke und bearbeitbare Bereiche gesetzt werden.
+        <ul>
+            <li>öffnen Sie Ihre Seiten aus /content/pages</li>
+            <li>schneiden Sie die Menüs aus Ihren Seiten und speichern Sie sie im Ordner /content/menus</li>
+            <li>Header- und/oder Footerzeilen können ebenfalls ausgeschnitten und in /content/blocks gespeichert werden</li>
+            <li>setzen Sie die Platzhalter (Kommentare) für die Menüs und Blöcke (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)</li>
+            <li>setzen Sie die Kommentare für bearbeitbare Bereiche (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)</li>
+            <li>setzen Sie die Klassen &quot;wb_menuelement&quot;, &quot;wb_blockelement&quot;, &quot;wb_contentelement&quot; und ggf. &quot;wb_columnselement&quot; (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)</li>
+        </ul>
+        </li>
+        <li>alle Dateinamen in /menus, /blocks und /pages müssen ohne Endung gespeichert werden</li>
+        <li>kopieren Sie Seiten mit verschiedenen Layouts von /pages nach /layouts
+        <ul>
+            <li>entfernen Sie alle Inhalte zwischen &lt;!-- begin_content --&gt; und &lt;!-- end_content --&gt;</li>
+            <li>speichern Sie die Seite als LAYOUTNAME.tpl</li>
+        </ul>
+        </li>
+    </ol>
+	<p>Das wars, jetzt noch alles auf den Webspace und die Seite sollte funktionieren. Wenn nicht, nochmal alle Punkte genau kontrollieren. Stimmen alle Pfade und Dateinamen? Dateinamen dürfen keine Leerzeichen, Bindestriche oder Umlaute enthalten.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

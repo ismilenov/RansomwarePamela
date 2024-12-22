@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.1 - www.webutler.de
+            Copyright (c) 2008 - 2012
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.0-2.1.htm');
+					localStorage.setItem('flink', 'update_21');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.0 » V2.1</h1>
+	<p>FCKeditor was replaced by CKEditor and EditArea by CodeMirror. In addition, the Webutler has been extended to operate multilingual pages.
+</p>
+	<p>The Webutler plugins and settings for the CKEditor are completely outsourced, so that a straightforward update to newer versions of CKEditor is possible. If you want to update the editor itself, may except &quot;/wb_ckeplugins&quot;, &quot;/wb_ckeskin&quot; and &quot;wb_ckeconfig.js&quot; from the /admin/ckeditor delete everything and upload a new version. If you want to avoid mistakes, you should test everything locally first.
+</p>
+	<h2>What to do?</h2>
+	<ol>
+		<li>Using FTP, delete the complete directory /admin</li>
+		<li>Upload the new /admin directory</li>
+		<li>Overwrite the file &quot;/index.php&quot; with the new file.</li>
+		<li>Override the &quot;/includes/functions.php&quot; file with the new file.</li>
+		<li>Copy the &quot;/content/access/offline.php&quot; file on the server.</li>
+		<li>Copy the directory &quot;/includes/languages&quot; on the server.</li>
+		<li>Mail recipients can now be created in the Administration and selected in the editor.
+		<ul>
+			<li>The variables $formsent from the config.php of the form module must be transferred to the Administration.</li>
+			<li>Using FTP, delete the directory /includes/forms, before uploading modified settings (config.php, logo file) into the new files.</li>
+			<li>Upload the new /forms directory</li>
+		</ul>
+		</li>
+		<li>CKEditor uses to load its own styles and templates now Javascripts instead of XML files.<br />
+			If the files /content/style/fckstyles.xml and /fcktemplates.xml have been changed:
+			<ul>
+				<li>Download the files fckstyles.xml and fcktemplates.xml from /content/style </li>
+				<li>Transfer the own styles in the file &quot;ckestyles.js&quot;</li>
+				<li>Transfer the own templates in the file &quot;cketemplates.js&quot;</li>
+				<li><strong>Important!</strong> Pay attention to the formatting according to the examples</li>
+				<li>delete fckstyles.xml and fcktemplates.xml of /content/style from the server</li>
+				<li>Load the files ckestyles.js and cketemplates.js to /content/style on the server<br />
+					In addition, copy the folder /content/media/image/tpl_icons to /content/media/image to the server. The directory contains the template previews.</li>
+			</ul>
+		</li>
+		<li>In the &quot;baseconfig.php&quot; file the variable $webutler_config['watermark_imgdir'] came about. This you have to add in your baseconfig.php.</li>
+		<li>In the file &quot;globalvars.php&quot;, the following variables must be added:<br />
+			<ul>
+				<li>$webutler_config['urlgetvars'] for the number of URL GET parameter</li>
+				<li>$webutler_config['languages'] and $webutler_config['setnewlang'] for the languages ​​administration</li>
+				<li>$webutler_config['fullpageedit'] for the placement of the menu item &quot;Edit current page&quot;</li>
+				<li>$webutler_config['adminnewpage'] and $webutler_config['admindelpage'] &quot;Add page&quot; to display the window &quot;Delete page&quot; and</li>
+				<li>$webutler_config['adminlayouts'], $webutler_config['adminmenus'] and $webutler_config['adminblocks'] for the editing features of layouts, menus and blocks in the &quot;Advanced administrator functions&quot; window</li>
+				<li>$webutler_config['mediabrowser_wh'] and $webutler_config['imageeditor_wh'] as a central adjustment for the size of the media browser and image editor popup windows</li>
+			</ul><br />
+			These new variables can be copied from the new globalvars.php out.
+		</li>
+		<li>The Google Maps plugin editor now uses the new Maps API V3. It's just a simple plugin with a site with info window (bubble) can be specified. In the new API, you need no more key. Created with the FCKeditor maps can not be edited with the new plugin. If you want to change, you must delete the old map and create a new one. On one page, only <strong>one</strong> map can be placed.</li>
+		<li><strong>Multilingualism:</strong> If you want to change an existing page on multilingualism has yet to update the following modules. Who does not need multilingualism or the affected modules, may waive the update.<br />
+			<ol>
+				<li>The search function (directory: /includes/search):<br />
+					<ul>
+						<li>Accept the entries from the old config.php in the new config.php.</li>
+						<li>In the entries of the include pages plugins.php expand.</li>
+						<li>Who wbsearch.css changes to the files or did wbsearch.tpl, it must also take into the new files.</li>
+						<li>Delete the old directory from the server, the new upload.</li>
+					</ul>
+				</li>
+				<li>The user management (directory: /modules/users):<br />
+					<ul>
+						<li>Accept the entries from the old config.php in the new config.php.</li>
+						<li>Download the image for mail delivery, and copy the new module directory.</li>
+						<li>Who sendmail.php changes to the files, loginblock.css, loginblock.tpl, userspage.css or has made userspage.tpl, it must also take into the new files.</li>
+						<li>Delete the old directory from the server, the new upload.</li>
+					</ul>
+				</li>
+				<li>The news module (directory: /modules/news):<br />
+					<ul>
+						<li>Back up /config.php file, the database (/db/news.sqlite) and the /img directory</li>
+						<li>Delete the old news module from the server</li>
+						<li>Load the new news module on the server</li>
+						<li>The backed up files config.php and news.sqlite and load the images from the directory /img to the server</li>
+						<li>config.php file and enter the /db and /img with its contents CHMOD 777</li>
+						<li>Call the file &quot;update_newsdb_20-21.php&quot; in the browser and perform the database update</li>
+						<li>The update_newsdb_20-21.php can be deleted after the update</li>
+					</ul><br />
+					The enhancements to the admin interface and are visible only when multilingualism in the globalvars.php is enabled.
+				</li>
+			</ol>
+		</li>
+	</ol>
+</div>
+</body>
+</html>

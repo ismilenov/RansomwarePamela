@@ -1,0 +1,24 @@
+<nav id="navi">
+	<div id="navtoggle"><img alt="toggle menu" onclick="document.getElementById('navmenu').style.display = (document.getElementById('navmenu').style.display != 'block' ? 'block' : '');" src="content/media/image/layout/toggle.png" /></div>
+	<ul id="navmenu">
+		<li><a href="index.php?page=start">Home</a></li>
+		<li><a href="index.php?page=company">Company</a></li>
+		<li><a href="index.php?page=services">Services</a>
+		<ul>
+			<li><a href="index.php?page=service_1a">Service 1a</a></li>
+			<li><a href="index.php?page=service_1b">Service 1b</a></li>
+			<li><a href="index.php?page=service_1c">Service 1c</a>
+			<ul>
+				<li><a href="index.php?page=service_2a">Service 2a</a></li>
+				<li><a href="index.php?page=service_2b">Service 2b</a></li>
+				<li><a href="index.php?page=service_2c">Service 2c</a></li>
+			</ul>
+			</li>
+			<li><a href="index.php?page=service_1d">Service 1d</a></li>
+		</ul>
+		</li>
+		<li><a href="index.php?page=news">News</a></li>
+		<li><a href="index.php?page=gallery">Gallery</a></li>
+		<li><a href="index.php?page=contact">Contact</a></li>
+	</ul>
+</nav>

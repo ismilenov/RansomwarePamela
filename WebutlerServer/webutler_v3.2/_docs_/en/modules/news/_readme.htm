@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>News-Modul</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'modules/news/_readme.htm');
+					localStorage.setItem('flink', 'news');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>News module</h1>
+	<p>The news module was created with the ModMaker and should also be an example, of how a ModMaker module looks like. It has its own administration area, the link to the administration, can be set in the file &quot;/settings/modulebox.php&quot;.<br /><br />
+		<span class="einzug">Path to administration: &quot;news/admin.php&quot;</span><br />
+		<span class="einzug">$webutler_moduleslist[] = array('News', 'news/admin.php');</span><br /><br />
+		Image sizes can be set in file &quot;/data/config.php&quot;.<br />
+		The file &quot;/data/news.db&quot; and the directory &quot;/media&quot; and all subdirectories and files must be writable, CHMOD set according to the data of the provider.<br /><br />
+		Create a new page and includen the file &quot;view.php&quot; in the content area.<br /><br />
+		<span class="einzug">&lt;?PHP require &quot;modules/news/view.php&quot;; ?&gt;</span>
+</p>
+	<p>There is also a &quot;latest news&quot; view. These can be displayed on any page, it only needs the page to be specified.<br /><br />
+		<span class="einzug">&lt;?PHP</span><br />
+		<span class="einzug"><span class="einzug">$_MMVAR['newsnewest'] = '1';</span></span><br />
+		<span class="einzug"><span class="einzug">$_MMVAR['newsmodpage'] = 'newspage'; //newspage = name of the page that loads the module</span></span><br />
+		<span class="einzug"><span class="einzug">require 'modules/news/view.php';</span></span><br />
+		<span class="einzug">?&gt;</span><br /><br />
+		The module database is filled with sample data. The news.db.bak file is an empty database. To delete all of the sample data just delete the /data/news.db file and rename the file news.db.bak in news.db<br /><br />
+		In order to integrate the news into the search function, simply enter the module name and the module page in the file /settings/searching.php:<br />
+		<span class="einzug">$webutler_modulesearches[] = array('news', 'newspage');</span><br /><br />
+		By the same token, the news can be integrated into the sitemap, simply enter module name and module page in the file /settings/sitemaps.php:<br />
+	<span class="einzug">$webutler_modulesitemaps[] = array('news', 'newspage');</span>
+</p>
+	<h2>Own news module</h2>
+	<p>Everyone who is not satisfied with the functionality, a news module with the ModMaker can simply click together according to own wishes - for example: multilingual, with categories or multiple images.
+</p>
+</div>
+</body>
+</html>

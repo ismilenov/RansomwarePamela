@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Funktionen</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.small {
+            font-family: arial;
+            font-size: 9px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'functions.htm');
+					localStorage.setItem('flink', 'functions');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Funktionen und Funktionsweise</h1>
+	<h2>Layoutdatei erstellen</h2>
+	<p>Eine Layoutdatei ist eine ganz normale HTML-Seite mit allem was dazu gehört. Layoutdateien dienen als Vorlage zum erstellen neuer Seiten und werden mit der Endung .tpl im Verzeichnis /content/layouts gespeichert.	
+</p>
+	<h2>Platzhalter für Menüs, Blöcke und bearbeitbare Bereiche setzen</h2>
+	<p><strong>Wichtig!</strong> Wenn keine Platzhalter vergeben und keine Menü- und Blockdateien angelegt werden, erscheint der Punkt &quot;Bearbeiten&quot; <strong>nicht</strong> im Adminmenü. Wenn diese Funktionsweise erwünscht ist, kann in der Datei &quot;/settings/globalvars.php&quot; die Variable $webutler_config['fullpageedit'] auf 1 gesetzt werden, um den Punkt &quot;Aktuelle Seite bearbeiten&quot; ins Adminmenü zu verschieben. <strong>!!!</strong>
+</p>
+	<h3>Mit Platzhaltern arbeiten</h3>
+	<p>Damit neue Links automatisch auf allen Seiten erscheinen, können Menüs in separaten Dateien gespeichert werden. Damit ein Menü geladen wird, muß der Dateiname mit Kommentarfeldern in die Layoutdatei bzw. Seite geschrieben werden. Format:
+	<br /><br />
+	<span class="einzug">&lt;!-- begin_menu_MENÜDATEINAME --&gt;</span><br />
+	<span class="einzug"><span class="einzug">&lt;!-- menu_MENÜDATEINAME --&gt;</span></span><br />
+	<span class="einzug">&lt;!-- end_menu_MENÜDATEINAME --&gt;</span><br /><br />
+	Blöcke bieten sich an, wenn ein Inhalt auf verschiedenen Seiten angezeigt werden soll und man diesen Inhalt zentral ändern möchte. Die Formatierung ist gleich der für Menüs:<br /><br />
+	<span class="einzug">&lt;!-- begin_block_BLOCKDATEINAME --&gt;</span><br />
+	<span class="einzug"><span class="einzug">&lt;!-- block_BLOCKDATEINAME --&gt;</span></span><br />
+	<span class="einzug">&lt;!-- end_block_BLOCKDATEINAME --&gt;</span><br /><br />
+	Inhaltsbereiche, die sich im Editor öffnen sollen, werden in Kommentare eingefasst. Format:<br /><br />
+	<span class="einzug">&lt;!-- begin_content --&gt;</span><br />
+	<span class="einzug"><span class="einzug">bearbeitbarer Inhalt</span></span><br />
+	<span class="einzug">&lt;!-- end_content --&gt;</span><br /><br />
+    Die Kommentare sollten von einem HTML-Blockelement (am besten DIV) umschlossen sein und dürfen <strong>nicht</strong> verschachtelt werden, z.B. ein Menü innerhalb von &lt;!-- begin_content --&gt; und &lt;!-- end_content --&gt;.
+</p>
+	<h3>Wichtig!</h3>
+	<p><strong>Alle Menüs müssen als &quot;Unordered List = UL&quot; angelegt sein, damit sie mit den vorgesehenen Funktionen des Editors bearbeitet werden können!</strong>
+</p>
+	<h3>Eigene Fehlerseite</h3>
+	<p>Wenn eine eigene Fehlerseite angelegt wird, muß zur Ausgabe der Fehlermeldung folgendes in der Datei stehen:
+	<br /><br />
+	<span class="einzug">&lt;?PHP echo $webutlercouple->errorpagetext; ?&gt;</span><br />
+</p>
+	<h2>Spalten-Elemente</h2>
+	<p>Für ein reibungsloses einfügen neuer Spalten-Elemente ist die Vergabe von CSS-Klassen an die verschiedenen Seitenelemente zwingend erforderlich.
+</p>
+	<p>Wer die Spalten-Elemente nicht nutzen möchte, kann in der Datei /settings/globalvars.php die Variable $webutler_config['insertcolumn'] auf 0 setzen.
+</p>
+	<h3>Elemente durch CSS-Klassen kennzeichnen</h3>
+	<p><span class="einzug">wb_menuelement - für Menüs</span><br />
+	<span class="einzug">wb_blockelement - für Blöcke</span><br />
+	<span class="einzug">wb_contentelement - für bearbeitbaren Inhalt</span><br />
+	Die Klassen müssen an ein umschliessendes DIV vergeben werden. Andere Elemente wie SECTION, HEADER, FOOTER etc. werden nicht unterstützt.
+</p>
+	<p>Die Spalten-Elemente selbst haben die Klasse<br />
+	<span class="einzug">wb_columnselement</span>
+</p>
+	<p>Alle 4 Klassen werden benötigt damit neue Spalten-Elemente nur außerhalb von DIVs mit diesen Klassen eingefügt werden. Wenn die Klassen nicht gesetzt werden, könnten Verschachtelungen entstehen, die die Administration <strong>unbedienbar</strong> machen würden.
+</p>
+	<p>wb_menuelement und wb_blockelement ersetzen außerdem die alte Klasse &quot;block_border&quot; und wb_contentelement ersetzt die Klasse &quot;content_border&quot;.
+</p>
+	<h3>Neue Spalten einfügen</h3>
+	<p>Unter dem Menüpunkt Seite &gt; Spalten wird das neue Spalten-Element konfiguriert. Nachdem das Element ausgewählt wurde, kann es <strong>vor</strong> oder <strong>nach</strong> jedem in der Seite befindlichem DIV mit einem der 4 CSS-Klassen eingefügt werden. Wenn keine der Klassen existiert, können keine Spalten ausgewählt werden. Es sollte deshalb mindestens einmal die Klasse <strong>wb_contentelement</strong> in der Seite (bzw. Layoutdatei) stehen.
+</p>
+	<h3>Spalten bearbeiten</h3>
+	<p>Spalten-Einstellungen wie z.B. Abstände können in der CSS-Datei &quot;columns/columns.css&quot; vorgenommen werden. Zu finden unter System &gt; Stylesheets.
+</p>
+	<h3>Spalten löschen</h3>
+	<p>Alle mit den Klassen <strong>wb_contentelement</strong> oder <strong>wb_columnselement</strong> gekennzeichneten Spalten-Elemente können gelöscht werden.
+</p>
+	<h3>Spalten im Editor</h3>
+	<p>Wenn Spalten im Editor eingefügt werden, werden sie mit grauer Umrandung gekennzeichnet.
+</p>
+	<h2>Menüpunkte highlighten</h2>
+	<p>Dem Menüpunkt der aktuellen Seite kann mit einer CSS-Klasse ein anderes Aussehen gegeben werden. Wenn ein verschachteltes Menü genutzt wird, kann die Klasse auch den Eltern-Elementen zugewiesen werden. Bei mehreren Menüs ist für jedes Menü eine andere Klasse möglich.
+</p>
+	<h2>Seiten kategorisieren</h2>
+	<p>Virtuelle Kategorien können angelegt werden. Seiten werden einer Kategorie zugeordnet und bei Aufruf erscheint die Kategorie in der URL. Kategorien sind nur in der URL sichbar.
+</p>
+	<h3>Kategorien highlighten</h3>
+	<p>Das Hervorheben von Kategorien funktioniert ähnlich wie das Hervorheben von Eltern-Elementen bei einem verschachteltem Menü, stellt dabei aber eine Verbindung zwischen 2 separaten Menüs her.<br />
+	Es können beliebig viele Unterkategorien und Untermenüs gesetzt werden.
+</p>
+	<p><strong>Beispiel:</strong><br />
+	1. Es gibt ein Hauptmenü mit dem Menüpunkt &quot;Services&quot;, der die Seite &quot;info.phtml&quot; aufruft.<br />
+	2. Auf der Seite &quot;info.phtml&quot; gibt es ein zweites Menü mit den Seiten &quot;service1.phtml&quot; und &quot;service2.phtml&quot;.<br />
+	Jetzt will man, daß der Menüpunkt Services (Seite info.phtml) hervorgehoben wird, wenn man auf den Seiten service1.phtml oder service2.phtml ist. Dafür setzt man einfach alle 3 Seiten in eine Kategorie, z.B. &quot;service&quot;, setzt eine CSS-Klasse für die Kategorie im Hauptmenü und das Häckchen bei &quot;auch aktuelle Kategorie hervorheben&quot;.
+</p>
+	<p><strong>Ergebnis:</strong><br />
+	Ruft man die Seite service1.phtml oder service2.phtml aus dem zweiten Menü auf, wird die Seite info.phtml im Hauptmenü hervorgehoben.
+</p>
+	<p>Wird das Häckchen bei &quot;auch aktuelle Kategorie hervorheben&quot; nicht gesetzt, wird die Seite info.phtml nicht hervorgehoben. Werden die Seiten service1.phtml und service2.phtml jedoch in eine Unterkategorie, z.B. &quot;service/subservice&quot;, gesetzt, muß das Häckchen nicht gesetzt werden und info.phtml, also die Kategorie &quot;service&quot; wird hervorgehoben.
+</p>
+	<p><strong>Wichtig!</strong> Wenn im selben Menü mehrere Seite die gleiche Kategorie nutzen, werden alle diese Seiten hervorgehoben.
+</p>
+	<h2>Javascript und PHP Code</h2>
+	<p>&lt;script&gt; ... &lt;/script&gt; und &lt;?PHP ... ?&gt; Codeschnippsel dürfen nur im &lt;head&gt; und &lt;body&gt; Bereich einer Seite eingefügt werden. Codeschnippsel die außerhalb von &lt;head&gt; und &lt;body&gt; gesetzt werden bringen die Validierung im Editor durcheinander.
+</p>
+	<p>Mit der Variablen $webutler_config['codeicon'] = &quot;1&quot; in der globalvars.php können Codeschnipsel via Icon sichtbar gemacht werden. <strong>Die Icons funktionieren nicht immer problemlos!</strong> Icons sind Bilder und Bilder sind nicht an jeder Stelle im Quellcode valide. Hat man z.B. eine Liste und möchte einzelne Listenelemente per PHP steuern, könnte der Quelltext so aussehen:
+</p>
+	<p>
+	<span class="einzug">&lt;ul&gt;</span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Punkt 1&lt;/li&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;?PHP if($a == 1) { ?&gt;&lt;li&gt;Punkt 2&lt;/li&gt;&lt;?PHP } ?&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Punkt 3&lt;/li&gt;</span></span><br />
+	<span class="einzug">&lt;/ul&gt;</span>
+</p>
+	<p>Im Editor sieht die Liste so aus:
+</p>
+	<p>
+	<span class="einzug">• Punkt 1</span><br />
+	<span class="einzug">[<span class="small">&lt;&gt;</span>] • Punkt 2 [<span class="small">&lt;&gt;</span>]</span><br />
+	<span class="einzug">• Punkt 3</span>
+</p>
+	<p>Gespeichert wird aber:
+</p>
+	<p>
+	<span class="einzug">&lt;?PHP if($a == 1) { ?&gt;&lt;?PHP } ?&gt;</span><br />
+	<span class="einzug">&lt;ul&gt;</span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Punkt 1&lt;/li&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Punkt 2&lt;/li&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Punkt 3&lt;/li&gt;</span></span><br />
+	<span class="einzug">&lt;/ul&gt;</span>
+</p>
+	<p>Wie man sehen kann wurden die Codeschnipsel vor das Blockelement (UL) verschoben. Default für $webutler_config['codeicon'] ist 0. Die Variable sollte nur auf 1 gesetzt werden, wenn Codeschnipsel, als &lt;img /&gt; gesehen, valide im Quellcode stehen.
+</p>
+	<h2>Zusätzliche Header- / Footerdateien</h2>
+	<p>Dateien wie CSS oder Javascript können dynamisch in eine oder alle Seiten geladen werden. Dafür muß die Datei an die Seite übergeben werden. Es 2 Möglichkeiten. Wenn allgemeine Dateien in alle Seiten eingefügt werden sollen, können sie über die Datei &quot;settings/extradata.php&quot; geladen werden. Einfach die folgenden Zeilen in die Datei kopieren:<br /><br />
+	<span class="einzug">$webutler_autoheaderdata[] = '&lt;script src=&quot;headerscript.js&quot;&gt;&lt;/script&gt;';</span><br />
+	<span class="einzug">$webutler_autofooterdata[] = '&lt;script src=&quot;footerscript.js&quot;&gt;&lt;/script&gt;';</span><br /><br />
+	Wenn Dateien über Module geladen werden sollen, kann man folgendes in die Includedatei eingefügen:<br /><br />
+	<span class="einzug">$webutlercouple->autoheaderdata[] = '&lt;script src=&quot;headerscript.js&quot;&gt;&lt;/script&gt;';</span><br />
+	<span class="einzug">$webutlercouple->autofooterdata[] = '&lt;script src=&quot;footerscript.js&quot;&gt;&lt;/script&gt;';</span>
+</p>
+	<h2>Sessiondaten</h2>
+	<p>Machmal ist es nützlich den Dateinamen der letzten Seite zu kennen, z.B für Weiterleitungen oder als Alternative zu &quot;history.back()&quot;. Dafür kann auf die Sessionvariable  $_SESSION['history']['lastpage'] zugegriffen werden.<br /><br />
+	Wenn die Benutzerverwaltung installiert ist, werden die Authentifizierungsdaten des Users in der Sessionvariablen $_SESSION['userauth'] gespeichert.<br /><br />
+	Bei mehrsprachigen Seiten kann mit der Sessionvariablen $_SESSION['language'] die vom Besucher gewählte Sprache abgefragt werden.
+</p>
+	<h2>Formulare</h2>
+	<p>In jedes auf einer Seite befindliche Formular wird ein zusätzliches, verstecktes Feld eingefügt. Sobald von einer Seite ein Formular per POST verschickt wird, wird der Wert des versteckten Feldes mit dem Wert der Sessionvariablen $_SESSION['antixpost'] verglichen. Das Formular wird nur versendet, wenn die Werte übereinstimmen. Diese Funktionsweise soll dabei helfen Spammerei ein wenig einzudämmen.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

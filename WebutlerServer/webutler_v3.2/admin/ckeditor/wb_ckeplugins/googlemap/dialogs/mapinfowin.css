@@ -1,0 +1,8 @@
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+.wbcke_maps_win{width:250px;height:160px;background-image:url('../images/infowin.png');background-repeat:no-repeat;background-position:center center;position:absolute;margin:-230px 0 0 100px;}.wbcke_maps_button{float:left;position:absolute;margin:15px 0 0 10px;cursor:pointer;cursor:hand;}.wbcke_maps_editor{width:203px;height:90px;margin:15px 0 0 15px;border:0;font-family:'Courier New',Monospace;font-size:12px!important;color:#000!important;word-wrap:break-word;background-color:#fff;overflow-x:hidden;overflow-y:auto;resize:none;}.cke_reset_all textarea.wbcke_maps_editor{white-space:word-wrap!important;}

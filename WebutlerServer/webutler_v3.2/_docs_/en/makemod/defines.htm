@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: block;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/defines.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Define Fields</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Data output</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Define the module fields</h1>
+	<h2>Data fields</h2>
+	<p>First, the data fields for the desired module must be defined. Assign a name for your field, the name of the database field and select the field type.
+</p>
+	<h2>Possible field types</h2>
+	<p><strong>Date field:</strong><br />
+		<span class="einzug">Creates a field for selecting a calendar date.</span>
+</p>
+	<p><strong>User name:</strong><br />
+		<span class="einzug">Stores at a visitor entering the ID of the user who posted this message and are visiting the site the user name.</span>
+</p>
+	<p><strong>Single-line text field:</strong><br />
+		<span class="einzug">Creates a single-line text field (input type=text).</span>
+</p>
+	<p><strong>Multiline text field:</strong><br />
+		<span class="einzug">Creates a multiline text field (textarea).</span>
+</p>
+	<p><strong>HTML editor:</strong><br />
+		<span class="einzug">Creates an editor to enter HTML source code (CKEditor). In this field entries are not filtered! For Visitors entries, the BBCode editor should be used.</span>
+</p>
+	<p><strong>BBCode editor:</strong><br />
+		<span class="einzug">Creates an editor for BBCode format input (CKEditor).</span>
+</p>
+	<p><strong>Number field:</strong><br />
+		<span class="einzug">Creates an input field for numbers.</span>
+</p>
+	<p><strong>File upload:</strong><br />
+		<span class="einzug">Creates a field for uploading files. In the administration of the module the file types can be limited. The visitor will see a download link to the file and a download counter.</span>
+		<span class="einzug"><strong>!!!</strong> When videos are uploaded to be played in flv player, the template variable $db_data['link_of__DB_FIELD_NAME_'] has to be encoded: rawurlencode($db_data['link_of__DB_FIELD_NAME_']).</span>
+</p>
+	<p><strong>Image upload:</strong><br />
+		<span class="einzug">Creates an upload field for a single image. An image is stored in 3 different sizes. Size for the list view, size of the data set size for the view, and Lightbox. The scaling information can later in the file /data/config.php of the created module are changed.</span>
+</p>
+	<p><strong>Multiple image upload:</strong><br />
+		<span class="einzug">Creates fields for simultaneous upload multiple images. The same applies as for a single-image upload for image sizes.</span>
+</p>
+	<p><strong>Selection field:</strong><br />
+		<span class="einzug">Produced in the administration and visitor input forms a selection field (select). The options in the selection field are defined in the Administration of the module. The visitor is shown the saved selection. Value and text can be language defines. Defines need to be set in the /view/lang directory.</span>
+</p>
+	<p><strong>Checkboxes:</strong><br />
+		<span class="einzug">Produced in the administration and visitor input forms check boxes (input type=checkbox). The values ​​of the check boxes are defined in the Administration of the module. The visitor is shown the saved selection. Value and text can be language defines, the name does not. The name may only consist of the characters A-Z, a-z, 0-9, tying dashes, underscores, and points exist. Defines need to be set in the /view/lang directory.</span>
+</p>
+	<p><strong>Hidden field:</strong><br />
+		<span class="einzug">Produced in the administration, a single-line text field for entering and visitor input forms a hidden field (input type=hidden). The visitor is shown the stored content. This field could for example store the IP of the user.</span>
+</p>
+	<p><strong>Status field:</strong><br />
+		<span class="einzug">Produced in the administration a simple checkbox to 0 or 1 stores in the database. So you can, for example, manipulate the output of data.</span>
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Modul Userpages</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/users/_readme.htm');
+					localStorage.setItem('flink', 'users');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Modul Users</h1>
+	<p>Das Modul Userpages ist eine kleine Registrierungs- und Loginfunktion für Besucher der Homepage. Als erster Schritt muß das Modul in der Administration installiert und konfiguriert werden. Die Installation ist nur möglich, wenn der Server SQLite3 unterstützt. Nach der Meldung &quot;Datenbank wurde angelegt&quot; sollten unter dem Menüpunkt Einstellungen die Grundeinstellungen vorgenommen werden.
+</p>
+    <p>Im Modul können Benutzergruppen erstellt und User in diese Gruppe einsortiert werden. Das bietet die Möglichkeit Seiten für &quot;normale&quot; Besucher zu sperren und nur für einzelne Benutzergruppen frei zu geben. Es können auch einzelne Seitenteile im Quelltext mittels der Gruppen-ID nur für eine Gruppe sichtbar geschaltet werden:<br /><br />
+	<span class="einzug">&lt;?PHP if(in_array('GROUPID', $showpartfor)) { ?&gt;</span><br />
+	<span class="einzug"><span class="einzug">gesperrter Bereich, sichtbar für GROUPID</span></span><br />
+	<span class="einzug">&lt;?PHP } ?&gt;</span>
+</p>
+	<p>Weitere Erklärungen befinden sich im Administrationsfenster.
+</p>
+	<h2>Loginblock</h2>
+    <p>
+	Als Loginmöglichkeit kann die Datei &quot;loginblock.php&quot; seitenübergreifend als Block includiert werden:<br /><br />
+    <span class="einzug">&lt;?PHP include &quot;includes/users/loginblock.php&quot;; ?&gt;</span><br /><br />
+	Das Aussehen kann in der &quot;loginblock.css&quot; verändert werden.</p>
+	<h2>Userseiten</h2>
+    <p>
+	Für die Benutzerseiten muß eine neue Seite erzeugt und die Datei &quot;userspage.php&quot; includiert werden:<br /><br />
+    <span class="einzug">&lt;?PHP include &quot;includes/users/userspage.php&quot;; ?&gt;</span><br /><br />
+	In der Datei /settings/globalvars.php kann ein Extra-Loginlink mit der Variablen $webutler_config['showuserslogin'] ein-/ausgeschaltet werden. Die Gestaltung kann in der &quot;userspage.css&quot; angepasst werden.
+</p>
+    <p>Templates für den Loginblock und die Userseiten findet man im Verzeichnis /tpls.</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Company</title>
+	<meta charset="utf-8" />
+	<meta content="index,follow" name="robots" />
+	<meta content="author of new page" name="author" />
+	<meta content="copyright (c) 2016 by author" name="copyright" />
+	<meta content="description of new page" name="description" />
+	<meta content="keyword1,keyword2,keyword3" name="keywords" />
+	<link href="content/style/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrapper">
+	<div class="wb_blockelement">
+		<!-- begin_block_header -->
+			<!-- block_header -->
+		<!-- end_block_header -->
+	</div>
+	<div class="wb_menuelement">
+		<!-- begin_menu_navi -->
+			<!-- menu_navi -->
+		<!-- end_menu_navi -->
+	</div>
+	<section><div class="layertop">
+			<div class="wb_contentelement">
+				<!-- begin_content -->
+<article>
+	<h1>Company</h1>
+
+	<p>Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet.</p>
+</article>
+
+<!-- end_content -->
+			</div>
+		</div>
+	</section><section><div class="layercontent">
+			
+<div class="wb_columnselement">
+	<div class="wb_colgroup">
+		<div class="wb_colrow">
+			<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1 greybglight">
+				<div class="wb_colalign_top wb_contentelement">
+					<!-- begin_content -->
+<article>
+	<div>
+		<img alt="" class="imgresponsive" src="content/media/image/company/leaves1.jpg" />
+	</div>
+
+	<p><span style="font-size:20px;">Velit Esse</span></p>
+
+	<p>Imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+</article>
+
+<!-- end_content -->
+				</div>
+			</div>
+			<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2 greybgdark">
+				<div class="wb_colalign_top wb_contentelement">
+					<!-- begin_content -->
+<article>
+	<div>
+		<img alt="" class="imgresponsive" src="content/media/image/company/leaves2.jpg" />
+	</div>
+
+	<p><span style="font-size:20px;">Diam Nonumy</span></p>
+
+	<p>Option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+</article>
+
+<!-- end_content -->
+				</div>
+			</div>
+			<div class="wb_colsmall_12 wb_colmedium_4 wb_collarge_4 wb_colorder_s3 wb_colorder_m3 wb_colorder_l3 greybglight">
+				<div class="wb_colalign_top wb_contentelement">
+					<!-- begin_content -->
+<article>
+	<div>
+		<img alt="" class="imgresponsive" src="content/media/image/company/leaves3.jpg" />
+	</div>
+
+	<p><span style="font-size:20px;">Justo Rebum</span></p>
+
+	<p>Wisi enim ad minim veniam ut aliquip ex ea commodo, consectetuer adipiscing elit sed diam nonummy nibh euismod tincidunt ut, quis nostrud exerci tation ullamcorper suscipit lobortis nisl laoreet dolore magna aliquam erat volutpat consequat.</p>
+</article>
+
+<!-- end_content -->
+				</article>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="margin-top: 40px" class="wb_contentelement">
+	<!-- begin_content -->
+<article>
+	<h2>Euismod tincidunt ut laoreet</h2>
+
+	<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+</article>
+
+<!-- end_content -->
+</div>
+<div style="margin-top: 30px" class="wb_columnselement">
+	<div class="wb_colgroup">
+		<div class="wb_colrow">
+			<div class="wb_colsmall_12 wb_colmedium_12 wb_collarge_8 wb_colorder_s2 wb_colorder_m2 wb_colorder_l1">
+				<div class="wb_colalign_top wb_contentelement">
+					<!-- begin_content -->
+<div class="video16x9_resp" data-source="video">
+	<video controls="controls" preload="metadata"><source src="content/media/track/leaves.mp4" type="video/mp4" />Ihr Browser unterstützt Video nicht.</video>
+</div>
+
+<!-- end_content -->
+				</div>
+			</div>
+			<div class="wb_colsmall_12 wb_colmedium_12 wb_collarge_4 wb_colorder_s1 wb_colorder_m1 wb_colorder_l2">
+				<div class="wb_colalign_top wb_contentelement">
+					<!-- begin_content -->
+<article>
+	<h2>At vero eos</h2>
+
+	<p>Et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+
+	<blockquote>
+	<p>Ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+	</blockquote>
+
+	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+</article>
+
+<!-- end_content -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		</div>
+	</section><div class="wb_blockelement">
+		<!-- begin_block_footer -->
+			<!-- block_footer -->
+		<!-- end_block_footer -->
+	</div>
+</div>
+</body>
+</html>

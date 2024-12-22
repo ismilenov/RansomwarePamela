@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Administration</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.link {
+            cursor: pointer;
+            cursor: hand;
+            text-decoration: underline;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'admin.htm');
+					localStorage.setItem('flink', 'admin');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+<h1>Administration</h1>
+	<h2>Directory structure</h2>
+	<p>The system is mostly file-based. For user management and for some modules, the server must support SQLite3.
+</p>
+<ul>
+    <li>
+		The <strong>/admin</strong> Directory contains the editors as well as the processing and storage scripts.
+	</li>
+    <li>
+		In the directory <strong>/settings</strong> are the configuration files.
+	</li>
+    <li>
+		The directory <strong>/content</strong> and all subdirectories and files must be writable, CHMOD set according to the data of the provider. In /content contains all of the administration of editable files.
+	</li>
+    <li>
+		In <strong>/includes</strong> are a few basic extensions stored, the (more or less) to work directly with the administration.
+	</li>
+    <li>
+		The directory <strong>/modules</strong> is the place for your own extensions.
+	</li>
+</ul>
+	<h2>Integrate existing HTML pages</h2>
+	<h3>The world speaks UTF-8</h3>
+	<p>Both the Webutler and the CKEditor work with the Unicode character set. So there are no problems with umlauts or other special characters, any files that were not created with the Webutler are stored in UTF-8. Two things to watch for:
+</p>
+    <ol>
+        <li>
+			The files themselves must be saved as &quot;UTF-8 without BOM&quot;. To do this, of course, must use a Unicode-enabled editor, such as Notepad++ or PSPad.
+		</li>
+        <li>
+			The charset specified in the header of the file must be customized:<br />
+            <span class="einzug">&lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+		</li>
+    </ol>
+	<h3>HTML5 Doctype</h3>
+	<p>The Webutler and the editors are based on the display mode of HTML5.<br />
+		<span class="einzug">&lt;!DOCTYPE html&gt;</span><br />
+		Who has created websites in HTML 4 or in quirks mode (no doctype) they should first switch to XHTML Transitional to go sudden changes in the presentation of the way.
+</p>
+	<h3>Adapt / change pages</h3>
+	<p>Ready HTML pages can be quite problematic to insert in the Webutler. All preparations should be made locally. That they are in UTF-8 and HTML5 is assuming at this point. The following adjustments are necessary:
+</p>
+    <ol>
+        <li>
+			copy your CSS files after /content/style
+		</li>
+        <li>
+			copy your javascripts after /includes/javascript
+		</li>
+        <li>
+			copy images and other embedded media into the appropriate subdirectories of /content/media
+		</li>
+        <li>
+			Open your HTML pages
+			<ul>
+				<li>
+					adjust the paths to the CSS, JavaScript and media files (possibly also need to be adapted paths in the files themselves)
+				</li>
+				<li>
+					replace all the links to your pages: from FILENAME.html wird index.php?page=FILENAME
+				</li>
+				<li>
+					File names can only consist of letters, digits and the underscore character (no dashes or special characters)
+				</li>
+				<li>
+					save all pages without file extension in /content/pages
+				</li>
+				<li>
+					Subdirectories can be simulated with the categories (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)
+				</li>
+			</ul>
+        </li>
+    </ol>
+	<p>In addition, the following changes that facilitate the maintenance of the website much be made. Who would not want to use this option, the setting should $webutler_config['fullpageedit'] set in the file &quot;/settings/globalvars.php&quot; to &quot;1&quot;.
+</p>
+    <ol>
+        <li>
+		In the HTML source code placeholder for menus, blocks, and editable regions can be set.
+			<ul>
+				<li>
+					open your pages /content/pages
+				</li>
+				<li>
+					cut out the menus from your pages and save them in the folder /content/menus
+				</li>
+				<li>
+					Header and / or Footerzeilen can also be cut and stored in /content/blocks
+				</li>
+				<li>
+					replace the placeholder (comments) for the menus and blocks (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)
+				</li>
+				<li>
+					put to the comments for editable regions (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)
+				</li>
+				<li>
+					put the classes &quot;wb_menuelement&quot;, &quot;wb_blockelement&quot;, &quot;wb_contentelement&quot; and possibly &quot;wb_columnselement&quot; (<a href="functions.htm" onclick="top.document.getElementById('link_admin').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';">Infos</a>)
+				</li>
+			</ul>
+        </li>
+        <li>
+			all file names in /menus /blocks and /pages need to be stored without extension
+		</li>
+        <li>
+			copy pages with different layouts of /pages to /layouts
+			<ul>
+				<li>
+					Remove all content between &lt;!-- begin_content --&gt; and &lt;!-- end_content --&gt;
+				</li>
+				<li>
+					save the page as LAYOUTNAME.tpl
+				</li>
+			</ul>
+        </li>
+    </ol>
+	<p>That's it, now all the web space and the page should work. If not, again exactly control all the points. If all the paths and file names? File names can not contain spaces, dashes or special characters.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

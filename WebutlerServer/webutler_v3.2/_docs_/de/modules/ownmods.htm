@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Eigene Module programmieren</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'modules/ownmods.htm');
+					localStorage.setItem('flink', 'ownmods');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Eigene Module programmieren</h1>
+	<p>Fast jeder Kunde hat mindestens einen Sonderwunsch der mit HTML nicht umsetzbar ist. Dann bietet sich eine Lösung mit PHP an. Im Gegensatz zu anderen Systemen muß man im Webutler bei der Programmierung einer Erweiterung nicht allzuviel beachten.
+</p>
+	<h2>Include</h2>
+	<p>Eine Erweiterung wird einfach per include in eine Seite geladen. Damit ist die Erweiterung ein Teil der Seite und alle Pfade der Erweiterung müssen entsprechend angepasst werden (modules/__MODULVERZEICHNIS__/...).
+</p>
+	<h2>Links und GET-Parameter</h2>
+	<p>Eine Webutler-Seite wird mit index.php?page=__SEITENNAME__ aufgerufen. Das heißt alle Links einer Erweiterung müssen auch mit index.php?page=__SEITENNAME__ beginnen. Weitere Parameter werden mit &amp;var=wert angehängt. Wer die SEO-URLs benutzt und mehr als 7 GET-Variablen benötigt kann in der globalvars.php die Variable $webutler_config['urlgetvars'] erhöhen und in der Root-htaccess die RewriteRules ergänzen.
+</p>
+	<h2>Modul-Suchplugin</h2>
+	<p>Ein eigenes Modul kann in die Webutler-Suchfunktion integriert werden. Dafür muß die Datei search.php existieren und in der search.php die Funktion searchinmodcontent__MODULVERZEICHNIS__. Die Funktion muß ein Array mit Titel, Inhalt und URL zurück liefern. Beispiel:<br /><br />
+    <span class="einzug">$result = array(</span><br />
+    <span class="einzug"><span class="einzug">'title' =&gt; 'Seitentitel',</span></span><br />
+    <span class="einzug"><span class="einzug">'contents' =&gt; 'Seiteninhalt mit Suchbegriff',</span></span><br />
+    <span class="einzug"><span class="einzug">'url' =&gt; 'index.php?page=__SEITENNAME__&amp;var=wert'</span></span><br />
+    <span class="einzug">);</span><br />
+    <span class="einzug">return $result;</span><br /><br />
+    Damit die Webutlersuche das Modul auch findet muß es noch in die Datei /settings/searching.php eingetragen werden.
+</p>
+	<h2>Modul-Sitemap</h2>
+	<p>Ein eigenes Modul in die Sitemap aufzunehmen funktioniert nach dem gleichen Schema, wie die Integration in die Suche. Die Datei sitemap.php muß im Modulverzeichnis existieren und in der Datei die Funktion modulessitemap__MODULVERZEICHNIS__. Die Funktion muß ein Array mit den URLs des Modules liefern:<br /><br />
+    <span class="einzug">$result = array(</span><br />
+    <span class="einzug"><span class="einzug">[0] =&gt; 'index.php?page=__SEITENNAME__&amp;var1=wert1',</span></span><br />
+    <span class="einzug"><span class="einzug">[1] =&gt; 'index.php?page=__SEITENNAME__&amp;var1=wert2',</span></span><br />
+    <span class="einzug"><span class="einzug">[2] =&gt; 'index.php?page=__SEITENNAME__&amp;var1=wert3&amp;var2=wert1'</span></span><br />
+    <span class="einzug">);</span><br />
+    <span class="einzug">return $result;</span><br /><br />
+    Außerdem muß das Modul in der Datei /settings/sitemaps.php eingetragen werden.
+</p>
+	<h2>Headerdaten</h2>
+	<p>Javascripte und CSS-Dateien eines Moduls können mittels $webutlercouple->autoheaderdata[] in den Header der Seite geladen werden.<br /><br />
+    <span class="einzug">$webutlercouple->autoheaderdata[] = '&lt;link href=&quot;modulestyles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;';</span><br />
+    <span class="einzug">$webutlercouple->autoheaderdata[] = '&lt;script src=&quot;modulescript.js&quot;&gt;&lt;/script&gt;';</span><br /><br />
+    Der Titel der Webutler-Seite kann mit der Variablen $webutlercouple->setnewtitlefrommod durch einen spezielleren Titel aus dem Modul ersetzt werden.<br /><br />
+    <span class="einzug">$webutlercouple->setnewtitlefrommod = 'Mein neuer Seitentitel';</span>
+</p>
+	<h2>Modul-Login</h2>
+	<p>Wenn das Modul einen Administrationsbereich besitzt/bekommen soll, gibt es mehrere Möglichkeiten für einen Login:
+</p>
+    <ol>
+        <li>Für den automatischen Login des Seitenbetreibers kann mit der Funktion $webutlercouple->checkadmin() geprüft werden, ob die Sessiondaten des Administrators gesetzt sind.</li>
+        <li>Alternativ kann eine eigene Loginverwaltung für Benutzer, die nur Zugriff auf das Modul erhalten sollen, erstellt werden.</li>
+    </ol>
+	<p>Für die Realisierung eines Lese- und/oder Schreibzugriffs eingeloggter Webutler-User können folgende Sessiondaten eines Benutzers abgefragt werden:<br /><br />
+    <span class="einzug">Gruppen-ID: $_SESSION['userauth']['groupid']</span><br />
+    <span class="einzug">ID des Benutzers: $_SESSION['userauth']['userid']</span><br />
+    <span class="einzug">Benutzername: $_SESSION['userauth']['username']</span><br />
+    <span class="einzug">eMail-Adresse: $_SESSION['userauth']['usermail']</span>
+</p>
+	<p>In der Benutzerverwaltung können User aktiv, gesperrt oder gelöscht geschaltet werden. Wenn der Status in einem Modul benötigt wird, muß dieser in der User-DB abgefragt werden. Rückgabewerte:<br /><br />
+    <span class="einzug">Aktiv: status='enabled'</span><br />
+    <span class="einzug">Gesperrt: status='disabled'</span><br />
+    <span class="einzug">Gelöscht: status='deleted'</span>
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

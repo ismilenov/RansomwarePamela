@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Funktionen</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.small {
+            font-family: arial;
+            font-size: 9px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'functions.htm');
+					localStorage.setItem('flink', 'functions');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Features and Functionality</h1>
+	<h2>Create a layout file</h2>
+	<p>A layout file is with everything that goes with a normal HTML page to do so. Layout files are used as a template to create new pages and with the extension. Tpl in /content/layouts stored.
+</p>
+	<h2>Set placeholder for menus, blocks, and editable regions</h2>
+	<p><strong>Important!</strong> If no wildcard awarded and no menu and block files are created, the "Edit" does not appear in the Admin. If this behavior is desired, the variable set in the file &quot;/settings/globalvars.php&quot; $webutler_config['fullpageedit'] are set to 1, to move the &quot;Edit Current Page&quot; in the Admin. <strong>!!!</strong>
+</p>
+	<h3>Working with placeholders</h3>
+	<p>This new links appear automatically on all pages, menus can be stored in separate files. In order for a menu is loaded, the file name must be written with comment fields in the layout file or page. Format:<br /><br />
+		<span class="einzug">&lt;!-- begin_menu_MENUFILEAME --&gt;</span><br />
+		<span class="einzug"><span class="einzug">&lt;!-- menu_MENUFILENAME --&gt;</span></span><br />
+		<span class="einzug">&lt;!-- end_menu_MENUFILENAME --&gt;</span><br /><br />
+		Blocks are on offer, when a content on different pages to be displayed and you want to change this content centrally. The formatting is the same for the menus:<br /><br />
+		<span class="einzug">&lt;!-- begin_block_BLOCKFILENAME --&gt;</span><br />
+		<span class="einzug"><span class="einzug">&lt;!-- block_BLOCKFILENAME --&gt;</span></span><br />
+		<span class="einzug">&lt;!-- end_block_BLOCKFILENAME --&gt;</span><br /><br />
+		Content areas that are to be opened in the editor are enclosed in comments. Format:<br /><br />
+		<span class="einzug">&lt;!-- begin_content --&gt;</span><br />
+		<span class="einzug"><span class="einzug">editable content</span></span><br />
+		<span class="einzug">&lt;!-- end_content --&gt;</span><br /><br />
+		The comments should be of an HTML block element enclosed (best DIV) and may not be nested, eg a menu within &lt;!-- begin_content --&gt; and &lt;!-- end_content --&gt;.
+</p>
+	<h3>Important!</h3>
+	<p><strong>All menus must be created as &quot;Unordered List = UL&quot;, so that they can be edited with the intended functions of the editor!</strong>
+</p>
+	<h3>Custom error page</h3>
+	<p>If a custom error page is created, must include the following source for the error message in the file:
+	<br /><br />
+	<span class="einzug">&lt;?PHP echo $webutlercouple->errorpagetext; ?&gt;</span><br />
+</p>
+	<h2>Columns elements</h2>
+	<p>For a smooth paste new columns elements the award of CSS classes to the various page elements is mandatory.
+</p>
+	<p>Who would not take advantage of the columns elements, set in the file /settings/globalvars.php the variable $webutler_config['insertcolumn'] to 0.
+</p>
+	<h3>Identify elements through CSS classes</h3>
+	<p><span class="einzug">wb_menuelement - for menus</span><br />
+		<span class="einzug">wb_blockelement - for blocks</span><br />
+		<span class="einzug">wb_contentelement - for editable content</span><br />
+		The classes must be awarded to an enclosing DIV. Other elements such as SECTION, HEADER, FOOTER etc. are not supported.
+</p>
+	<p>The columns elements themselves have the class<br />
+		<span class="einzug">wb_columnselement</span>
+</p>
+	<p>All four classes are needed so that new columns elements are inserted only outside of DIVs with these classes. If the classes are not set, nesting can occur which would make the administration <strong>inoperable</strong>.
+</p>
+	<p>wb_menuelement and wb_blockelement also replace the old class &quot;block_border&quot; and wb_contentelement replace the class &quot;content_border&quot;.
+</p>
+	<h3>Insert new columns</h3>
+	<p>Under the menu item Page &gt; Columns new columns elements can configured. After a new columns elements has been selected, it can be inserted <strong>before</strong> or <strong>after</strong> each page and present in the DIV with one of the four CSS classes. If none of the classes exist, no columns can be selected. It should therefore at least once are the class <strong>wb_contentelement</strong> in the layout file.
+</p>
+	<h3>Edit columns</h3>
+	<p>Column settings such as distances can be made in the CSS file &quot;columns/columns.css&quot;. Listed under System &gt; Stylesheets.
+</p>
+	<h3>Delete columns</h3>
+	<p>All columns elements marked with the classes <strong>wb_contentelement</strong> or <strong>wb_columnselement</strong> can be deleted.
+</p>
+	<h3>Columns inside the editor</h3>
+	<p>If columns are inserted in the editor, they are marked with gray border.
+</p>
+	<h2>Highlight menu items</h2>
+	<p>The menu item of the current page can be given a CSS class for a different look. If a nested menu is used, the class can also be assigned to the parent elements. If there are several menus to another class is possible for each menu.
+</p>
+	<h2>Categorizing pages</h2>
+	<p>Virtuelle Kategorien können angelegt werden. Seiten werden einer Kategorie zugeordnet und bei Aufruf erscheint die Kategorie in der URL. Kategorien sind nur in der URL sichbar.
+	
+	Virtual categories can be created. Pages are assigned to a category and the category will appear in the URL. Categories are only visible in the URL.
+</p>
+	<h3>Highlight categories</h3>
+	<p>Highlighting categories is very similar to highlighting parent elements in a nested menu, but establishes a connection between 2 separate menus.<br />
+	Any number of sub-categories and sub-menus can be set.
+</p>
+	<p><strong>Example:</strong><br />
+	1. There is a main menu with the menu item &quot;Services&quot;, that calls the page &quot;info.phtml&quot;.<br />
+	2. On the page &quot;info.phtml&quot; there is a second menu with the pages &quot;service1.phtml&quot; and &quot;service2.phtml&quot;.<br />
+	Now if you want, that the menu item Services (page info.phtml) is highlighted when you're on the pages service1.phtml or service2.phtml. Simply set all 3 pages in a category, for example &quot;service&quot;, set a CSS class for the category in the main menu and activate the checkbox &quot;highlight current category also&quot;.
+</p>
+	<p><strong>Result:</strong><br />
+	If you call the page service1.phtml or service2.phtml from the second menu, the page info.phtml will be highlighted in the main menu.
+</p>
+	<p>If the checkbox &quot;highlight current category also&quot; is not set, the page info.phtml will not be highlighted. Are the pages service1.phtml and service2.phtml are set in a sub-category, eg &quot;service/subservice&quot;, the checkbox must not be set and info.phtml, ie the category &quot;service&quot; is highlighted.
+</p>
+	<p><strong>Important!</strong> If in the same menu several pages use the same category, all those pages are highlighted.
+</p>
+	<h2>Javascript and PHP Code</h2>
+	<p>&lt;script&gt; ... &lt;/script&gt; and &lt;?PHP ... ?&gt; code snippets may only be included in the &lt;head&gt; and &lt;body&gt; of a page. Code snippets outside of &lt;head&gt; and &lt;body&gt; are set mess validation in the editor. 
+</p>
+	<p>With the variable $webutler_config['codeicon'] = &quot;1&quot; in globalvars.php code snippets can be visualized with icons. <strong>The icons do not always work smoothly!</strong> Icons are images and images are not valid at any place in the source code. If you have, for example, a list and want to control individual list items with PHP, the source code can look like this:
+</p>
+	<p>
+	<span class="einzug">&lt;ul&gt;</span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Item 1&lt;/li&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;?PHP if($a == 1) { ?&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;?PHP } ?&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Item 3&lt;/li&gt;</span></span><br />
+	<span class="einzug">&lt;/ul&gt;</span>
+</p>
+	<p>In the editor, the list looks like this:
+</p>
+	<p>
+	<span class="einzug">• Item 1</span><br />
+	<span class="einzug">[<span class="small">&lt;&gt;</span>] • Item 2 [<span class="small">&lt;&gt;</span>]</span><br />
+	<span class="einzug">• Item 3</span>
+</p>
+	<p>But the source is saved as:
+</p>
+	<p>
+	<span class="einzug">&lt;?PHP if($a == 1) { ?&gt;&lt;?PHP } ?&gt;</span><br />
+	<span class="einzug">&lt;ul&gt;</span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Item 1&lt;/li&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Item 2&lt;/li&gt;</span></span><br />
+	<span class="einzug"><span class="einzug">&lt;li&gt;Item 3&lt;/li&gt;</span></span><br />
+	<span class="einzug">&lt;/ul&gt;</span>
+</p>
+	<p>As you can see, the code snippets has moved before the block element (UL). Default for $webutler_config['codeicon'] is 0. The variable should only be set to 1, if code snippets, seen as &lt;img /&gt;, are valid in the source code.
+</p>
+	<h2>Additional header / footer files</h2>
+	<p>Files such as CSS or Javascript can be dynamically loaded into a page or all pages. For this the file must be passed to the page. There are 2 options. If general files to be inserted into all pages, they can be loaded via the file &quot;settings/extradata.php&quot;. Just copy the following lines in the file:<br /><br />
+		<span class="einzug">$webutler_autoheaderdata[] = '&lt;script src=&quot;headerscript.js&quot;&gt;&lt;/script&gt;';</span><br />
+		<span class="einzug">$webutler_autofooterdata[] = '&lt;script src=&quot;footerscript.js&quot;&gt;&lt;/script&gt;';</span><br /><br />
+		If files are to be loaded on modules, the following can be put in the include file:<br /><br />
+		<span class="einzug">$webutlercouple-&gt;autoheaderdata[] = '&lt;script src=&quot;headerscript.js&quot;&gt;&lt;/script&gt;';</span><br />
+		<span class="einzug">$webutlercouple-&gt;autofooterdata[] = '&lt;script src=&quot;footerscript.js&quot;&gt;&lt;/script&gt;';</span>
+</p>
+	<h2>Session data</h2>
+	<p>Sometimes it is useful to know the file name of the last page, for example, redirects or as an alternative to &quot;history.back()&quot;. But can to the session variable $_SESSION['history']['lastpage'] be accessed.<br /><br />
+		If user login administration is installed, the authentication information of the user in the session variable $_SESSION['userauth'] will be saved.<br /><br />
+		For multilingual pages can be retrieved using the session variable $_SESSION['language'], the language chosen by the visitors.
+</p>
+	<h2>Forms</h2>
+	<p>In each form contained on a page an additional hidden field is inserted. When a form is sent via POST from one side, the value of the hidden field with the value of the session variable $_SESSION['antixpost'] compared. The form will be sent only if the values ​​match. This operation is designed to help spam curb a little.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

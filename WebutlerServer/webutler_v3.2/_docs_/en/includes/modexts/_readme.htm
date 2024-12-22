@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modulerweiterungen</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/modexts/_readme.htm');
+					localStorage.setItem('flink', 'modexts');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Module extensions</h1>
+	<p>The here stored scripts are used in various modules.
+</p>
+	<h2>Datepicker / Calendar</h2>
+	<p>In /calendar directory there is a small datepicker javascript that can be used to select a date.
+</p>
+	<h2>PHPMailer</h2>
+	<p>The PHPMailer class is used for sending of email forms.
+</p>
+	<h2>FPDF</h2>
+	<p>With the FPDF class PDFs can be generated with PHP. In the directory /tutorial you will find some examples of using FPDF.
+</p>
+	<h2>CKEditor</h2>
+	<p>With the CKEditor textarea is converted into a WYSIWYG editor. This CKEditor version is just a basic version of the text formatting, the output can be in HTML or BBCode.
+</p>
+	<p>CKEditor Script Header in the drawers:
+</p>
+	<p><span class="einzug">&lt;script src=&quot;includes/modexts/ckeditor/ckeditor.js&quot;&gt;&lt;/script&gt;</span>
+</p>
+	<p>Config for HTML output (set after textarea):
+</p>
+	<p><span class="einzug">&lt;script&gt;</span><br />
+		<span class="einzug">/* &lt;![CDATA[ */</span><br />
+		<span class="einzug"><span class="einzug">CKEDITOR.replace('name-attribute of textarea', {</span></span><br />
+		<span class="einzug"><span class="einzug"><span class="einzug">customConfig : 'html_config.js',</span></span></span><br />
+		<span class="einzug"><span class="einzug"><span class="einzug">language : 'en'</span></span></span><br />
+		<span class="einzug"><span class="einzug">});</span></span><br />
+		<span class="einzug">/* ]]&gt; */</span><br />
+		<span class="einzug">&lt;/script&gt;</span>
+</p>
+	<p>Config for BBCode output (set after textarea):
+</p>
+	<p><span class="einzug">&lt;script&gt;</span><br />
+		<span class="einzug">/* &lt;![CDATA[ */</span><br />
+		<span class="einzug"><span class="einzug">CKEDITOR.replace('name-attribute of textarea', {</span></span><br />
+		<span class="einzug"><span class="einzug"><span class="einzug">customConfig : 'bbcode_config.js',</span></span></span><br />
+		<span class="einzug"><span class="einzug"><span class="einzug">language : 'en'</span></span></span><br />
+		<span class="einzug"><span class="einzug">});</span></span><br />
+		<span class="einzug">/* ]]&gt; */</span><br />
+		<span class="einzug">&lt;/script&gt;</span>
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: block;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/view.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Felder definieren</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Datenausgabe</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Besucheransicht und Ausgabe der Felder in den Templates</h1>
+	<h2>Besucheransicht</h2>
+	<p>Unter dem Reiter Besucheransicht wird festgelegt wie die Ausgabe für den Besucher aussehen soll. Die Anzeige der Datensatzliste ist die Basis für jedes Modul. Der Datensatz ist die Vollansicht und wird über einen Link in der Liste aufgerufen.
+</p>
+	<p><strong>neuste Einträge:</strong><br />
+    <span class="einzug">Die neusten/letzten Einträge können auf einer separaten Seite (z.B. Startseite oder ein Block) angezeigt werden. Zur Ausgabe wird das Template newest.tpl verwendet. In der Administration des Moduls kann die Anzahl der anzuzeigenden Beiträge festgelegt werden.</span>
+</p>
+	<p><strong>Eingabemaske in der Besucheransicht:</strong><br />
+    <span class="einzug">Besucher können neue Themen oder nur Datensätze anlegen. Die Eingabemaske befindet sich unter der Liste oder auf einer separaten Seite.</span>
+</p>
+	<h2>SQL Abfrage-Filter setzen</h2>
+	<p><strong>Formular:</strong><br />
+    <span class="einzug">Bei Anwahl dieses Punktes wird ein Formular (Template: filter.tpl) für die userdefinierte DB-Abfrage gesetzt. Die Eingabefelder des Formulars muß man selbst setzen. Die Abfrage-Daten müssen in der view.php an das Array class->datafilter übergeben werden.<br />
+	Es können nur Datensätze gefiltert werden, keine Kategorien oder Themen. Das Formular wird in der Themenansicht oder der Datensatz-Liste angezeigt.</span>
+</p>
+	<p><strong>Array datafilter:</strong><br />
+    <span class="einzug">Im Array können folgende Schlüssel-Wert Paare gesetzt werden, nicht gesetzte Paare werden ignoriert:</span>
+</p>
+	<p><span class="einzug"><strong>where:</strong> &quot;(feldname1 &lt; xyz AND feldname2 &gt; xyz) OR feldname3 = xyz&quot;<br />
+		<span class="einzug">Mit dem where-String wird die Datenbank-Abfrage erweitert.<br />
+		'feldname' müssen Namen selbst definierter Datenbank-Feldnamen sein. Man findet alle Namen in der config.php: conf['data']. 'xyz' können Werte aus den übergebenen Eingaben des Formulars sein.<br />
+		Es muß sich an die SQL-Syntax gehalten werden!</span>
+	</span>
+</p>
+	<p><span class="einzug"><strong>order:</strong> feldname<br />
+		<span class="einzug">'feldname' eines selbst definierten Datenbank-Feldnames.</span>
+	</span>
+</p>
+	<p><span class="einzug"><strong>direction:</strong> ASC oder DESC<br />
+		<span class="einzug">Die Sortierrichtung.</span>
+	</span>
+</p>
+	<p><strong>datafilter Beispiel:</strong><br />
+    <span class="einzug">
+		Im Formular gibt es 2 Datums-Eingabefelder mit den Namen start und end. Damit sollen nur Datensätze, die sich innerhalb des gewählten Datums befinden, angezeigt werden. Abgefragt wird ein Datenbankfeld mit dem Namen date.
+	</span><br />
+    <span class="einzug">
+		<span class="einzug">
+			$startdate = strtotime(preg_replace(&quot;/[^0-9\-]/&quot;, &quot;&quot;, $_POST['start']));<br />
+			$enddate = strtotime(preg_replace(&quot;/[^0-9\-]/&quot;, &quot;&quot;, $_POST['end']));<br /><br />
+			$mod_class->datafilter = array(<br />
+				<span class="einzug">
+				'where' => &quot;date BETWEEN &quot;.$startdate.&quot; AND &quot;.$enddate,<br />
+				'order' => 'date',<br />
+				'direction' => 'DESC'<br />
+				</span>
+			);
+		</span>
+	</span>
+</p>
+	<h2>Templates</h2>
+	<p>Unter dem Reiter Templates wird festgelegt welche Datenfelder in welchem Template ausgegeben werden sollen.
+</p>
+	<p><strong>Listenansicht:</strong><br />
+    <span class="einzug">Felder die als Listeneintrag angezeigt werden sollen.</span>
+</p>
+	<p><strong>Seitenansicht:</strong><br />
+    <span class="einzug">Wenn aktiviert, Felder die als voller Datensatz angezeigt werden sollen.</span>
+</p>
+	<p><strong>Besuchereingabe:</strong><br />
+    <span class="einzug">Wenn aktiviert, Felder die als Besucher-Eingabemaske angezeigt werden sollen.</span>
+</p>
+	<p><strong>neuste Einträge:</strong><br />
+    <span class="einzug">Wenn aktiviert, Felder die in der Liste der neusten Einträge angezeigt werden sollen.</span>
+</p>
+</div>
+</body>
+</html>

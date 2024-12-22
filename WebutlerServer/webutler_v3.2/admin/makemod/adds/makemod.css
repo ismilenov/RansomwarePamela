@@ -1,0 +1,278 @@
+
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+body, td, div, input, select, a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	line-height: 12px;
+}
+
+h1 {
+    margin: 0px;
+    padding: 0px;
+	font-size: 15px;
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+#administration {
+    padding: 30px 30px 60px 30px;
+    width: 700px;
+}
+
+#fronttext {
+	margin-top: 55px;
+}
+
+#error {
+	font-size: 12px;
+	font-weight: bold;
+    color: #D02705;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#saved {
+    position: absolute;
+	font-size: 11px;
+	font-weight: bold;
+    color: #098806;
+    margin-left: 20px;
+}
+
+#modloader {
+    display: none;
+    position: fixed;
+    background-color: #555555;
+    background-image: url(icons/load.gif);
+    background-position: center center;
+	background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+	top: 0px;
+	left: 0px;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+
+#changeproject {
+    margin: 30px 0px 5px 0px;
+}
+
+#opened {
+	font-size: 12px;
+    margin: 15px 0px 5px 0px;
+}
+
+table #startwork td {
+    vertical-align: top;
+}
+
+#reiter {
+    margin-top: 20px;
+}
+
+#reiter div {
+	border: 1px solid #333333;
+	-moz-border-top-left-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+    float: left;
+}
+
+#reiter div.inactiv {
+	background: #F3F3F3;
+	padding: 5px 8px;
+    margin-top: 3px;
+}
+
+#reiter div.activ {
+	border-bottom: 0px;
+	background: #EAEAEA;
+	font-weight: bold;
+	padding: 7px 10px;
+}
+
+#reiter div a {
+    text-decoration: none;
+}
+
+#reiter div#last {
+	border: 0px;
+	background: transparent;
+	clear: float;
+}
+
+#pages {
+	border: 1px solid #333333;
+	-moz-border-top-right-radius: 8px;
+	-moz-border-bottom-left-radius: 8px;
+	-moz-border-bottom-right-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	-moz-box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.4);
+	background-color: #EAEAEA;
+	margin-top: -1px;
+	padding: 10px;
+    /*
+	height: 100px;
+    */
+}
+
+#pages hr {
+    margin: 10px;
+    padding: 0px;
+    height: 0px;
+    /*
+    width: 80%;
+    */
+    border: 0px;
+    border-top: 1px solid #333333;
+	background-color: transparent;
+}
+
+#pages table#listfields {
+    /*
+    margin: 5px;
+    */
+}
+
+#pages table#listfields tr.listhead td, #pages table#datafields tr.listhead td {
+    border-bottom: 1px solid #333333;
+    font-weight: bold;
+}
+
+#pages table#listfields tr.listlines, #pages table#datafields tr.listlines {
+	background-color: #F3F3F3;
+}
+
+#pages table#datafields tr td, #pages table#listfields tr td {
+    padding-right: 20px;
+}
+
+#pages table#datafields tr td.last {
+    padding-right: 5px;
+}
+
+#pages table#listfields tr td.last {
+    padding-right: 0px;
+}
+
+#pages table#datafields table.showfield td {
+    padding: 0px;
+}
+
+#pages table#listfields table.showfield td {
+    padding-right: 5px;
+}
+
+#pages #catsettings td, #pages #topicsettings td, #pages #seofieldsfor td {
+    padding: 2px 0px;
+}
+
+#pages #catsettings .catfields td, #pages #topicsettings .topicfields td, #pages #seofieldsfor .seofields td {
+    padding-right: 5px;
+}
+
+.mminput {
+    margin: 0px;
+    padding: 2px 3px;
+    width: 152px;
+    height: 14px;
+	background-color: #ffffff;
+	border: 1px solid #888888;
+	border-radius: 3px;
+}
+
+.mmselect {
+    margin: 0px;
+    padding: 0px;
+    height: 20px;
+    width: 160px;
+	background-color: #ffffff;
+	border: 1px solid #888888;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.mmselect option {
+    padding: 1px 3px;
+}
+
+.mmbutton {
+    margin: 0px;
+    height: 20px;
+    width: 160px;
+	border: 1px solid #888888;
+	border-radius: 3px;
+    padding: 1px 8px;
+	background-image: linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -moz-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -webkit-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -ms-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -o-linear-gradient(top, #f3f2f2, #cfcdcc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f2f2', endColorstr='#cfcdcc');
+    cursor: pointer;
+    cursor: hand;
+}
+
+.optsicon {
+    cursor: hand;
+    cursor: pointer;
+}
+
+.optsfields {
+    position: absolute;
+    margin: -30px 0px 0px 20px;
+    border: 1px solid #333333;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	padding: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

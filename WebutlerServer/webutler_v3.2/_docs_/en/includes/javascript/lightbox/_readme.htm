@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lightbox integrieren</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/javascript/lightbox/_readme.htm');
+					localStorage.setItem('flink', 'lightbox');
+				}
+                top.location = '../../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Integrate Lightbox</h1>
+	<p>In order to open images in the lightbox (editor function &quot;zoom image&quot;) has the script<br />
+		<span class="einzug">&lt;script src=&quot;includes/javascript/lightbox/lightbox_plus.js&quot;&gt;&lt;/script&gt;</span><br />
+		are inserted into the header of the page.<br /><br />
+		There are several options:<br />
+</p>
+	<ol>
+        <li>
+			When you create a new page, the line is manually entered in the source code.
+		</li>
+        <li>
+			One uses the editor button &quot;insert javascript&quot;.
+		</li>
+        <li>
+			Write the line to one of the layout-templates to create new pages.
+		</li>
+        <li>
+			Load the script dynamically with PHP Code:<br />
+			<span class="einzug">$webutler_autoheaderdata[] = '&lt;script src=&quot;includes/javascript/lightbox/lightbox_plus.js&quot;&gt;&lt;/script&gt;';</span><br />
+			This line can be, for example, enter at the end of the globalvars.php. The script will then automatically loaded into every website.
+		</li>
+    </ol>
+    <p>If the line &quot;alternate text&quot; in the &quot;insert/edit image&quot; window of the editor is filled, the text will appear as an image description under magnification.
+</p>
+</div>
+</body>
+</html>

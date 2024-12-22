@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Languages ​​module</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 12px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/language/_readme.htm');
+					localStorage.setItem('flink', 'language');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Languages ​​module</h1>
+	<p>If the website is not intended to be used in multiple languages, the language module must not be activated. Required variables of the default language according to setting $webutler_config['defaultlang'], are loaded automatically.
+</p>
+	<p>Switching the language in the visitor view automatically. For a language is assigned in the administration of each page. Important switching is mainly when modules are used to use the language constants. This applies, for example, for the forms module, so all error and confirmation messages are displayed in the language of the visitor.
+</p>
+	<p>If the language module is activated, the default language of $webutler_config['defaultlang'] must according to be created.
+</p>
+	<h2>Functionality</h2>
+	<p>Each content page is assigned to create a language when. When a module is include in a page, this page must be created separately for each language, as the language variables of the module are loaded by using the language of the page.
+</p>
+	<p>If multilingualism is subsequently activated, all existing pages must be subsequently assigned to a language. It makes sense to own layout file should be created with all the language-specific header settings and separate menu files for each language.
+</p>
+	<h2>Administration</h2>
+	<p>Before working with the language module, all necessary module and translations should be available and flag icons set. The translation files must always add &quot;/long&quot; are in the subdirectory. Multilingualism is activated globalvars.php in the variable $webutler_config['languages'].
+</p>
+	<p>In the administration and the language code of the language name can be defined. Subsequently, any language can be assigned a home page. This item can with the variable $webutler_config['setnewlang'] are disabled.
+</p>
+	<p>The language code must match the file name of the language files: code &quot;de&quot; for the files de.php or de.js, code &quot;en&quot; for the files en.php or en.js. It <strong>must!</strong> be used the <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 codes</a> codes, so all language codes must consist of 2 letters.
+</p>
+	<h2>Show language in URL</h2>
+	<p>You can show the language as a directory in the URL. Therefore, the variable $webutler_config['langfolder'] in file /settings/globalvars.php must be set to 1.
+</p>
+	<h3>Same file names</h3>
+	<p>It may happen that you want to use in various languages the same file name, eg for a page called &quot;service&quot;. The language code can be set as a prefix before the file name:<br /><br />
+	<span class="einzug">Format: language code - underscore - file name</span><br />
+	<span class="einzug">Example: de_service and en_service</span><br /><br />
+	Language code and underscore will automatically removed from display in the URL.<br />
+	<strong>&quot;Show language in URL&quot; must be activated!</strong>
+</p>
+	<h2>Integrate language</h2>
+	<p>The template for the language is simply placed anywhere on the pages.<br /><br />
+		<span class="einzug">&lt;?PHP include &quot;includes/languages/langblock.php&quot;; ?&gt;</span><br /><br />
+		Add your own modules can be queried of the visitors language with session variable<br /><br />
+		<span class="einzug">$_SESSION['language']</span>
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

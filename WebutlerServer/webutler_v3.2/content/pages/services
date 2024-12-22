@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Services</title>
+	<meta charset="utf-8" />
+	<meta content="index,follow" name="robots" />
+	<meta content="author of new page" name="author" />
+	<meta content="copyright (c) 2016 by author" name="copyright" />
+	<meta content="description of new page" name="description" />
+	<meta content="keyword1,keyword2,keyword3" name="keywords" />
+	<link href="content/style/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="wrapper">
+	<div class="wb_blockelement">
+		<!-- begin_block_header -->
+			<!-- block_header -->
+		<!-- end_block_header -->
+	</div>
+
+	<div class="wb_menuelement">
+		<!-- begin_menu_navi -->
+			<!-- menu_navi -->
+		<!-- end_menu_navi -->
+	</div>
+
+	<section>
+		<div class="layertop">
+			<div class="wb_columnselement">
+				<div class="wb_colgroup">
+					<div class="wb_colrow">
+						<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s1 wb_colorder_m1 wb_colorder_l1">
+							<div class="wb_colalign_top wb_contentelement">
+								<!-- begin_content -->
+<article>
+	<h1>Services</h1>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, set eiusmod tempor incidunt et labore et dolore magna aliquam. Ut enim ad minim veniam, quis nostrud exerc. Irure dolor in reprehend incididunt ut labore et dolore magna aliqua.</p>
+
+	<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse molestaie cillum. Tia non ob ea soluad incommod quae egen ium improb fugiend.</p>
+
+	<p>At vver eos et accusam dignissum qui blandit est praesent. Neque pecun modut est neque nonor et imper ned libidig met.</p>
+</article>
+
+<!-- end_content -->
+							</div>
+						</div>
+
+						<div class="wb_colsmall_12 wb_colmedium_6 wb_collarge_6 wb_colorder_s2 wb_colorder_m2 wb_colorder_l2">
+							<div class="wb_colalign_full wb_contentelement">
+								<!-- begin_content -->
+<div class="imgfullheight">
+	<img src="content/media/image/services/leaves.jpg" />
+</div>
+
+<!-- end_content -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="layercontent">
+			<div class="wb_contentelement">
+				<!-- begin_content -->
+<article>
+	<h2><a href="index.php?page=service_1a">Vel eum iriure dolor in hendrerit in vulputate</a></h2>
+
+	<p><img alt="takimata sanctus est" class="floatright" src="content/media/image/services/leaves1.jpg" />Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+
+	<ul>
+		<li>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren</li>
+		<li>No sea takimata sanctus est. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</li>
+		<li>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore</li>
+		<li>Et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores</li>
+		<li>Ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet</li>
+		<li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</li>
+	</ul>
+
+	<p>Ut wisis enim ad minim veniam, quis nostrud exerci tution ullam corper suscipit lobortis nisi ut aliquip ex ea commodo consequat. Duis te feugi facilisi. Duis autem dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit au gue duis dolore te feugat nulla facilisi.</p>
+
+	<p>At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+</article>
+
+<!-- end_content -->
+			</div>
+
+			<div class="wb_contentelement" style="margin-top: 40px">
+				<!-- begin_content -->
+<article>
+	<h2><a href="index.php?page=service_1b">Nonummy nibh euismod tincidunt ut laoreet dolore</a></h2>
+
+	<p><img alt="takimata sanctus est" class="floatleft" src="content/media/image/services/leaves2.jpg" />Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+
+	<p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet. Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna. Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Ut wisis enim ad minim veniam quis nostrud exerci tution ullam corper suscipit lobortis nisi ut aliquip ex ea commodo consequat. Duis te feugi facilisi. Duis autem dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+
+	<p>Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit au gue duis dolore te feugat nulla facilisi. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+
+	<p>Eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Ut wisis enim ad minim veniam, quis nostrud exerci tution ullam corper suscipit lobortis nisi ut aliquip ex ea commodo consequat. Duis te feugi facilisi. Duis autem dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+</article>
+
+<!-- end_content -->
+			</div>
+
+			<div class="wb_contentelement" style="margin-top: 40px">
+				<!-- begin_content -->
+<article>
+	<h2><a href="index.php?page=service_1c">Sea takimata sanctus est Lorem ipsum dolor sit amet</a></h2>
+
+	<p><img alt="takimata sanctus est" class="floatright" src="content/media/image/services/leaves3.jpg" />Sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.</p>
+
+	<ol>
+		<li><a href="index.php?page=service_2a">Ut wisis enim ad minim veniam, quis nostrud exerci tution ullam feugiat nulla facilisis</a></li>
+		<li><a href="index.php?page=service_2b">Corper suscipit lobortis nisi ut aliquip ex ea commodo consequat</a></li>
+		<li><a href="index.php?page=service_2c">Duis te feugi facilisi. Duis autem dolor in hendrerit in vulputate velit esse molestie</a></li>
+	</ol>
+
+	<p>Consequat, vel illum dolore eu at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit au gue duis dolore te feugat nulla facilisi.</p>
+
+	<p>Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+
+	<blockquote>
+	<p class="alignjustify">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet. Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna. Aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Ut wisis enim ad minim veniam quis nostrud exerci tution ullam corper suscipit lobortis nisi ut aliquip ex ea commodo consequat. Duis te feugi facilisi. Duis autem dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+	</blockquote>
+
+	<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+</article>
+
+<!-- end_content -->
+			</div>
+		</div>
+	</section>
+
+	<div class="wb_blockelement">
+		<!-- begin_block_footer -->
+<!-- block_footer -->
+<!-- end_block_footer -->
+	</div>
+</div>
+</body>
+</html>

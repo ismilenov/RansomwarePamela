@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        p.einzug, span.einzug {
+            margin-left: 30px;
+        }
+        span.ftext1 {
+            margin-left: 20px;
+        }
+        span.ftext2 {
+            margin-left: 31px;
+        }
+        ol {
+            margin-left: 30px;
+			padding: 0px;
+        }
+        fieldset {
+            margin-top: 5px;
+			padding-top: 0px;
+			padding-bottom: 3px;
+			border: 1px solid #555;
+        }
+        fieldset.temp {
+            margin: 10px 0px 0px 30px;
+			padding-bottom: 8px;
+			width: 350px;
+        }
+        legend {
+            font-weight: bold;
+			padding: 0px 3px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/templates.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Felder definieren</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Datenausgabe</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Templates bearbeiten</h1>
+	<p>Es ist einfacher vor der Templatebearbeitung das Modul zu <a href="install.htm">installieren</a> und ein paar Testdatensätze zu erstellen. Vor der Installation sollte die leere Datenbankdatei /data/_MODUL_NAME_.db gesichert werden. Nach der Installation ein paar Testdaten anlegen.
+</p>
+	<p>Wenn die Templatebearbeitung abgeschlossen ist, kann die Datenbankdatei mit den Testdaten einfach mit der leeren, gesicherten Datenbankdatei überschrieben werden und man ist die Testdaten wieder los. Die Installation muß dann erneut durchgeführt werden.
+</p>
+	<h2>Bearbeitung der Templates</h2>
+	<p>Die Templates befinden sich im Verzeichnis /view/tpls. Im Download sind nur die Templates enthalten, die laut den ModMaker-Einstellungen notwendig sind.
+</p>
+	<p>main.tpl ist das Haupttemplate, alle anderen Templates werden ins Haupttemplate geladen. Die Ausgaben von Checkboxen und dem Mehrfachbildupload werden geloopt. Für die Ausgabe der Einzeldaten gibt es die Templates checkbox.tpl und multiimgs.tpl. Platzhalter zum laden von Untertemplates oder Links bestehen aus Text in Großbuchstaben mit 3 führenden und 3 abschließenden Rauten (###). Alle Links, die man nicht in den Templates haben will, können gelöscht werden.
+</p>
+	<p>Wenn in der ModMaker-Administration der Punkt &quot;Startbeitrag des Themas individuallisieren&quot; angewählt wurde, steht für die Themenliste alternativ das Template topicslist_startdata.tpl und für den Startbeitrag im Thema alternativ das Template topic_startdata.tpl zur Verfügung. Wenn eins der Templates nicht existiert, wird das Template data.tpl verwendet.
+</p>
+	<p>Die Templates (soweit vorhanden) werden wie folgt ineinander geladen:
+</p>
+	<h3>Kategorien</h3>
+	<p>
+        <fieldset class="temp">
+            <legend>catslist.tpl</legend>
+            <fieldset>
+                <legend>cat.tpl</legend>
+                <span class="ftext1">zu Themen oder Beiträge Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>cat.tpl</legend>
+                <span class="ftext1">zu Themen oder Beiträge Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>cat.tpl</legend>
+                <span class="ftext1">zu Themen oder Beiträge Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>cat.tpl</legend>
+                <span class="ftext1">zu Themen oder Beiträge Liste »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>pager.tpl</legend>
+            <span class="ftext2">weiter- und zurück-Links</span>
+        </fieldset>
+</p>
+	<h3>Liste Themen</h3>
+	<p>
+        <fieldset class="temp">
+            <legend>subcatslist.tpl</legend>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Themen Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Themen Liste »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp">
+            <legend>topicslist.tpl</legend>
+            <fieldset>
+                <legend>topicdata.tpl</legend>
+				<span class="ftext1">lädt topicslist_startdata.tpl oder data.tpl</span><br />
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Thema »</span>
+            </fieldset>
+            <fieldset>
+                <legend>topicdata.tpl</legend>
+				<span class="ftext1">lädt topicslist_startdata.tpl oder data.tpl</span><br />
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Thema »</span>
+            </fieldset>
+            <fieldset>
+                <legend>topicdata.tpl</legend>
+				<span class="ftext1">lädt topicslist_startdata.tpl oder data.tpl</span><br />
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Thema »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>pager.tpl</legend>
+            <span class="ftext2">weiter- und zurück-Links</span>
+        </fieldset>
+</p>
+	<h3>Thema</h3>
+	<p>
+        <fieldset class="temp">
+            <legend>subcatslist.tpl</legend>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Themen Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Themen Liste »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>filter.tpl</legend>
+            <span class="ftext2">Filtermaske</span>
+        </fieldset>
+        <fieldset class="temp">
+            <legend>topic.tpl</legend>
+            <fieldset>
+                <legend>topic_startdata.tpl oder data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>pager.tpl</legend>
+            <span class="ftext2">weiter- und zurück-Links</span>
+        </fieldset>
+        <fieldset class="temp" style="padding-top: 3px; padding-bottom: 2px">
+            <span class="ftext2">Links vorhergehendes und nächstes Thema</span>
+        </fieldset>
+</p>
+	<h3>Liste Beiträge</h3>
+	<p>
+        <fieldset class="temp">
+            <legend>subcatslist.tpl</legend>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Beiträge Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Beiträge Liste »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>filter.tpl</legend>
+            <span class="ftext2">Filtermaske</span>
+        </fieldset>
+        <fieldset class="temp">
+            <legend>datalist.tpl</legend>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+            <fieldset>
+                <legend>data.tpl</legend>
+				<span class="ftext1">Daten aus der Datenbank</span><br />
+                <span class="ftext1">zu Beitrag »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>pager.tpl</legend>
+            <span class="ftext2">weiter- und zurück-Links</span>
+        </fieldset>
+</p>
+	<h3>Beitrag</h3>
+	<p>
+        <fieldset class="temp">
+            <legend>subcatslist.tpl</legend>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Themen Liste »</span>
+            </fieldset>
+            <fieldset>
+                <legend>subcat.tpl</legend>
+                <span class="ftext1">zu Themen Liste »</span>
+            </fieldset>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 3px">
+            <legend>filter.tpl</legend>
+            <span class="ftext2">Filtermaske</span>
+        </fieldset>
+        <fieldset class="temp" style="padding-bottom: 2px">
+            <legend>datafull.tpl</legend>
+            <span class="ftext2">Daten aus der Datenbank</span><br />
+            <span class="ftext2">Links vorhergehender und nächster Beitrag</span>
+        </fieldset>
+</p>
+	<h3>Besuchereingabe</h3>
+	<p>
+        <fieldset class="temp">
+            <legend>datanew.tpl bzw. topicnew.tpl</legend>
+            <fieldset>
+                <legend>userinput.tpl</legend>
+                <span class="ftext1">Eingabefelder</span>
+            </fieldset>
+        </fieldset>
+</p>
+	<h3>Optionen</h3>
+	<p>In der Moduladministration legt man eine Optionengruppe an, eine Option pro Zeile und die Werte einer Option werden mit Pipes (|) getrennt. Die Werte einer Zeile werden im options.tpl Template ausgegeben.
+</p>
+	<p class="einzug">
+		<strong>Eingabe:</strong><br />
+		<span class="einzug">Wert1|Wert2|Wert3</span><br />
+		<strong>Ausgabe:</strong><br />
+        <span class="einzug">$db_data['option'][0] = Wert1</span><br />
+        <span class="einzug">$db_data['option'][1] = Wert2</span><br />
+        <span class="einzug">$db_data['option'][2] = Wert3</span>
+</p>
+	<p>$db_data['option'][0] und $db_data['option'][1] sind exemplarisch im Template enthalten. Weitere Werte müssen ergänzt werden. Als Werte sind auch Sprachdefines bei Mehrsprachigkeit und Bilder möglich, die direkt in der Optionsadministration hochgeladen werden können.
+</p>
+	<p>Für verschiedene/mehrere Optionengruppen können verschiedene Templates und Platzhalter angelegt werden. Dafür muß das options.tpl mit der Datenbank-ID der Optionengruppe erweitert werden. Aus options.tpl wird options<strong>(_ID)</strong> .tpl und aus ###LOAD_OPTIONS_TPL### wird ###LOAD_OPTIONS<strong>(_ID)</strong>_TPL###.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

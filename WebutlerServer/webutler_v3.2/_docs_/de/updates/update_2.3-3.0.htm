@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V3.0 - www.webutler.de
+            Copyright (c) 2008 - 2014
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.3-3.0.htm');
+					localStorage.setItem('flink', 'update_3');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.3 » V3.0</h1>
+	<h2>Update auf CKEditor V4.3</h2>
+	<p>Der CKEditor unterstützt ab Version 4 Inline-Editing. Das heist die Editoren auf der Seite sind nicht mehr in iFrames eingebettet, sondern in DIV-Elemente. Das hat den riesen Vorteil, daß man zukünftig nicht mehr kontrollieren muß, ob Styles aus dem Stylesheet auch im Editor verfügbar sind. Der Quellcode der Editoren ist jetzt direkt in die Seite integriert.
+</p>
+	<p>Außerdem wandelt der Editor Umlaute nicht mehr in Entities um, ä, ö oder ü erscheinen jetzt im Quelltext nicht mehr als &amp;auml;, &amp;ouml; oder &amp;uuml;.
+</p>
+	<h2>speichern temporärer Seiten</h2>
+	<p>Seiten, an denen man arbeitet, können jetzt zwischengespeichert werden. Dafür ist im Editor ein zweites Diskettensymbol hinzu gekommen. Zwischengespeicherte Seiten sind für Besucher nicht sichtbar. Der Besucher sieht weiterhin die &quot;normale&quot; Seite. Die temporäre Seite wird für den Besucher sichtbar, wenn im Editor auf die &quot;veröffentlichen&quot;-Diskette oder im Adminmenü unter Seite auf den &quot;veröffentlichen&quot;-Link geklickt wird. Über den &quot;verwerfen&quot;-Link kann eine temporäre Seite gelöscht werden.
+</p>
+	<p>Menüs und Blöcke werden <strong>nicht</strong> temporär gespeichert. Änderungen an Menüs und Blöcken in der Fullpage-Bearbeitung werden beim zwischenspeichern ignoriert.
+</p>
+	<h2>Dateiuploads</h2>
+	<p>Im Medienbrowser können jetzt beliebig große Dateien hochgeladen werden. PHP gibt beim überschreiten von upload_max_filesize trotzdem eine Fehlermeldung aus. Um die Fehlermeldung zu unterdrücken, muß deshalb die Zeile &quot;php_flag display_startup_errors off&quot; in der Root .htaccess eingetragen werden.
+</p>
+	<h2>Editor Vorlagen</h2>
+	<p>Die Datei &quot;cketemplates.js&quot; wurde aus dem /styles Verzeichnis entfernt!<br />
+	Vorlagen können jetzt etwas übersichtlicher über &quot;System &gt; Vorlagen&quot; erstellt und bearbeitet werden.
+</p>
+	<h2>Raster-Elemente</h2>
+	<p>Mit den Raster-Elementen kommt Mehrspaltigkeit in den Webutler. Raster-Elemente können unter dem Adminmenüpunkt &quot;System &gt; Raster&quot; bearbeitet und ergänzt werden. In Seiten eingefügt werden Raster-Elemente über &quot;Seite &gt; Raster&quot;. Jede Spalte bekommt automatisch einen eigenen Inline-Editor. Raster-Elemente können nur genutzt werden, wenn in den Seiten CSS-Klassen zur Kennzeichnung von Einfügepunkten existieren, <a onclick="top.document.getElementById('link_update_3').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';" href="../functions.htm">weitere Infos</a>.
+</p>
+	<h2>ModMaker</h2>
+	<p>Der Webutler Version 3 wurde mit dem ModMaker, einem Script zum erzeugen einfacher Ein- / Ausgabemodule, erweitert. Mehr Infos findet man unter dem Punkt <a onclick="top.document.getElementById('link_update_3').removeAttribute('class'); top.document.getElementById('link_makemod').className = 'aktiv';" href="../makemod/_readme.htm">ModMaker</a>.
+</p>
+	<p>Das alte News-Modul und der TinyMCE (WYSIWYG-Editor) wurden entfernt. Das News-Modul in V3.0 wurde mit dem ModMaker neu erstellt. Es hat nur einen geringen Funktionsumfang und es gibt keine Update-Möglichkeit. Das alte News-Modul kann aber auch weiter genutzt werden. Der TinyMCE muß dann aus /includes/modexts aus einer älteren Webutler-Version nach V3.0 kopiert werden. Wer eine andere Vorstellung von einem News-Modul hat, kann sich einfach ein anderes zusammenklicken - eine gute Möglichkeit den ModMaker kennenzulernen :-)
+</p>
+	<h2>Update von Version 2.3 - Was ist zu tun?</h2>
+	<ol>
+      <li>Mit FTP das komplette Verzeichnis /admin löschen</li>
+      <li>Das neue /admin Verzeichnis hochladen</li>
+      <li>Die Datei .htacces aus dem Rootverzeichnis hochladen</li>
+      <li>Alle Stylesheet-Dateien die mit face_ beginnen, die cketemplates.js und die ckestyles.js können aus /content/style gelöscht werden</li>
+      <li>Das neue Verzeichnis /content/pattern nach /content hochladen</li>
+      <li>Das neue Verzeichnis /content/grids nach /content hochladen</li>
+      <li>Das Verzeichnis /includes/modexts/ckeditor hochladen</li>
+      <li>Im Verzeichnis /includes ist die Datei &quot;mmclass.php&quot; hinzugekommen, diese Datei auf den Webspace hochladen</li>
+      <li>Die Dateien &quot;/includes/wbclass.php&quot; und &quot;/includes/loader.php&quot; müssen aktualisiert werden, also ebenfalls hochladen</li>
+	  <li>Die Module Forms, Search, Language und Users aus dem /includes Verzeichnis haben &quot;echte&quot; Templates bekommen. Diese findet man jeweils im neuen Unterverzeichnis /tpls.
+		<ul>
+		  <li>Wer im Forms oder Users Modul ein Logobild für den Mailversand verwendet, dieses sichern.</li>
+		  <li>Die alten Module /includes/forms, /includes/language, /includes/search und /includes/users löschen.</li>
+		  <li>Die neuen Modulverzeichnisse hochladen und das gesicherte Logobild ins /imgs Verzeichnis laden.</li>
+		  <li>Den Dateinamen des Logobildes in der config.php eintragen.</li>
+		  <li>Das Search Modul wird jetzt folgendermaßen geladen:<br />
+		  <span class="einzug">&lt;?PHP include &quot;includes/search/search.php&quot;; ?&gt;</span></li>
+		  <li>Laden des Sprachen-Blocks:<br />
+		  <span class="einzug">&lt;?PHP include &quot;includes/language/langblock.php&quot;; ?&gt;</span></li>
+		  <li>Laden des Users Moduls:<br />
+		  <span class="einzug">&lt;?PHP include &quot;includes/users/userpage.php&quot;; ?&gt;</span></li>
+		  <li>Die Einstellung für die Loginanzeige im Users-Modul wurde in die Moduladministration verschoben:<br /> in der Datei /access/regconf.php die Zeile $webutler_userreg['login_link'] = &quot;1&quot;; eintragen</li>
+		</ul>
+	  </li>
+      <li>Die Datei /includes/search/plugins.php wurde nach /settings verschoben und in &quot;searching.php&quot; umbenannt</li>
+      <li>Variablen in der Datei &quot;/settings/globalvars.php&quot;
+		<ul>
+		  <li>$webutler_config['editorstyles'] wurde entfernt</li>
+		  <li>$webutler_config['demoversion'] wurde entfernt</li>
+		  <li>$webutler_config['modrewrite'] = &quot;on&quot; wurde zu $webutler_config['modrewrite'] = &quot;1&quot; geändert</li>
+		  <li>$webutler_config['salt_key1'] und $webutler_config['salt_key2'] sind hinzugekommen. Die Keys sollten vergeben werden und anschließend die Variablen server_path, homepage, user_name und user_pass aus der baseconfig.php löschen und die Installation aufrufen.</li>
+		  <li>$webutler_config['logattemptmin'] ist hinzugekommen</li>
+		  <li>$webutler_config['makemod'] ist hinzugekommen</li>
+		  <li>$webutler_config['adminpattern'] ist hinzugekommen</li>
+		  <li>$webutler_config['insertgrid'], $webutler_config['insertpoints'], $webutler_config['insertmargin'] und $webutler_config['admingrids'] sind hinzugekommen</li>
+		  <li>Die Einstellungen für die Suchfunktion wurden in die globalvars.php verschoben: $webutler_config['searchshowinput'], $webutler_config['searchlistitems'] und $webutler_config['searchresultlen']</li>
+		  <li>$webutler_config['editorcicolors'] ist hinzugekommen</li>
+		</ul>
+	  </li>
+      <li>Alle Webutler-Seiten im Verzeichnis /content/pages müssen überarbeitet werden
+		<ul>
+		  <li>Bearbeitbare Inhaltsbereiche müssen nicht mehr durchnummeriert werden. begin_content_1 bis begin_content_XX durch begin_content, und end_content_1 bis end_content_XX durch end_content ersetzen.</li>
+		  <li>Die CSS-Klasse content_border wurde entfernt und durch die Klasse wb_contentelement ersetzt.</li>
+		  <li>Die CSS-Klasse block_border wurde entfernt und durch die Klassen wb_blockelement für Blöcke und wb_menuelement für Menüs ersetzt.</li>
+		  <li>Die neuen CSS-Klassen <strong>müssen!</strong> gesetzt werden, um mit Raster-Elementen arbeiten zu können <a onclick="top.document.getElementById('link_update_3').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';" href="../functions.htm">weitere Infos</a>.</li>
+		</ul>
+	  </li>
+    </ol>
+</div>
+</body>
+</html>

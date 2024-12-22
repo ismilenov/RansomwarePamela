@@ -1,0 +1,24 @@
+
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+
+#webutler_loadingscreen {
+    position: fixed;
+    background-color: #555555;
+    background-image: url(../images/loader.gif);
+    background-position: center center;
+	background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+	top: 0px;
+	left: 0px;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+    z-index: 9990;
+    cursor: wait;
+}

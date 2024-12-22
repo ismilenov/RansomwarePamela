@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V1.1 - www.webutler.de
+            Copyright (c) 2008 - 2009
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_1.0-1.1.htm');
+					localStorage.setItem('flink', 'update_11');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V1.0 » V1.1</h1>
+	<p>The files &quot;fckstyles.xml&quot; and &quot;fcktemplates.xml&quot; now online editable and have been moved from the FCKeditor directory to &quot;/content/style&quot;. The file &quot;style.css&quot; has also been moved to this directory. All in the /content/style located files can be edited.
+</p>
+	<h2>What to do?</h2>
+	<ol>
+		<li>Move the style.css of /content to /content/style</li>
+		<li>Open all files from the directory /pages and change the path to style.css</li>
+		<li>Who has the files fckstyles.xml and/or fcktemplates.xml changed, move those from /admin/fckeditor to /content/style</li>
+    </ol>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

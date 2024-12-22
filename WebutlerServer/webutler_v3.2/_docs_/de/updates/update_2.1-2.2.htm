@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.2 - www.webutler.de
+            Copyright (c) 2008 - 2013
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.1-2.2.htm');
+					localStorage.setItem('flink', 'update_22');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.1 » V2.2</h1>
+	<p>Die Adminfenster wurden auf jQuery umgestellt. Außerdem wurde der CKEditor auf Version 364 upgedatet und die Administration ist für Mehrsprachigkeit vorbereitet. Es gibt aber noch keine Übersetzungen. Wenn jemand Zeit und Lust hat, englisch fehlt noch:
+</p>
+	<ul>
+		<li>/admin/browser/lang/en.php (Sprachdatei Medienbrowser)</li>
+		<li>/admin/codemirror/lang/en.php (Sprachdatei Quellcode-Editor)</li>
+		<li>/admin/imageedit/lang/en.php (Sprachdatei Bildeditor)</li>
+		<li>/admin/system/lang/en.php (Sprachdatei der Administration)</li>
+		<li>/admin/system/lang/images/pageisoff/en.gif (Hinweis bei Offline-Seiten)</li>
+		<li>/admin/system/lang/images/pageisusers/en.gif (Hinweis bei User-Seiten)</li>
+		<li>/includes/users/lang/en.php (Sprachdatei des Usermodules)</li>
+	</ul>
+	<p>Super wäre natürlich auch noch die Übersetzung der Hilfedateien!
+</p>
+	<p>Andere Sprachen fehlen komplett. Wer da was übersetzen möchte, die Sprachdateien findet man jeweils in den /lang Verzeichnissen.
+</p>
+	<h2>Was ist zu tun?</h2>
+	<ol>
+      <li>Mit FTP das komplette Verzeichnis /admin löschen</li>
+      <li>Das neue /admin Verzeichnis hochladen</li>
+      <li>Die Datei &quot;/includes/functions.php&quot; mit der neuen Datei überschreiben.</li>
+      <li>Die Datei &quot;/includes/users/user_class.php&quot; mit der neuen Datei überschreiben.</li>
+      <li>In der Datei &quot;baseconfig.php&quot; ist die Variable $webutler_config['user_lang'] für die Sprache des Administrators dazu gekommen. Diese müssen Sie in Ihrer baseconfig.php ergänzen.</li>
+      <li>Die Datei &quot;.htaccess&quot; im Rootverzeichnis mit der neuen Datei überschreiben.</li>
+      <li>In der Datei &quot;globalvars.php&quot; müssen folgende Variablen ergänzt werden:
+    	<ul>
+          <li>$webutler_config['admin_lang'] für die Sprache des Webmasters</li>
+          <li>$webutler_config['defaultlang'] für die Standard-Sprache, wird z.B. benötigt wenn die Seite nicht mehrsprachig betrieben wird</li>
+          <li>außerdem wurde die Config mit ein paar ini_set Funktionen erweitert:
+	    	<ul>
+				<li>webutler_setinivalues('session.use_cookies', 1);</li>
+				<li>webutler_setinivalues('session.cookie_httponly', 1);</li>
+				<li>webutler_setinivalues('session.use_only_cookies', 1);</li>
+				<li>webutler_setinivalues('display_errors', 0);</li>
+				<li>webutler_setinivalues('display_startip_errors', 0);</li>
+        	</ul>
+          </li>
+        </ul>
+        Die Variablen können einfach aus der neuen globalvars.php heraus kopiert werden.
+      </li>
+      <li>Die Datei /settings/modulebox.php wurde vereinfacht. Es gibt jetzt keinen Erklärungstext mehr, nur noch die Angabe von Modulname und Link.</li>
+     </ol>
+</div>
+</body>
+</html>

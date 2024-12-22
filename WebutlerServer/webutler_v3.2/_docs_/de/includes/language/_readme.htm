@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Sprachen-Modul</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 12px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/language/_readme.htm');
+					localStorage.setItem('flink', 'language');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Sprachen-Modul</h1>
+	<p>Wenn die Homepage nicht mehrsprachig betrieben werden soll, muß das Sprachmodul auch nicht aktiviert werden. Benötigte Variablen der Standardsprache laut Einstellung $webutler_config['defaultlang'], werden automatisch geladen.
+    </p>
+	<p>Das Umschalten der Sprache in der Besucheransicht geschieht automatisch. Dafür wird in der Administration jeder Seite eine Sprache zugeordnet. Wichtig ist das Umschalten hauptsächlich, wenn Module verwendet werden die Sprachkonstanten benutzen. Das gilt z.B. für das Formularmodul, damit alle Fehler- und Bestätigungsmeldungen in der Sprache des Besuchers angezeigt werden.
+    </p>
+	<p>Wenn das Sprachmodul aktiviert wird, muß auch die Standardsprache laut $webutler_config['defaultlang'] angelegt werden.
+    </p>
+	<h2>Funktionsweise</h2>
+	<p>Jeder Contentseite wird beim anlegen eine Sprache zugeordnet. Wenn ein Modul in eine Seite includet wird, muß diese Seite für jede Sprache separat angelegt werden, da die Sprachvariablen des Moduls anhand der Sprache der Seite geladen werden.
+</p>
+	<p>Wenn Mehrsprachigkeit nachträglich aktiviert wird, müssen auch alle vorhandenen Seiten nachträglich einer Sprache zugeordnet werden. Sinnvollerweise sollte für jede Sprache eine eigene Layoutdatei mit allen sprachspezifischen Headereinstellungen und separaten Menüdateien angelegt werden.
+</p>
+	<h2>Administration</h2>
+	<p>Bevor mit dem Sprachmodul gearbeitet wird, sollten alle notwendigen Modul-Übersetzungen vorhanden und Flaggenicons festgelegt sein. Die Übersetzungsdateien müssen sich jeweils im Unterverzeichnis &quot;/lang&quot; befinden. Die Mehrsprachigkeit wird mit der Variablen $webutler_config['languages'] in der globalvars.php aktiviert.
+</p>
+	<p>In der Administration werden das Sprachenkürzel sowie der Sprachenname definiert. Anschließend kann jeder Sprache eine Seite als Startseite zugeordnet werden. Dieser Menüpunkt kann mit der Variablen $webutler_config['setnewlang'] deaktiviert werden.
+</p>
+	<p>Das Sprachenkürzel muß mit dem Dateinamen der Sprachdateien übereinstimmen: Kürzel &quot;de&quot; für die Dateien de.php oder de.js, Kürzel &quot;en&quot; für die Dateien en.php oder en.js. Es <strong>müssen!</strong> die <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 Codes</a> genutzt werden, also alle Sprachenkürzel müssen aus 2 Buchstaben bestehen.
+</p>
+	<h2>Sprache in der URL anzeigen</h2>
+	<p>Man kann die Sprache als Verzeichnis in der URL anzeigen lassen. Dafür muß die Variable $webutler_config['langfolder'] in der Datei /settings/globalvars.php auf 1 gesetzt sein.
+</p>
+	<h3>Gleiche Dateinamen</h3>
+	<p>Es kommt vor, daß man in verschiedenen Sprachen den selben Dateinamen nutzen möchte, z.B. für eine Seite namens &quot;service&quot;. Dafür kann das Sprachkürzel als Prefix vor den Dateinamen gesetzt werden:<br /><br />
+	<span class="einzug">Format: Sprachkürzel - Unterstrich - Dateiname</span><br />
+	<span class="einzug">z.B.: de_service und en_service</span><br /><br />
+	Sprachkürzel und Unterstrich werden in der URL-Anzeige automatisch entfernt.<br />
+	<strong>&quot;Sprache in URL anzeigen&quot; muß aktiviert sein!</strong>
+</p>
+	<h2>Sprachauswahl integrieren</h2>
+	<p>Das Template für die Sprachauswahl wird einfach an einer beliebigen Stelle auf den Seiten untergebracht.<br /><br />
+    <span class="einzug">&lt;?PHP include &quot;includes/languages/langblock.php&quot;; ?&gt;</span><br />
+    <br />
+    In eigenen Modulen kann die vom Besucher gewählte Sprache mit der Sessionvariablen<br /><br />
+    <span class="einzug">$_SESSION['language']</span><br />
+    <br />
+    abgefragt werden.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

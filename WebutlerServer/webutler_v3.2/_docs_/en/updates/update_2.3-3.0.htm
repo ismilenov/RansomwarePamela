@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V3.0 - www.webutler.de
+            Copyright (c) 2008 - 2014
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.3-3.0.htm');
+					localStorage.setItem('flink', 'update_3');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.3 » V3.0</h1>
+	<h2>Update to CKEditor V4.4</h2>
+	<p>CKEditor version 4 supports inline editing. That means the editors on the page are no longer embedded in iframes, but in DIV elements. This has the huge advantage that you will no longer have to check whether styles are available from the stylesheet in the editor. The source code of the editors is now integrated directly into the page.
+</p>
+	<h2>Save pages temporarily</h2>
+	<p>Pages at which the reaction is carried can now be cached. But in the editor a second disk icon is been added. Temporary pages are not visible to visitors. The visitors continue to see the &quot;normal&quot; page. The temporary page is visible to the visitor when the editor on the &quot;publish&quot; symbol or in the admin menu page, click the &quot;publish&quot; link is clicked. About the &quot;discard&quot; link, a temporary page will be deleted.
+</p>
+	<p>Menus and blocks are <strong>not</strong> saved temporarily. Changes to menus and blocks in the full page editing can be ignored when saving.
+</p>
+	<h2>File uploads</h2>
+	<p>In the media browser files of any size can now be uploaded. PHP is at the exceed of upload_max_filesize still an error message. To suppress the error message, so the line must be &quot;php_flag display_startup_errors off&quot; entered in the root .htaccess file.
+</p>
+	<h2>Editor pattern</h2>
+	<p>The file &quot;cketemplates.js&quot; was removed from the /styles directory!<br />
+		Templates can now somewhat clearer to create and edit about &quot;System &gt; Pattern&quot;.
+</p>
+	<h2>Grid elements</h2>
+	<p>Using the grid elements multiple columns comes to Webutler. Grid elements can be edited and supplemented under the Admin menu item &quot;System &gt; Grids&quot;. Grid elements can be inserted into pages under &quot;Page &gt; Grid&quot;. Each column automatically gets its own inline editor. Grid elements can be used only if exist in the pages CSS classes for the identification of insertion points, <a onclick="top.document.getElementById('link_update_3').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';" href="../functions.htm">more Infos</a>.
+</p>
+	<h2>ModMaker</h2>
+	<p>The Webutler Version 3 has been expanded with the ModMaker, a script to create simple input/output modules. More information can be found at the point <a onclick="top.document.getElementById('link_update_3').removeAttribute('class'); top.document.getElementById('link_makemod').className = 'aktiv';" href="../makemod/_readme.htm">ModMaker</a>.
+</p>
+	<p>The old news module and TinyMCE (WYSIWYG editor) have been removed. The news module in V3.0 was created with the ModMaker. It has only a small feature set and there is no update option. The old news module can also be used further. The TinyMCE must then be copied from /includes/modexts from an older Webutler version to V3.0. A good opportunity to meet the ModMaker :-) - Who has a different idea of ​​a news module, can easily click together another.
+</p>
+	<h2>Update from version 2.3 - What to do?</h2>
+	<ol>
+		<li>Using FTP, delete the complete directory /admin</li>
+		<li>Upload the new /admin directory</li>
+		<li>Upload the file .htaccess from the root</li>
+		<li>All stylesheet files beginning with face_, the cketemplates.js and the ckestyles.js can be deleted from /content/style</li>
+		<li>According to /content upload the new directory /content/pattern</li>
+		<li>According to /content upload the new directory /content/grids</li>
+		<li>Upload the directory /includes/modexts/ckeditor</li>
+		<li>In the directory /includes the file &quot;mmclass.php&quot; has been added, upload this file to your webspace</li>
+		<li>The files &quot;/includes/wbclass.php&quot; and &quot;/includes/loader.php&quot; need to be updated, so also upload</li>
+		<li>The modules Forms, Search, Language and Users from the /includes directory got &quot;real&quot; templates. These are found each in the new subdirectory /tpls.<br />
+			<ul>
+				<li>If a logo image for mail delivery used in forms or users module, ensure this.</li>
+				<li>Delete the old modules /includes/forms, /includes/language, /includes/search und /includes/users</li>
+				<li>Upload the new module directories and upload the saved logo images into the /imgs directory.</li>
+				<li>Enter the file name of the logo image in the config.php.</li>
+				<li>The Search module is now loaded as follows:<br />
+				<span class="einzug">&lt;?PHP include &quot;includes/search/search.php&quot;; ?&gt;</span></li>
+				<li>Loading the Language block:<br />
+				<span class="einzug">&lt;?PHP include &quot;includes/language/langblock.php&quot;; ?&gt;</span></li>
+				<li>Loading the Users module:<br />
+				<span class="einzug">&lt;?PHP include &quot;includes/users/userpage.php&quot;; ?&gt;</span></li>
+				<li>The setting for the login link display in the users module has been moved to the module administration:<br />in file /access/regconf.php enter the line $webutler_userreg['login_link'] = &quot;1&quot;;</li>
+			</ul>
+		</li>
+		<li>The /includes/search/plugins.php file was moved to /settings and renamed to &quot;searching.php&quot;</li>
+		<li>The variables in the &quot;/settings/globalvars.php&quot;<br />
+			<ul>
+				<li>$webutler_config['editorstyles'] is removed</li>
+				<li>$webutler_config['demoversion'] is removed</li>
+				<li>$webutler_config['modrewrite'] = "on" is changed to $webutler_config['modrewrite'] = "1"</li>
+				<li>$webutler_config['salt_key1'] and $webutler_config['salt_key2'] are added. The keys should be assigned, and then the variables server_path, homepage, user_name and user_pass delete from baseconfig.php and call the installation.</li>
+				<li>$webutler_config['logattemptmin'] is added</li>
+				<li>$webutler_config['makemod'] is added</li>
+				<li>$webutler_config['adminpattern'] is added</li>
+				<li>$webutler_config['insertgrid'], $webutler_config['insertpoints'], $webutler_config['insertmargin'] and $webutler_config['admingrids'] are added</li>
+				<li>The settings for the search were moved to the globalvars.php: $webutler_config['searchshowinput'], $webutler_config['searchlistitems'] und $webutler_config['searchresultlen']</li>
+				<li>$webutler_config['editorcicolors'] is added</li>
+			</ul>
+		</li>
+		<li>All Webutler pages in the directory /content/pages need to be revised<br />
+			<ul>
+				<li>Editable content areas must not be numbered. Replace begin_content_1 to begin_content_XX by begin_content, and end_content_1 to end_content_XX by end_content.</li>
+				<li>The CSS class content_border was removed and replaced by the class wb_contentelement.</li>
+				<li>The CSS class block_border was removed and replaced by the classes wb_blockelement for blocks and wb_menuelement for menus.</li>
+				<li>New CSS classes <strong>must!</strong> be set to work with grid elements <a onclick="top.document.getElementById('link_update_3').removeAttribute('class'); top.document.getElementById('link_functions').className = 'aktiv';" href="../functions.htm">more Infos</a>.</li>
+			</ul>
+		</li>
+	</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: block;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/admin.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Define Fields</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Data output</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Administration of a module</h1>
+	<p>Under the Administration tab of the configuration of the module is determined. The following settings can be assigned.
+</p>
+	<p><strong>Login for editors</strong><br />
+		<span class="einzug">A user group of the user module can be defined as editors, giving it access to the administrator of the module.</span>
+</p>
+	<p><strong>Set write permissions</strong><br />
+		<span class="einzug">The display of visitor input mask can be limited to user groups in the user module.</span>
+</p>
+	<p><strong>Multilingual input</strong><br />
+		<span class="einzug">The module is to be used in several languages. For this, a language selection list is created. If the sides are supposed to be the same for all languages, a field for each language is set alternatively per text input.</span>
+</p>
+	<p><strong>Offer categories</strong><br />
+		<span class="einzug">The topics and/or contributions of the module are accessible via categories. Categories have separate templates and can be provided with image and/or description. Nesting as a category tree as well as the mapping from the set menu are possible.</span>
+</p>
+	<p><strong>Categories as entry points for multi-page support</strong><br />
+    <span class="einzug">Categories can be used as entry points to use a module on different pages. When this item is selected, the variable &quot;basecat&quot; must be set in the page - <a href="install.htm#multipage">more infos</a>.</span>
+</p>
+	<p><strong>Offer topics</strong><br />
+		<span class="einzug">When this item is selected contributions are grouped under a theme. For the different representation of the thread start contribution the templates are topicslist_startdata.tpl and topic_startdata.tpl available.</span>
+</p>
+	<p><strong>Create option groups</strong><br />
+		<span class="einzug">Option groups are free customizable lists that can be printed in records. The principle is the same as checkboxes, only more flexible. If one has for example a catalog of products made of wood, metal and plastic could be an option group different wood grains, an option group various metal surfaces and other colors of plastics map - including images. Depending on the product the appropriate option group is then selected in the Administration and mapped in the record.</span>
+</p>
+</div>
+</body>
+</html>

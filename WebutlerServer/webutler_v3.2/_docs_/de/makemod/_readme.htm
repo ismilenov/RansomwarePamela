@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 658px;
+            margin: 0px;
+            padding: 40px 12px 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/_readme.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Felder definieren</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Datenausgabe</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>Ein Modul mit dem ModMaker erzeugen</h1>
+	<p>Mit dem ModMaker lassen sich einfache Ein-/Ausgabe Module erstellen. Inspiriert wurde der ModMaker vom PostNuke Modul Pagesetter.
+</p>
+	<p>Der ModMaker nimmt einem die Programmierarbeit ab, aber nicht die <strong>Denkarbeit</strong>. Man sollte gut planen und wissen was man will und braucht, und sich nicht irgendwelche Felder nach dem Motto: &quot;Könnte ich vielleicht mal gebrauchen&quot; zusammenklicken. Überflüssige Felder sind letztendlich nur im Weg.
+</p>
+	<p>Das erzeugte Modul kann nach dem Download <strong>nicht</strong> durch den ModMaker aktualisiert werden!
+</p>
+	<p>Möglich sind z.B. Bildergalerien, News, FAQs, Glossars, Produktkataloge, Downloads oder interaktive Module wie Gästebücher, Blogs und Foren oder auch einfache Mini-Administrationen zur Ausgabe in jQuery-Animationen. Für Funktionsweisen wie die Weiterverarbeitung (z.B. ein Warenkorb) oder Auswertung (z.B. bei Umfragen) von Daten müssen eigene Funktionen geschrieben werden.
+</p>
+	<h3>Ein Modul wird in 4 Schritten erstellt:</h3>
+	<p><span class="einzug">Struktur des Moduls festlegen</span><br />
+    <span class="einzug">Modul erzeugen und herunterladen</span><br />
+    <span class="einzug">Templates gestalten</span><br />
+    <span class="einzug">Modul auf den Server hochladen</span>
+</p>
+	<h2>Ein neues Modul anlegen</h2>
+	<p>Der ModMaker wird über das Adminmenü =&gt; System =&gt; ModMaker aufgerufen. Als erstes muß ein Name für das Modul vergeben werden. Dieser Name wird als Modul-Verzeichnisname verwendet, es sollte nur ein kurzer Name benutzt werden. Für die Bezeichnung des Moduls in der Headline der Administration kann der Name später in der Sprachdatei geändert werden.
+</p>
+	<h2>Modul erweitern / ändern</h2>
+	<p>Alle Dateien im Verzeichnis des erzeugten Moduls sind autark und können nach belieben geändert werden.
+</p>
+	<p>Für die Erweiterung eines Moduls bietet es sich an, eigene Funktionen in eine neue Klasse zu schreiben, diese in die view.php zu laden und gesendete Daten dort auszuwerten. So lassen sich auch einfach detailiertere Abfragen alternativ zu den neusten Einträgen realisieren oder die oben erwähnte Weiterverarbeitung als Warenkorb oder Umfrage-Auswertung.
+</p>
+</div>
+</body>
+</html>

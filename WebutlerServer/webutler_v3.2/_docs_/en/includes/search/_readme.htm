@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modul Suchfunktion</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/search/_readme.htm');
+					localStorage.setItem('flink', 'search');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Module search</h1>
+	<p>Include the &quot;search.php&quot; in a new page and put a search form on the website, done.<br /><br />
+		Whether a search engine for a small static content page is useful, I'll let time to be seen.<br /><br />
+		The search is easy to integrate. For the search result only a new page must be created, eg &quot;searchresult&quot;, in which the search engine will be include:<br /><br />
+		<span class="einzug">&lt;?PHP include &quot;includes/search/search.php&quot;; ?&gt;</span><br /><br />
+		namely at the point where the result is to be displayed.<br /><br />
+		An additional search form can be placed anywhere on any page. In the layout, as a block or on a separate page. The search form must have the following form:<br /><br />
+		<span class="einzug">&lt;form action=&quot;index.php?page=___SEARCHRESULTSPAGE___&quot; method=&quot;post&quot;&gt;</span><br />
+		<span class="einzug"><span class="einzug">&lt;input type=&quot;text&quot; name=&quot;query&quot; value=&quot;&quot; /&gt;</span></span><br />
+		<span class="einzug"><span class="einzug">&lt;input type=&quot;submit&quot; name=&quot;search&quot; value=&quot;search&quot; /&gt;</span></span><br />
+		<span class="einzug">&lt;/form&gt;</span><br /><br />
+		In the action attribute, the form is sent to the search engine, so the page ___SEARCHRESULTSPAGE___. In the file &quot;/settings/globalvars.php&quot; the default search form is activated and the number of hits per results page can be set.
+</p>
+	<h2>What is to be searched?</h2>
+    <p>In the file &quot;/settings/searching.php&quot; can be set which is to be searched - <a onclick="top.document.getElementById('readmes').src = 'settings/_readme.htm#searching'; top.document.getElementById('link_search').removeAttribute('class'); top.document.getElementById('link_settings').className = 'aktiv';" href="../../settings/_readme.htm#searching">more infos</a>.
+</p>
+	<h2>Write search plugin for your own module</h2>
+    <p>If you want to make a search plugin available for a module, the search plugin file must have the name &quot;search.php&quot;. In search.php the function &quot;__ searchinmodcontent_ __MODULS_DIRECTORY_NAME__&quot; must be present. The function has to return to the side an array of title, content and URL.<br /><br />
+		Example:<br />
+		<span class="einzug">$result[]['title']</span><br />
+		<span class="einzug">$result[]['contents']</span><br />
+		<span class="einzug">$result[]['url']</span>
+</p>
+</div>
+</body>
+</html>

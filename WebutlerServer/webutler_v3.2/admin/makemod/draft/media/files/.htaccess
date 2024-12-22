@@ -1,0 +1,6 @@
+Order deny,allow
+Deny from all
+
+#<Files *.*>
+#ForceType application/octet-stream
+#</Files>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V3.1 - www.webutler.de
+            Copyright (c) 2008 - 2015
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'updates/update_3.0-3.1.htm');
+					localStorage.setItem('flink', 'update_31');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V3.0 » V3.1</h1>
+	<h2>Conversion to HTML5</h2>
+	<p>Up to version 3.0 of the Webutler ran under the doctype XHTML Transitional. The entire system was converted to HTML5. In order to prevent problems caused by intermixing of XHTML and HTML5, all HTML pages must be adjusted or switched to HTML5!<br />
+	The new HTML5 elements &lt;header&gt;, &lt;footer&gt;, &lt;section&gt;, &lt;article&gt;, &lt;nav&gt; and &lt;aside&gt; are supported, but can not be created or edited in CKEditor.
+</p>
+	<h2>SEO</h2>
+	<p>For search engine optimization, the system automatically generates a sitemap.xml of pages and modules. In all the pages and pages of a module canonical tag is inserted automatically.<br />
+	ModMaker modules automatically set in addition to the robots meta tag. If a ModMaker module is loaded into a page, the meta tag robots therefore should not be included.
+</p>
+	<h2>New functions</h2>
+	<p>Update to CKEditor version 4.4.7<br />
+	Languages can be displayed as a directory in the URL.<br />
+	In ModMaker modules now copies of topics and records can be created. In addition, the ID of a category can be set as the entry point to use the module on multiple pages.<br />
+	Grid columns can now be deleted and are also available directly in the editor. The column width is changed to dynamic values (percent).<br />
+	The size measuring tool is now available in full page editor.
+</p>
+	<h2>Update from version 3.0 - What to do?</h2>
+	<ol>
+      <li>With FTP delete the complete directory /admin.</li>
+      <li>Upload the new /admin directory.</li>
+      <li>Upload the files loader.php, wbclass.php and mmclass.php from directory /includes</li>
+	  <li>Conversion to HTML5:
+		<ul>
+		  <li>Open all pages in the directory /content/pages and all layouts in /content/layouts.</li>
+		  <li>Change the DocType to &lt;!DOCTYPE html&gt;.</li>
+		  <li>In html tag language must only be specified &lt;html lang=&quot;de&quot;&gt;.</li>
+		  <li>The meta charset specification is simplified in HTML5,<br />
+			<span class="einzug">change: &lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;content-type&quot; /&gt;</span><br />
+			<span class="einzug">to: &lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+		  </li>
+		  <li>The type attribute for javascript files is optional, from all &lt;script&gt; tags type=&quot;text/javascript&quot; can be removed.</li>
+		  <li>The closing slash of self closing elements (&lt;img /&gt;, &lt;br /&gt; etc.) can/should be maintained.</li>
+		</ul>
+	  </li>
+      <li>Multilingualism:
+		<ul>
+		  <li>In the file /settings/globalvars.php complement the variable<br />
+			<span class="einzug">$webutler_config['langfolder'] = &quot;0&quot;;</span><br />
+			and set to <strong>1</strong> if the language should be displayed as a URL directory.
+		  </li>
+		  <li>It may happen that you want to use in various languages the same file name, eg for a page called &quot;service&quot;. For that the language code can now be set as a prefix before the file name:<br />
+			<span class="einzug">format: en_filename</span><br />
+		  Prefix and underscores are automatically removed from the URL.<br />
+		  <strong>$webutler_config['langfolder'] must be set to 1!</strong>
+		  </li>
+		  <li>Copy the rewrite of the language in the URL to the root .htaccess:<br />
+			<span class="einzug">RewriteRule ^([a-z/]{3})$ index.php [L,NC]</span></li>
+		</ul>
+	  </li>
+      <li>Sitemap:
+		<ul>
+		  <li>Upload the directory /includes/sitemap.</li>
+		  <li>Upload the file /settings/sitemaps.php.</li>
+		  <li>Copy this rewrite for the sitemap.xml to the htaccess:<br />
+			<span class="einzug">RewriteRule ^sitemap.xml$ includes/sitemap/index.php [L,NC]</span></li>
+		  <li>If you want to add modules created by the ModMaker to the sitemap:
+			<ul>
+			  <li>Copy the file sitemap.php from /admin/makemod/draft to the module directory.</li>
+			  <li>Open the file and replace the placeholder ###MODULENAME### with the module directory name.</li>
+			  <li>The module must be entered in the file /settings/sitemaps.php - <a onclick="top.document.getElementById('readmes').src = 'settings/_readme.htm#sitemaps'; top.document.getElementById('link_update_31').removeAttribute('class'); top.document.getElementById('link_settings').className = 'aktiv';" href="../../settings/_readme.htm#sitemaps">more info</a>.</li>
+			</ul>
+		  </li>
+		</ul>
+	  </li>
+      <li>The closing PHP tag ?&gt; At the end of PHP files has been removed.
+		<ul>
+		  <li>There were problems with empty rows when creating the sitemap.xml</li>
+		  <li>Who comes to this phenomenon, one <strong>must</strong> open all PHP files from the /includes, /modules and /settings and remove the closing PHP tag ?&gt;.</li>
+		</ul>
+	  </li>
+      <li>ModMaker:
+		<ul>
+		  <li>Loading mmclass.php was removed from the loader.php.
+			<ul>
+			  <li>Open the file <strong>admin.php</strong> in all ModMaker modules:</li>
+			  <li>at the beginning of the file after the line<br />
+				<span class="einzug">require_once dirname(__FILE__).'/includes/loader.php';</span><br />
+				add the following line::<br />
+				<span class="einzug">require_once $webutler_config['server_path'].'/includes/mmclass.php';</span></li>
+			  <li>Open the file <strong>view.php</strong> in all ModMaker modules:</li>
+			  <li>at the beginning of the file after the line<br />
+				<span class="einzug">exit('no access');</span><br />
+				add the following lines:<br />
+				<span class="einzug">if(!class_exists('MMConnectClass'))</span><br />
+				<span class="einzug"><span class="einzug">require_once $webutlercouple->config['server_path'].'/includes/mmclass.php';</span></span></li>
+			  <li>Replace the file /includes/search/search.php with the new one.</li>
+			  <li>In all ModMaker modules open the file <strong>loader.php</strong> in the <strong>/media</strong> directory:</li>
+			  <li>at the beginning of the file after the line<br />
+				<span class="einzug">$webutler->config = $webutler_config;</span><br />
+				add the following line:<br />
+				<span class="einzug">require_once $webutlercouple->config['server_path'].'/includes/mmclass.php';</span></li>
+			</ul>
+		  </li>
+		  <li>In ModMaker modules copies from topics and data records can be created and categories IDs can be used as entry points for multi-page support.
+			<ul>
+			  <li>Open the file <strong>admin.php</strong> in all modules</li>
+			  <li>Search for the function getnewtopiclink() and rename it to gettopiclink('new')</li>
+			  <li>Search for the function getnewdatalink() and rename it to getdatalink('new')</li>
+			  <li>There are new fields in /content/access/makemod.db</li>
+			  <li>Who no longer needed his created modules stored in ModMaker can simply delete the makemod.db</li>
+			  <li>Or open the DB with a SQLite3 admin tool and expand the admin table with the new fields 'copytopictocat INTEGER', 'copydatatocat INTEGER', 'copydatatotopic INTEGER' and 'basecatids INTEGER'</li>
+			</ul>
+		  </li>
+		  <li>The variable _MMBLOCK was renamed:
+			<ul>
+			  <li>The variable exists in &quot;category&quot; menus and &quot;newest items&quot; blocks.</li>
+			  <li>Open the <strong>view.php</strong> in all ModMaker modules:</li>
+			  <li>- Replace the variable name $_MMBLOCK by $_MMVAR</li>
+			  <li>Open all files that load a category menu or newest items block:</li>
+			  <li>- Replace the variable name $_MMBLOCK by $_MMVAR</li>
+			</ul>
+		  </li>
+		  <li><strong>The news module is also a ModMaker module</strong>
+			<ul>
+			  <li>Perform the changes for sitemap, loading of mmclass.php and function names in the news module also!</li>
+			</ul>
+		  </li>
+		</ul>
+	  </li>
+      <li>The grid elements were changed to dynamic width.
+		<ul>
+		  <li>The CSS classes and all the templates have been changed.</li>
+		  <li>Secure your own templates from /content/grids/elements and the file /content/grids/mygrids_lang.php.</li>
+		  <li>Delete the directory /content/grids from the server.</li>
+		  <li>Upload the new directory to the server.</li>
+		  <li>In the saved templates and in pages contained grid elements the DIVs and CSS classes have to be adjusted.
+			<ul>
+			  <li>The DIV with the wb_gridspace class has been removed</li>
+			  <li>wb_gridtable was renamed to wb_gridgroup</li>
+			  <li>wb_gridcell and wb_gridcell[PERCENT] was renamed to wb_gridcol and wb_gridcol[PERCENT]</li>
+			</ul>
+		  </li>
+		  <li>Load the saved templates, the mygrids_lang.php and the customized pages to the server.</li>
+		</ul>
+	  </li>
+      <li>Support for IDNA mail addresses
+		<ul>
+		  <li>eMail addresses with special characters in the domain will be changed in Punycode. The following files must be updated:</li>
+		  <li>/includes/users/user_class.php</li>
+		  <li>/includes/forms/sendform.php</li>
+		  <li>/includes/modexts/phpmailer/mailer.php</li>
+		</ul>
+	  </li>
+      <li>New/revised variables in the globalvars.php
+		<ul>
+		  <li>$webutler_config['langfolder'] - show language as a URL directory</li>
+		  <li>$webutler_config['cssnotineditor'] - CSS files that should not be loaded in the editor</li>
+		  <li>$webutler_config['playercolor'] - color for the control elements of the flash player</li>
+		  <li>$webutler_htmlsource['page_header'] - converted to HTML5</li>
+		</ul>
+	  </li>
+    </ol>
+</div>
+</body>
+</html>

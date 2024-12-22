@@ -1,0 +1,2 @@
+
+CKEDITOR.plugins.setLang('showprotected','en',{title:'edit JS/PHP script',label:'code snippet',alert:'The snippet cannot be empty!',editprotected:'edit script'});CKEDITOR.lang['en'].fakeobjects['protected_script']='JavaScript';CKEDITOR.lang['en'].fakeobjects['protected_php']='PHP Script';

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: block;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/view.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Define Fields</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Data output</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Visitors view and output of the fields in the templates</h1>
+	<h2>Visitors view</h2>
+	<p>Under the visitors view tab is set as the output should look like for the visitor. The display of the data set list is the basis for each module. The data set is the full view and is accessed via a link in the list.
+</p>
+	<p><strong>Latest records:</strong><br />
+		<span class="einzug">The latest records can be displayed on a separate page (eg home or a block). To output the template is used newest.tpl. In the administration of the module, the number of displayed contributions are determined.</span>
+</p>
+	<p><strong>Input mask in the visitor view:</strong><br />
+		<span class="einzug">Visitors can create new topics or only records. The input mask is under the list or on a separate page.</span>
+</p>
+	<h2>Set SQL query filter</h2>
+	<p><strong>Form:</strong><br />
+		<span class="einzug">When you select this item, a form (template: filter.tpl) is set for the user defined DB query. You have to set the input fields of the form by yourself. The input must be passed in the view.php to the array class->datafilter.<br />
+		Only records are filtered, no categories or topics. The form is displayed to the topic or the record list.</span>
+</p>
+	<p><strong>Array datafilter:</strong><br />
+		<span class="einzug">In array the following key-value pairs can be set, not setted pairs are ignored:</span>
+</p>
+	<p><span class="einzug"><strong>where:</strong> &quot;fieldname1 &lt; xyz AND fieldname2 &gt; xyz OR fieldname3 = xyz&quot;<br />
+		<span class="einzug">With the where string the database query is expanded.<br />
+		'fieldname' must be self-defined database field name. You can find all the names in config.php: conf['data']. 'Xyz' can be the values ​​from the specified inputs of the form.<br />
+		It must be kept to the SQL syntax!</span>
+	</span>
+</p>
+	<p><span class="einzug"><strong>order:</strong> fieldname<br />
+		<span class="einzug">'fieldname' must be an defined database field name.</span>
+	</span>
+</p>
+	<p><span class="einzug"><strong>direction:</strong> ASC or DESC<br />
+		<span class="einzug">The sort direction.</span>
+	</span>
+</p>
+	<p><strong>datafilter example:</strong><br />
+		<span class="einzug">
+			In the form, there are two date input fields with the names start and end. With it only records that are within the selected date should be displayed. A database field with the name date is queried.
+		</span><br />
+		<span class="einzug">
+			$startdate = strtotime(preg_replace(&quot;/[^0-9\-]/&quot;, &quot;&quot;, $_POST['start']));<br />
+			$enddate = strtotime(preg_replace(&quot;/[^0-9\-]/&quot;, &quot;&quot;, $_POST['end']));<br /><br />
+			$mod_class->datafilter = array(<br />
+				<span class="einzug">
+				'where' => &quot;date BETWEEN &quot;.$startdate.&quot; AND &quot;.$enddate,<br />
+				'order' => 'date',<br />
+				'direction' => 'DESC'<br />
+				</span>
+			);
+		</span>
+</p>
+	<h2>Templates</h2>
+	<p>Under the rider template is set the data fields to be of which template output.
+</p>
+	<p><strong>List view:</strong><br />
+		<span class="einzug">Fields to be displayed as a list item.</span>
+</p>
+	<p><strong>Page view:</strong><br />
+		<span class="einzug">When enabled, the fields to be displayed as a full record.</span>
+</p>
+	<p><strong>Visitors input:</strong><br />
+		<span class="einzug">When enabled, the fields to be displayed as a visitor input mask.</span>
+</p>
+	<p><strong>Recent items:</strong><br />
+		<span class="einzug">When enabled, the fields to be displayed in the list of recent entries.</span>
+</p>
+</div>
+</body>
+</html>

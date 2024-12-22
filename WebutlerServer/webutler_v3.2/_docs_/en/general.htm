@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Allgemeines</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self)
+                top.location = '_start.htm';
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Webutler Version 3.2</h1>
+	<p>The Webutler is a simple online editor for static HTML pages. Webmasters can provide a simple login option for image and text editing to their customers. The Webutler is a tool for small websites or projects to be implemented with as little effort.
+</p>
+	<h2>System Requirements</h2>
+	<p>The Webutler requires PHP version 5.4 or higher. MySQL is not required. Modules for storing data sets, such as user management or news were reacted with SQLite3. For categories and SEO URLs the Apache module must be "mod_rewrite" installed.
+</p>
+	<p>There are .htaccess files in several subdirectories which prevent the direct call of files from this directory. If another web server is used as Apache, this directory protection does <strong>not</strong> work! But the protection is mandatory when a SQLite database file is located in this directory. The database can otherwise be easily downloaded by anyone. Therefore the .htaccess files should be replaced by a protection mechanism of your server.
+</p>
+	<h2>Browser Compatibility</h2>
+	<p>The Webutler should work in any modern browser. Minor errors or problems are of course still can not be ruled out. It is recommended to use Firefox or Chrome to work with the Webutler.
+</p>
+	<h2>Entry</h2>
+	<p>Anyone who wants to can start with the Webutler from scratch and create all the required layouts, pages, menus and blocks online. However, it has been found easier than the basic system as usual to create offline and then be integrated into the Webutler. Optimally, it is natural to download a web server such as XAMPP and realize the structure of the page with it.
+</p>
+	<p>CKEditor is the heart of Webutlers, that is, Operation and possibilities of Webutlers are matched to the editor. He takes part independently make changes to the source code. This is related to the program logic of the editor. Who programmed HTML, knows the problems with various representations in different browsers. Who uses the Webutler, must adjust to the fact that he now also has to adapt or change for the CKEditor its pages.
+</p>
+	<h2>Extensions</h2>
+	<p>The Webutler has a small user management. Pages can be protected and visitors can register. Registered users are classified in a user group and the group will be granted to the secure pages of the website access.
+</p>
+	<p>A site can be set up in multiple languages. The languages ​​module sides of a language are assigned so that language variables of modules are displayed in the language of the visitor.
+</p>
+	<p>In the editor, any contact forms can be created. To send the forms to be entered in the form module and receiver selected in the editor.
+</p>
+	<p>There is a central location for javascripts that can be integrated with the editor to the website. The directory &quot;/includes/javascript&quot; is accessible from the editor.
+</p>
+	<p>To quickly create a simple input / output modules for dynamic content, there is the <a href="makemod/_readme.htm" onclick="top.document.getElementById('link_general').removeAttribute('class'); top.document.getElementById('link_makemod').className = 'aktiv';">ModMaker</a>.
+</p>
+	<p>For search engine optimization of Webutler generates a sitemap.xml and sets the canonical tag in each page. In ModMaker modules the robots tag is also set.
+</p>
+	<p>Whether the search module is a meaningful thing, I leave time to be seen. The Webutler is intended for small homepages. A small website should be designed so clear that no search is needed. If you want to use them anyway...
+</p>
+</div>
+</body>
+</html>
+

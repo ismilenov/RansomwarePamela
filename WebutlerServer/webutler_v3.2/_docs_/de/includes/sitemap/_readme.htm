@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Modul Sitemap</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/sitemap/_readme.htm');
+					localStorage.setItem('flink', 'sitemap');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>SEO</h1>
+	<h2>Modul Sitemap</h2>
+	<p>Die Sitemap für die Homepage wird automatisch erzeugt und nach einem angegebenen Zeitpunkt automatisch aktualisiert (Variable $revisit_after in der Datei &quot;/settings/sitemaps.php&quot;).
+	</p>
+	<h3>Welche URLs werden in die Sitemap aufgenommen?</h3>
+    <p>
+	Alle Seiten aus dem Verzeichnis &quot;/content/pages&quot; sowie alle Links angegebener Module. In der Datei &quot;/settings/sitemaps.php&quot; kann eingestellt werden welche Module aufgenommen werden sollen - <a onclick="top.document.getElementById('readmes').src = 'settings/_readme.htm#sitemaps'; top.document.getElementById('link_sitemap').removeAttribute('class'); top.document.getElementById('link_settings').className = 'aktiv';" href="../../settings/_readme.htm#sitemaps">weitere Infos</a>.</p>
+	<h3>Sitemap-Links für ein eigenes Modul</h3>
+    <p>
+	Ihr Modul muß sich im Verzeichnis &quot;/modules&quot; befinden. Im Modulverzeichnis muß die Datei sitemap.php und in der Datei die Funktion &quot;modulessitemap_ __MODUL_VERZEICHNISNAME__ &quot; existieren. Die Funktion muß ein Array mit den URLs des Modules liefern.<br /><br />
+    Beispiel:<br />
+    <span class="einzug">Array(</span><br />
+    <span class="einzug"><span class="einzug">[0] =&gt; 'http://meineseite.de/module-site1.htm',</span></span><br />
+    <span class="einzug"><span class="einzug">[1] =&gt; 'http://meineseite.de/module-site2.htm',</span></span><br />
+    <span class="einzug"><span class="einzug">[2] =&gt; 'http://meineseite.de/module-site3.htm'</span></span><br />
+    <span class="einzug">)</span>
+	</p>
+	<h2>Meta-Tags</h2>
+    <p>Seitentitel, Description und Keywords können bequem über den Button Dokument-Eigenschaften des Editors eingegeben werden.<br />
+	Wenn diese Felder in einer ModMaker Modul-Administration aktiviert wurden, dürfen Description und Keywords nicht in der HTML-Seite existieren. Die Tags erscheinen sonst doppelt.
+	</p>
+	<h3>Robots</h3>
+    <p>In HTML-Seiten kann der Meta-Tag Robots nur über den Quelltext gesetzt werden. Am besten setzt man ihn direkt in der Layoutdatei. ModMaker Module setzen den Meta-Tag Robots automatisch, dann darf er nicht in der HTML-Seite existieren. Kategorien-, Themen- und Beitragsseiten bekommen 'index,follow', Kopien (wenn angelegt) 'noindex,follow'.
+</p>
+	<h2>Canonical-Tag</h2>
+    <p>In alle Seiten und ModMaker-Modulseiten wird automatisch der Canonical-Tag zur Vermeidung von Double-Content eingefügt.
+</p>
+</div>
+</body>
+</html>

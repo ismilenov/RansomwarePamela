@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Formulare per Mail versenden</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 12px;
+            margin-top: 15px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        table.einzug {
+            margin-left: 60px;
+        }
+        span.einzug, div.einzug {
+            margin-left: 30px;
+        }
+		span.red {
+			color: #A32729;
+		}
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/forms/_readme.htm');
+					localStorage.setItem('flink', 'forms');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>HTML Formulare per Mail versenden</h1>
+	<p>Die sendform.php versendet alle möglichen Arten von HTML-Formularen als Mail.
+</p>
+	<h2>Aufbau der Formularseite</h2>
+    <p>Direkt nach dem Bodytag wird die sendform.php geladen:<br /><br />
+    <span class="einzug">&lt;?PHP include &quot;includes/forms/sendform.php&quot;; ?&gt;</span>
+</p>
+	<h3>Formulare werden nach folgender Vorlage erstellt:</h3>
+    <p>Es wird im Action-Attribut an sich selbst geschickt.</p>
+	<div class="einzug">&lt;form method=&quot;post&quot; action=&quot;index.php?page=_SEITENNAME_&quot;&gt;</div>
+	<table class="einzug" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td>Name:*</td>
+		<td>&lt;input type=&quot;text&quot; name=&quot;Name&quot; required=&quot;required&quot; /&gt;</td>
+	  </tr>
+	  <tr>
+		<td>eMail:*</td>
+		<td>&lt;input type=&quot;email&quot; name=&quot;eMail&quot; required=&quot;required&quot; /&gt;</td>
+	  </tr>
+	  <tr>
+		<td>Kommentar:* &nbsp;</td>
+		<td>&lt;textarea name=&quot;Kommentar&quot; required=&quot;required&quot;&gt;&lt;/textarea&gt;</td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>&lt;input type=&quot;hidden&quot; name=&quot;sendto&quot; value=&quot;1&quot; /&gt;</td>
+	  </tr>
+	  <tr>
+		<td>&nbsp;</td>
+		<td>&lt;input type=&quot;submit&quot; name=&quot;sendform&quot; value=&quot;Senden&quot; /&gt;</td>
+	  </tr>
+	</table>
+	<div class="einzug">&lt;/form&gt;</div>
+	<p>Sowohl Name als auch Value eines Eingabefeldes werden versendet, der Name sollte deshalb entsprechend gewählt werden. Die HTML5 Atribute &quot;required&quot; und &quot;placeholder&quot; werden im Editor unterstützt.
+</p>
+	<p>Das Textfeld eMail muß vorhanden sein, es wird als Absenderfeld für den Versand benutzt und der Submit-Button muß den Namen &quot;sendform&quot; haben, damit die Mail versendet wird. Mit dem versteckten Feld &quot;sendto&quot; können verschiedene Formulare an verschiedene Empfänger gesendet werden.
+</p>
+	<p>Mehrfach-Auswahlmöglichkeiten können als Array übergeben werden. Beispiel:<br /><br />
+    <span class="einzug">&lt;input type=&quot;checkbox&quot; name=&quot;Bestellung[]&quot; value=&quot;Katalog&quot; /&gt;</span><br />
+    <span class="einzug">&lt;input type=&quot;checkbox&quot; name=&quot;Bestellung[]&quot; value=&quot;Prospekt&quot; /&gt;</span>
+	</p>
+	<p>Sollte es beim Versand zu einem Fehler kommen, können die gesendeten Daten einfach mit echo $_POST['_FELDNAME_']; im Value wieder ausgegeben werden. Beispiel:<br /><br />
+    <span class="einzug">&lt;input type=&quot;text&quot; name=&quot;<span class="red">Interessen</span>&quot; value=&quot;</span><br />
+	<span class="einzug"><span class="einzug"><span class="red">&lt;?PHP echo isset($_POST['Interessen']) ? $_POST['Interessen'] : ''; ?&gt;</span></span></span><br />
+	<span class="einzug">&quot; /&gt;</span>
+</p>
+	<h2>Templates für den Mailversand</h2>
+	<p>Im Verzeichnis /tpls befinden sich 2 Templates: usermail.tpl für den Versand einer Bestätigungsmail an den Besucher und adminmail.tpl für die Mail an Homepagebetreiber.<br />
+	Für jede Empfänger-ID aus dem &quot;sendto&quot;-Feld können separate Templates mit dem Dateinamen usermail_ID.tpl bzw. adminmail_ID.tpl angelegt werden, z.B. usermail_2.tpl für ID 2. Existieren keine ID Templates, wird das Standard-Template verwendet.
+</p>
+	<h3>Bilder mit der Mail versenden</h3>
+	<p>In der config.php können verschiedene Bilder für den Mailversand hinterlegt werden. Die Bilddateien müssen im Verzeichnis /imgs vorhanden sein. Der Key der Variablen $forms_mailimages wird als Key der Templatevariablen $mailcontent verwendet. Die Keys sind frei wählbar.
+</p>
+</div>
+</body>
+</html>

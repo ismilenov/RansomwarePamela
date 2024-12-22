@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Formulare per Mail versenden</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/webfonts/_readme.htm');
+					localStorage.setItem('flink', 'users');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Webfonts - @font-face</h1>
+	<p>In this directory different web fonts can be stored. Using web fonts, any font can be integrated into HTML pages (CSS: @font-face {...}). The image editor picks up the caption to this directory and the WYSIWYG editor lists the fonts in the font selection box. For the fonts in the following formats must be present.
+</p>
+	<p>The font name must match the file name:
+	</p>
+	<p><strong>Example:</strong><br />
+	File name: oswald_light.ttf<br />
+	@font-face: font-family:'oswald_light';
+	</p>
+	<p>If the file name and the specified font-family are not identical, the font can not be correctly displayed and set by the editor.
+	</p>
+	<h2>File Formats</h2>
+    <p>TrueType: *.ttf<br />
+		Embedded OpenType: *.eot<br />
+		Web Open Font Format: *.woff<br /><br />
+		Free fonts in these formats can be found eg at <a href="http://www.fontsquirrel.com/" target="_blank">Font Squirrel</a>.
+</p>
+</div>
+</body>
+</html>

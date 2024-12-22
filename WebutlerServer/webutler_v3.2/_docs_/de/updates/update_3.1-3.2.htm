@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+        span.red {
+            color: #A32729;
+            font-weight: bold;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'updates/update_3.1-3.2.htm');
+					localStorage.setItem('flink', 'update_32');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V3.1 » V3.2</h1>
+	<h2>CKEditor</h2>
+	<p>
+	Der CKEditor wurde auf Version 4.5 upgedatet und es gibt ein paar neue Plugins.
+</p>
+	<ul>
+	  <li><strong>pastedupload</strong>: Bilder können jetzt einfach in den Editor kopiert werden und werden automatisch auf den Webspace geladen.</li>
+	  <li><strong>embed media</strong>: Media Content fremder Anbieter (Youtube etc.) kann einfach über die Eingabe einer URLs geladen werden. Der Anbieter kann mit der Variablen $webutler_config['ckeembed'] in der globalvars.php geändert werden.</li>
+	  <li><strong>audio / video</strong>: Audio- und Video-Dateien können mit den entsprechenden HTML5 Elementen angezeigt werden.</li>
+	  <li><strong>googlemap</strong>: Das Googlemap-Plugin im Webutler &lt;V3.2 setzte ein DIV mit der CSS-Klasse googlemapsframe. Durch diese Klasse konnte die Google Map wieder im Editor geöffnet und bearbeitet werden. Das class-Attribute wurde durch data-source ersetzt und man kann jetzt eigene Klassen im Dialog-Fenster vergeben.</li>
+	  <li>Für die Text-Ausrichtung und den Text-Einzug können CSS-Klassen genutzt werden. Mit der Variablen $webutler_config['ckecssclasses'] in der globalvars.php werden die Klassen aktiviert. Wenn aktiviert müssen folgende Klassen mit entsprechenden Definitionen in der CSS-Datei vorhanden sein<br />
+		<strong>Text-Ausrichtung</strong>: alignleft, aligncenter, alignright und alignjustify<br />
+		<strong>Text-Einzug</strong>: indent1, indent2, indent3, indent4 und indent5
+	  </li>
+</ul>
+	<h2>ModMaker</h2>
+	<p>
+	Die Lightbox wurde automatisch gesetzt, wenn Bildelemente ausgewählt wurden. Die Lightbox muß jetzt beim erstellen eines neuen Moduls ausgewählt werden. Dafür gibt es in der ModMaker Datenbank (Datei makemod.db) in der Tabelle admin ein neues Feld autolightbox.<br />
+	Wer die Einstellungen seiner Module nicht mehr benötigt kann die Datei /content/access/makemod.db einfach löschen.<br />
+	Alternativ kann die Datenbank mit einem SQLite3-Admintool geöffnet und in der Tabelle &quot;admin&quot; das Feld &quot;autolightbox&quot; ergänzt werden. Der Feldtyp ist INTEGER, es wird nur der Zustand der Checkbox gespeichert.
+</p>
+	<h2>Flexbox Columns</h2>
+	<p>
+	Die Gridelements wurden entfernt und durch flexible Spalten ersetzt. Wer nicht alle Elemente in seinen Dateien ersetzen will, kann vor dem löschen den Inhalt der Datei /content/grids/css/columns.css in die eigene CSS-Datei kopieren.<br />
+	Die neuen Spalten basieren auf einem 12er Raster und sind nicht kompatible mit den Gridelements. Der einfachste Weg für den Umstieg ist ein neues Spaltenelement in die Seite einzufügen und den Inhalt aus Gridelement-Spalten in die neuen Spalten zu kopieren.
+</p>
+	<h2>Link Highlight</h2>
+	<p>
+	Das highlighten von Links in Menüdateien wurde geändert. Die CSS-Klassen werden nicht mehr ans a-Tag, sondern an das li-Tag vergeben. Durch diese Änderung kann nicht nur die Farbe des aktuellen Links geändert werden, sondern die komplette Gestaltung des umschließenden Listenelements.
+</p>
+	<h2>Header-, Footerdateien</h2>
+	<p>
+	Im Verzeichnis /settings gibt es die neue Datei extradata.php. Die Datei ist der zentrale Ort zum einbinden von Header- und Footerdateien.
+</p>
+	<h2>Bildeditor</h2>
+	<p>
+	Im Bildeditor können jetzt auch Bilder im Verzeichnis /.box bearbeitet werden. Dafür wählt man das kleine Bild im Medienmanager aus und kann anschließend im Bildeditor zum großen Bild wechseln.
+</p>
+	<h3>Wasserzeichenbilder</h3>
+	<p>
+	Wasserzeichenbilder müssen sich jetzt im Verzeichnis /content/media/image/watermarks befinden. Das Verzeichnis ist nicht mehr einstellbar, /watermarks darf keine Unterverzeichnisse haben bzw. Unterverzeichnisse werden ignoriert. 
+</p>
+	<h2>htaccess Erweiterung</h2>
+	<p>
+	Für die Suchmaschinenoptimierung wurde die .htaccess-Datei um GZIP, Expire und Cache-Control Funktionalität ergänzt. Wenn die entsprechenden Apache-Module existieren, wird damit die Ladezeit der Seite verbessert.<br />
+	Außerdem gibt es einen mod_rewrite Check für die Installation.
+</p>
+	<h2>Compression</h2>
+	<p>
+	Alle Javascript- und Stylesheet-Dateien wurden komprimiert. Die unkomprimierten Orginaldateien befinden sich jeweils im Unterverzeichnis /source.<br />
+	Für die Bildkomprimierung gibt es 2 neue Variablen in der globalvars.php<br />
+	$webutler_config['png_compress'] zum komprimieren von Bildern im PNG-Format (Standard ist 6) und<br />
+	$webutler_config['jpg_quality'] zum komprimieren von Bildern im JPG-Format (Standard ist 75)
+</p>
+	<h2>Update von Version 3.1 - Was ist zu tun?</h2>
+	<ol>
+      <li>Mit FTP das komplette Verzeichnis /admin löschen</li>
+      <li>Das neue /admin Verzeichnis hochladen</li>
+      <li>Die Dateien /includes/loader.php, /includes/wbclass.php und /includes/mmclass.php updaten (hochladen)</li>
+      <li>Datei includes/sitemap/index.php updaten (hochladen)</li>
+	  <li>Die neue Datei /settings/extradata.php hochladen</li>
+	  <li>Die neue Root htaccess hochladen</li>
+	  <li>Im Verzeichnis /content/style einen neuen Ordner /source anlegen</li>
+	  <li>Die CSS-Klassen für die Linkfarben in der Stylesheet-Datei vom a-Tag auf das li-Tag ändern</li>
+	  <li>In der Seiten das class-Attribute in Googlemaps durch data-source ersetzen</li>
+	  <li>Gridelements wurden entfernt und mit reinen Spaltenelementen ersetzt
+		<ul>
+		  <li>den alten Ordner /content/grids löschen</li>
+		  <li>den neuen Ordner /content/columns hochladen</li>
+		</ul>
+	  </li>
+      <li>Änderungen in der baseconfig.php
+		<ul>
+		  <li>$webutler_config['watermark_imgdir'] wurde entfernt</li>
+		  <li>$webutler_config['imgthumbsize'] wurde ersetzt durch</li>
+		  <li>$webutler_config['imgsmallsize'] = array(width, height)</li>
+		  <li>$webutler_config['imgorgsize'] wurde ersetzt durch</li>
+		  <li>$webutler_config['imgboxsize'] = array(width, height)</li>
+		</ul>
+	  </li>
+      <li>Geänderte/neue Variablen in der globalvars.php
+		<ul>
+		  <li>$webutler_config['insertgrid'] wurde geändert in $webutler_config['insertcolumns']</li>
+		  <li>$webutler_config['highlite_current'] wurde entfernt</li>
+		  <li>$webutler_config['admingrids'] wurde entfernt</li>
+		  <li>$webutler_config['png_compress'] - Komprimierung PNG Bilder</li>
+		  <li>$webutler_config['jpg_quality'] - Qualität JPG Bilder</li>
+		  <li>$webutler_config['codeicon'] - Icon für PHP- und Javascript-Code im Editor zeigen<br />
+				Bug im CKEditor: Code-Icons in Listenelementen (&lt;ol&gt; und &lt;ul&gt;) werden gelöscht.
+		  </li>
+		  <li>$webutler_config['ckecssclasses'] - statt dem style-Attribut CSS-Klassen für Text-Ausrichtung und -Einzug nutzen<br />
+				Bug im CKEditor: In der Stile-Combobox kann nur eine einzelne Klasse gewählt werden. Das hat den Effekt, daß die Ausrichtung/Einzug Klassen gelöscht werden.
+		  </li>
+		  <li>$webutler_config['ckeembed'] - Embed Provider zum laden eingebetteter Medien</li>
+		  <li>$webutler_config['ckemenubg'] - Hintergrundfarbe Menüeditor</li>
+		  <li>$webutler_config['ckeblockbg'] - Hintergrundfarbe Blockeditor</li>
+		  <li>$webutler_config['ckecombobg'] - Hintergrundfarbe Editor Comboboxen</li>
+		</ul>
+	  </li>
+    </ol>
+</div>
+</body>
+</html>

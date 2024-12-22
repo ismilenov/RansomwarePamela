@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Contentverzeichnis</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'content.htm');
+					localStorage.setItem('flink', 'content');
+				}
+                top.location = '_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Contentverzeichnis</h1>
+	<p>Im Verzeichnis /content sind alle vom Webutler bearbeitbaren Dateien hinterlegt. Das Verzeichnis sowie alle Unterverzeichnisse müssen schreibberechtigt sein.
+</p>
+	<h2>Verzeichnis /media</h2>
+	<p>Im Mediaverzeichnis befinden sich alle über den Medienbrowser auswählbaren bzw. auf den Server geladenen Dateien wie Bilder, Videos oder PDFs. FLV- und MP3-Dateien müssen ins Unterverzeichnis /track geladen werden, wenn sie mit den integrierten Playern abspielbar sein sollen.
+</p>
+	<h2>Die Verzeichnisse /pages, /menus und /blocks</h2>
+	<p>In diesen Verzeichnissen befinden sich alle Seiten, Menüs und Blöcke.
+</p>
+	<h2>Verzeichnis /layouts</h2>
+	<p>In diesem Verzeichnis werden die verschiedenen Layoutdateien der Homepage gespeichert. Layouts sind die Vorlagen zum erstellen neuer Seiten. Es kann jedes beliebige Layout erstellt werden. Einspaltig, mehrspaltig, ein oder mehrere Bearbeitungsbereiche, verschiedene Menüs für verschiedene Seitenbereiche, was man will.
+</p>
+	<h2>Verzeichnis /pattern</h2>
+	<p>Die Dateien aus /pattern/files werden direkt in die Editorleiste geladen. Die Vorlagen sind über &quot;Vorlage einfügen&quot; im Bearbeitungsbereich des Editors platzierbar. Neue Vorlagen können über &quot;System &gt; Vorlagen&quot; erstellt werden.
+</p>
+	<h2>Verzeichnis /columns</h2>
+	<p>Das Verzeichnis enthält die CSS-Datei für die Spalten-Elemente. Die Datei wird automatisch in alle Seiten geladen.
+</p>
+	<h2>Verzeichnis /style</h2>
+	<p>Hier werden alle Stylesheetdateien der Webseite gespeichert.<br />
+	CSS-Klassen für das Stil-Dropdown im Editor werden direkt aus den Stylesheetdateien geladen. Voraussetzung dafür ist, daß das HTML-Element vor der Klasse steht.<br /><br />
+	<span class="einzug"><strong>Beispiel:</strong></span><br />
+	<span class="einzug">.blackborder { border: 1px solid #000; } - wird im Editor <strong>nicht</strong> angezeigt</span><br />
+	<span class="einzug">img.blackborder { border: 1px solid #000; } - wird im Editor angezeigt</span>
+</p>
+	<h2>Verzeichnis /access</h2>
+	<p>Im Verzeichnis /access werden verschiedene Dateien, z.B. die Zugriffssteuerung, die Spracheinstellungen oder die Benutzerdatenbank, abgelegt.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

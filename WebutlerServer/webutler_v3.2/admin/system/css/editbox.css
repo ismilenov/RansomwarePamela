@@ -1,0 +1,790 @@
+
+/**************************************
+    Webutler V3.2 - www.webutler.de
+    Copyright (c) 2008 - 2016
+    Autor: Sven Zinke
+    Free for any use
+    Lizenz: GPL
+**************************************/
+
+#webutler_pageisoff {
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    padding: 1px 0px 3px 0px;
+    width: 100%;
+    line-height: 10px;
+    z-index: 9910;
+	text-align: center;
+	background-color: #ff0000;
+	font-family: Arial !important;
+	font-size: 10px !important;
+    font-weight: bold !important;
+	letter-spacing: 1px !important;
+	color: #ffffff !important;
+	text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: default;
+}
+
+#webutler_logo {
+    position: fixed;
+    top: 31px;
+    right: 45px;
+	max-width: calc(100% - 90px);
+    z-index: 9900;
+}
+
+#webutler_editbox, #webutler_boxwindow, #webutler_patterninfos, #webutler_editbox td, #webutler_boxwindow td, #webutler_patterninfos td, #webutler_editbox div, #webutler_boxwindow div, #webutler_boxwindow input, #webutler_patterninfos input, #webutler_patternsave input, #webutler_boxwindow select, #webutler_boxwindow optgroup, #webutler_boxwindow option, #webutler_editbox a, #webutler_boxwindow a, #webutler_boxwindow label {
+	font-family: Verdana, Arial, Helvetica, sans-serif !important;
+	font-size: 10px !important;
+	color: #333333 !important;
+	line-height: 12px !important;
+	letter-spacing: 0px !important;
+    outline: none;
+}
+
+#webutler_patterninfos {
+    height: 138px;
+	padding: 10px 9px 0px 9px;
+	border-bottom: 1px solid #A8A89C;
+	background-color: #EAEAEA;
+}
+
+#webutler_patternsave {
+    height: 20px;
+	padding: 10px 9px 13px 9px;
+	border-top: 1px solid #A8A89C;
+	background-color: #EAEAEA;
+}
+
+#webutler_patternsave .webutler_button.webutler_mainbutton {
+	margin: 0px 5px;
+}
+
+#webutler_boxwindow {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #EAEAEA;
+	border: 1px solid #333333;
+	text-align: left;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#webutler_boxwindow .webutler_boxesform {
+    margin: 0px;
+    padding: 0px;
+}
+
+#webutler_editbox {
+	position: fixed;
+    display: inline-block;
+	top: 0px;
+	left: 0px;
+	margin: 40px 0px 20px 23px;
+	padding: 8px 0px;
+    z-index: 9920;
+    text-align: left;
+	border: 1px solid #333333;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #eaeaea;
+}
+
+#webutler_boxwindow .webutler_closer {
+    float: right;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_showbox, #webutler_hidebox {
+	display: none;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+    z-index: 9920;
+	margin: 63px 0px 0px 3px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_editbox, #webutler_editbox .webutler_submenudiv, #webutler_boxwindow {
+	-moz-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+#webutler_editbox strong, #webutler_boxwindow strong, #webutler_patterninfos strong {
+	font-family: Verdana, Arial, Helvetica, sans-serif !important;
+	font-size: 10px !important;
+	font-weight: bold !important;
+	line-height: 12px !important;
+	letter-spacing: 0px !important;
+}
+
+#webutler_boxwindow strong.webutler_headline, #webutler_patterninfos strong.webutler_headline {
+	font-size: 11px !important;
+}
+
+#webutler_editbox a, #webutler_boxwindow a {
+	text-decoration: underline !important;
+}
+
+#webutler_boxwindow .webutler_input, #webutler_patterninfos .webutler_input {
+    margin: 0px;
+    padding: 2px 3px;
+    width: 152px;
+    height: 14px;
+	background-color: #ffffff;
+	border: 1px solid #888888;
+	border-radius: 3px;
+}
+
+#webutler_patterninfos .webutler_input {
+	width: 200px;
+}
+
+#webutler_patterninfos .webutler_input.webutler_patterndesc {
+	width: 100%;
+	height: 20px;
+	box-sizing: border-box;
+}
+
+#webutler_boxwindow .webutler_sizetable ul {
+	margin: 0px;
+    padding: 0px 0px 0px 20px;
+}
+
+#webutler_boxwindow .webutler_sizetable ul li {
+	margin: 0px;
+    padding: 0px;
+	font-weight: bold;
+}
+
+#webutler_boxwindow .webutler_sizeinput {
+    margin: 0px;
+    padding: 0px 1px 0px 0px;
+    text-align: right;
+    width: 30px;
+    height: 14px;
+	border: 0px;
+	background-color: transparent;
+}
+
+#webutler_boxwindow .webutler_sizepixel {
+    margin: 0px;
+    padding: 2px 5px 2px 3px;
+    display: inline;
+    height: 14px;
+	background-color: #ffffff;
+	border: 1px solid #888888;
+	border-radius: 3px;
+}
+
+#webutler_boxwindow .webutler_input.webutler_inputform {
+    width: 200px;
+}
+
+#webutler_boxwindow .webutler_select {
+    margin: 0px;
+    padding: 0px;
+    height: 20px;
+    width: 160px;
+	background-color: #ffffff;
+	border: 1px solid #888888;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+#webutler_boxwindow .webutler_select.webutler_selsize3 {
+    height: 50px;
+}
+
+#webutler_boxwindow .webutler_select.webutler_selsize6 {
+    height: 98px;
+    width: 180px;
+}
+
+#webutler_boxwindow .webutler_select optgroup {
+    font-style: normal;
+    padding: 2px 0px 0px 3px;
+}
+
+#webutler_boxwindow .webutler_select option {
+    padding: 1px 3px;
+}
+
+#webutler_boxwindow .webutler_select optgroup option {
+    padding: 1px 3px 1px 12px;
+}
+
+#webutler_boxwindow .webutler_button, #webutler_patternsave .webutler_button, #webutler_patterninfos .webutler_button {
+    margin: 0px;
+    height: 20px;
+	border: 1px solid #888888;
+	border-radius: 3px;
+    padding: 1px 8px;
+	background-image: linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -moz-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -webkit-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -ms-linear-gradient(top, #f3f2f2, #cfcdcc);
+	background-image: -o-linear-gradient(top, #f3f2f2, #cfcdcc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f2f2', endColorstr='#cfcdcc');
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_patterninfos .webutler_button.webutler_searchicon {
+    margin-left: 7px;
+}
+
+#webutler_boxwindow .webutler_button.webutler_buttonform {
+    margin-left: 7px;
+    width: 100px;
+}
+
+#webutler_boxwindow .webutler_button.webutler_mainbutton, #webutler_patternsave .webutler_button.webutler_mainbutton {
+    width: 160px;
+}
+
+#webutler_boxwindow .webutler_button_switcher {
+    margin: 0px;
+    padding: 2px 3px;
+	background-color: #888888;
+    color: #ffffff !important;
+    font-weight: bold;
+	border: 0px;
+	border-radius: 3px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_boxwindow label {
+    margin-left: 5px;
+}
+
+#webutler_editbox thead.webutler_boxheadline td {
+    padding: 0px 8px 4px 8px;
+    text-align: center;
+}
+
+#webutler_editbox tbody.webutler_editboxmenu td {
+    padding: 5px 14px 5px 8px;
+}
+
+#webutler_editbox img.webutler_adminicon {
+    width: 16px;
+    height: 16px;
+    margin: 0px 5px -4px 7px;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 0px 0px;
+	background-size: 32px 16px;
+}
+
+#webutler_editbox img#webutler_iconseite {	
+	background-image: url(../images/icons/page.png);
+}
+
+#webutler_editbox img#webutler_iconedit {	
+	background-image: url(../images/icons/edit.png);
+}
+
+#webutler_editbox img#webutler_iconmedia {	
+	background-image: url(../images/icons/file.png);
+}
+
+#webutler_editbox img#webutler_iconsystem {	
+	background-image: url(../images/icons/sys.png);
+}
+
+#webutler_editbox img#webutler_iconmodule {	
+	background-image: url(../images/icons/mod.png);
+}
+
+#webutler_editbox img#webutler_iconlogout {	
+	background-image: url(../images/icons/log.png);
+}
+
+#webutler_editbox .webutler_submenudiv {
+	border: 1px solid #333333;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #EAEAEA;
+    display: none;
+	margin: -12px 0px 0px 18px;
+	padding: 7px 10px 10px 6px;
+    position: absolute;
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+
+#webutler_editbox .webutler_submenudiv .webutler_subpointer {
+    position: absolute;
+	margin: 0px 0px 0px -15px;
+}
+
+#webutler_editbox .webutler_submenudiv table td {
+    padding: 5px 6px 5px 7px;
+    white-space: nowrap;
+}
+
+#webutler_editbox .webutler_submenu {
+    white-space: nowrap;
+}
+
+#webutler_editbox span, #webutler_editbox .webutler_submenu span {
+    text-decoration: underline;
+    white-space: nowrap;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_blockerbackground {
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+    z-index: 9930;
+}
+
+#webutler_blockerdiv {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+    z-index: 9940;
+}
+
+#webutler_sliderdiv {
+	display: none;
+	position: fixed;
+	width: 502px;
+	top: 40px;
+    left: 50%;
+	margin-left: -271px;
+    padding: 20px;
+    z-index: 9950;
+}
+
+#webutler_sliderdiv #webutler_slider {
+    height: 7px;
+	padding: 3px 0px;
+    cursor: move;
+}
+
+#webutler_slider div {
+	width: 100%;
+    height: 7px;
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-left-color: #e3dfd7;
+	border-top-color: #e3dfd7;
+	border-right-color: #242424;
+	border-bottom-color: #242424;
+	background-color: #d4d0c8;
+}
+
+#webutler_slider div div {
+	width: 100%;
+    height: 5px;
+    line-height: 1px;
+    font-size: 0px;
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-left-color: #ffffff;
+	border-top-color: #ffffff;
+	border-right-color: #939393;
+	border-bottom-color: #939393;
+}
+
+.webutler_winmeldung {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.webutler_winmeldung .red {
+    color: #D02705;
+}
+
+.webutler_winmeldung .green {
+    color: #1A8E1A;
+}
+
+#webutler_langs .langposup, #webutler_langs .langposdown {
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_advanced {
+    padding-bottom: 25px;
+}
+
+#webutler_advancedscroller {
+    margin: 0px 20px 0px 20px;
+}
+
+#webutler_advancedscrollarea {
+    position: relative;
+}
+
+#webutler_advancedscrollarea #webutler_advancedviewport {
+    position: relative;
+    overflow: hidden;
+	z-index: 9980;
+}
+
+#webutler_advancedscrollarea #webutler_advancedviewcontent {
+	padding-bottom: 5px;
+}
+
+#webutler_advancedscrollarea #webutler_advancedscrollbar {
+    position: absolute;
+    width: 8px;
+    top: 0;
+    right: 0;
+	z-index: 9990;
+}
+
+#webutler_advancedscrollarea #webutler_advancedtrack {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+	border: 1px solid #333333;
+	background-color: #eaeaea;
+	border-radius: 3px;
+    width: 6px;
+    margin: -1px 0px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_advancedscrollarea.noSelect {
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+#webutler_advanced td.webutler_advancedhr, #webutler_linkhighlite td.webutler_advancedhr, #webutler_columns td.webutler_advancedhr {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#webutler_advanced td.webutler_advancedhr hr, #webutler_linkhighlite td.webutler_advancedhr hr, #webutler_columns td.webutler_advancedhr hr {
+    margin: 0px auto;
+    padding: 0px;
+    height: 0px;
+    width: 392px;
+    border: 0px;
+    border-top: 1px solid #888888;
+	background-color: transparent;
+}
+
+#webutler_columns td.webutler_advancedhr hr {
+    width: 492px;
+}
+
+#webutler_advanced td.webutler_hidesubtrsmenu span,
+#webutler_access td.webutler_hidesubtrsmenu span,
+#webutler_categories td.webutler_hidesubtrsmenu span,
+#webutler_pattern td.webutler_hidesubtrsmenu span,
+#webutler_linkhighlite td.webutler_hidesubtrslinks span,
+#webutler_langs td.webutler_hidesubtrsmenu span {
+    text-decoration: underline;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_txtnewbutton, #webutler_txtdelbutton {
+    display: none;
+}
+
+#webutler_categories .webutler_select {
+    width: 200px;
+}
+
+#webutler_categories .webutler_input {
+    width: 192px;
+}
+
+#webutler_linkhighlite table.webutler_availclasses td {
+    padding-right: 20px;
+}
+
+#webutler_columns {
+    padding-bottom: 15px;
+}
+
+#webutler_columnsrowcss {
+	margin-top: 10px;
+    padding-right: 10px;
+	display: none;
+}
+
+#webutler_columnsscroller, #webutler_columnsscrollarea, #webutler_columnsviewport, #webutler_columnsscrollbar {
+	width: 660px;
+}
+
+#webutler_columnsscroller {
+    margin: 15px 0px 10px 0px;
+	display: none;
+}
+
+#webutler_columnsscrollarea {
+    position: relative;
+}
+
+#webutler_columnsscrollarea #webutler_columnsviewport {
+    position: relative;
+    overflow: hidden;
+	z-index: 9980;
+}
+
+#webutler_columnsscrollarea #webutler_columnsviewcontent {
+	padding-bottom: 5px;
+	width: auto;
+}
+
+#webutler_columnsscrollarea #webutler_columnsscrollbar {
+    position: absolute;
+    height: 8px;
+    left: 0;
+    bottom: -10px;
+	z-index: 9990;
+}
+
+#webutler_columnsscrollarea #webutler_columnstrack {
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+	border: 1px solid #333333;
+	background-color: #eaeaea;
+	border-radius: 3px;
+    height: 6px;
+	width: auto;
+    margin: 0px -1px;
+	z-index: 9995;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_columnsscrollarea.noSelect {
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+#webutler_boxwindow #webutler_colnumb {
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+}
+
+#webutler_boxwindow #webutler_colnumb ul {
+    margin: 0px 0px 0px 7px;
+	padding: 0px;
+	list-style: none;
+}
+
+#webutler_boxwindow #webutler_colnumb ul:after {
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#webutler_boxwindow #webutler_colnumb ul li {
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+    margin: 0px 3px;
+	padding: 4px 0px;
+	width: 22px;
+	border: 1px solid #333;
+}
+
+#webutler_boxwindow #webutler_colnumb ul li:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#webutler_boxwindow #webutler_colnumb ul li.active {
+	background-color: #fff;
+}
+
+#webutler_singlecolumn, #webutler_coltemp {
+	display: none;
+}
+
+#webutler_singlecolumn, #webutler_columnsinfotext {
+    margin: 10px 25px 10px 0px;
+}
+
+#webutler_boxwindow .webutler_columnssingletext {
+    margin: 10px 0px;
+}
+
+#webutler_boxwindow .webutler_colconf {
+    padding: 0px 0px 5px 0px;
+	border-right: 1px solid #333;
+}
+
+#webutler_boxwindow #webutler_columnsviewcontent td:first-child .webutler_colconf {
+	border-left: 1px solid #333;
+}
+
+#webutler_boxwindow #webutler_columnsviewcontent td:last-child .webutler_colconf {
+    margin-right: 0px;
+}
+
+#webutler_boxwindow .webutler_colconf td {
+    padding: 5px 8px 0px 8px;
+}
+
+#webutler_boxwindow .webutler_input.webutler_rowcss {
+	width: calc(50% - 6px);
+	margin-top: 5px;
+}
+
+#webutler_boxwindow .webutler_colconf .webutler_select {
+	width: 80px;
+}
+
+#webutler_boxwindow .webutler_colconf .webutler_input.webutler_order {
+	width: 20px;
+}
+
+#webutler_boxwindow .webutler_colconf .webutler_coleditor td {
+	padding: 0px;
+	vertical-align: middle;
+}
+
+#webutler_boxwindow .webutler_colconf .webutler_input.webutler_colcss {
+	width: calc(100% - 6px);
+}
+
+.webutler_delnoundo {
+    padding: 5px 15px 10px 15px;
+    text-align: center;
+}
+
+.webutler_delnoundo strong {
+    letter-spacing: 1px !important;
+    color: #D02705;
+}
+
+#webutler_explainusers {
+    position: absolute;
+    width: 360px;
+    top: 75px;
+    left: 50%;
+    margin-left: -191px;
+    padding: 8px 15px 8px 10px;
+    border: 1px solid #333333;
+	background-color: #ffffff;
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+	border-radius: 3px;
+	background-image: url(../images/closer.gif);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 372px 5px;
+    z-index: 9960;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#webutler_insertcolumnsbefore, #webutler_insertcolumnsafter,
+#webutler_deletecolumnsbefore, #webutler_deletecolumnsafter {
+    position: absolute;
+	display: none;
+	border: 0px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 9960;
+}
+
+#webutler_insertcolumnsbefore div.textline, #webutler_insertcolumnsafter div.textline,
+#webutler_deletecolumnsbefore div.textline, #webutler_deletecolumnsafter div.textline {
+	text-align: center;
+	background-image: url(../images/posline.gif);
+	background-repeat: repeat-x;
+	background-position: center center;
+}
+
+#webutler_insertcolumnsbefore span.text, #webutler_insertcolumnsafter span.text,
+#webutler_deletecolumnsbefore span.text, #webutler_deletecolumnsafter span.text {
+	font-family: Arial !important;
+	font-size: 10px !important;
+	line-height: 10px !important;
+    font-weight: bold !important;
+	letter-spacing: 1px !important;
+	display: inline-block;
+	color: #333333 !important;
+	text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 2px;
+	background-color: #eaeaea;
+	border: 1px solid #333333;
+	-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+	border-radius: 8px;
+    cursor: default;
+}
+
+#webutler_insertcolumnsbefore span.text, #webutler_insertcolumnsafter span.text {
+    padding: 1px 30px 3px 30px;
+}
+
+#webutler_deletecolumnsbefore span.text, #webutler_deletecolumnsafter span.text {
+    padding: 3px 30px;
+}
+
+#webutler_insertcolumnsbefore div.icons, #webutler_insertcolumnsafter div.icons,
+#webutler_deletecolumnsbefore div.icons, #webutler_deletecolumnsafter div.icons {
+	text-align: right;
+}
+
+#webutler_insertcolumnsbefore div.icons .webutler_insertcolumns, #webutler_insertcolumnsbefore div.icons .webutler_cancelcolumns,
+#webutler_insertcolumnsafter div.icons .webutler_insertcolumns, #webutler_insertcolumnsafter div.icons .webutler_cancelcolumns,
+#webutler_deletecolumnsbefore div.icons .webutler_deletecolumns, #webutler_deletecolumnsbefore div.icons .webutler_canceldelcolumns,
+#webutler_deletecolumnsafter div.icons .webutler_deletecolumns, #webutler_deletecolumnsafter div.icons .webutler_canceldelcolumns {
+    position: absolute;
+	margin: 0px;
+    padding: 3px;
+	top: -3px;
+	border: 1px solid #333333;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.webutler_insertcolumns, .webutler_deletecolumns {
+	right: 25px;
+}
+
+.webutler_cancelcolumns, .webutler_canceldelcolumns {
+	right: 0px;
+}
+
+
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Modul Userpages</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/users/_readme.htm');
+					localStorage.setItem('flink', 'users');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Module Users</h1>
+	<p>The module Users is a small registration and login function for visitors to the site. As a first step, the module must be installed and configured in the administration. The installation is only possible if the server supports SQLite3. After the message &quot;database was created&quot; should be the basic settings under the Settings menu item.
+</p>
+    <p>In the module user groups can be created and users are sorted into this group. This offers the possibility pages for &quot;normal&quot; visitors to lock and release only for individual user groups. Also, single side parts are made visible in the source code using the group ID for a group:<br /><br />
+		<span class="einzug">&lt;?PHP if(in_array('GROUPID', $showpartfor)) { ?&gt;</span><br />
+		<span class="einzug"><span class="einzug">locked region are visible to GROUPID</span></span><br />
+		<span class="einzug">&lt;?PHP } ?&gt;</span>
+</p>
+	<p>Further explanations are in the Administration window.
+</p>
+	<h2>Loginblock</h2>
+    <p>Login As option the file &quot;loginblock.php&quot; can be a cross-page includiert as a block:<br /><br />
+		<span class="einzug">&lt;?PHP include &quot;includes/users/loginblock.php&quot;; ?&gt;</span><br /><br />
+		The appearance can be changed in the &quot;loginblock.css&quot;.
+</p>
+	<h2>User pages</h2>
+    <p>For the user pages, a new page must be created and the file &quot;userspage.php&quot; are includiert:<br /><br />
+		<span class="einzug">&lt;?PHP include &quot;includes/users/userspage.php&quot;; ?&gt;</span><br /><br />
+		In the file /settings/globalvars.php an extra-Login link with the variable $webutler_config['showuserlogin'] can be set on and off. The design can be adapted during the &quot;userspage.css&quot;.
+</p>
+	<p>Templates for the login block and user pages can be found in the directory / TPLS.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

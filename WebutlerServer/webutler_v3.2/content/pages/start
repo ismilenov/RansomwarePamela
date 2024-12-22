@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob's Car Detailing</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    background: #222;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.logo {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.navbar .nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.navbar .nav-list li {
+    margin: 0 15px;
+}
+
+.navbar .nav-list a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('content/pages/car-detailing.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background: #f57c00;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.services, .about, .contact {
+    padding: 50px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    flex: 1 1 30%;
+    margin: 15px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-top: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form .btn {
+    margin-top: 20px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Bob's Car Detailing</h1>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Your Car, Our Passion</h2>
+            <p>Premium detailing services to make your car shine like new.</p>
+            <a href="#contact" class="btn">Get a Quote</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Get Your Quote</h2>
+            <div class="service-images">
+                <img src="content/pages/images/Exterior.webp" alt="Exterior Detailing">
+                <img src="content/pages/images/interior.jpeg" alt="Interior Cleaning">
+                <img src="content/pages/images/painting.jpeg" alt="Paint Protection">
+            </div>
+            <h2>Our Services</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Exterior Detailing</h3>
+                    <p>Complete cleaning, polishing, and waxing for a flawless exterior.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Interior Cleaning</h3>
+                    <p>Thorough vacuuming, shampooing, and leather conditioning.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Paint Protection</h3>
+                    <p>Advanced coatings to protect your car's paint from the elements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Bob's Car Detailing, we pride ourselves on providing top-notch service. With years of experience and a passion for cars, our team ensures every vehicle gets the care it deserves.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to book an appointment? Reach out to us at <b>bobscardetail@gmail.com</b> or:</p>
+            <form action="mailto:bobscardetail@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Bob's Car Detailing. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

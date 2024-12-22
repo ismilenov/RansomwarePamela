@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.2 - www.webutler.de
+            Copyright (c) 2008 - 2013
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_2.1-2.2.htm');
+					localStorage.setItem('flink', 'update_22');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V2.1 » V2.2</h1>
+	<p>The Admin window were switched to jQuery. In addition, the CKEditor has been updated to version 364, and the administration is prepared for multilingualism. But there are no translations. If someone has the time and inclination, English is still missing:
+</p>
+	<ul>
+		<li>/admin/browser/lang/en.php (language file media browser)</li>
+		<li>/admin/codemirror/lang/en.php (language file source editor)</li>
+		<li>/admin/imageedit/lang/en.php (language file image editor)</li>
+		<li>/admin/system/lang/en.php (language file of the administration)</li>
+		<li>/admin/system/lang/images/pageisoff/en.gif (note for offline pages)</li>
+		<li>/admin/system/lang/images/pageisusers/en.gif (reference on user pages)</li>
+		<li>/includes/users/lang/en.php (language file of the user module)</li>
+	</ul>
+	<p>Super would of course also the translation of the help files!
+</p>
+	<p>Other languages ​​are completely missing. Whoever wants to translate what the language files can be found in each of the /lang directory.
+</p>
+	<h2>What to do?</h2>
+	<ol>
+		<li>Using FTP, delete the complete directory /admin</li>
+		<li>Upload the new /admin directory</li>
+		<li>Override the &quot;/includes/functions.php&quot; file with the new file.</li>
+		<li>Override the &quot;/includes/users/user_class.php&quot; file with the new file.</li>
+		<li>In the &quot;baseconfig.php&quot; file, the variable $webutler_config['user_lang'] come for the language of the administrator to do so. This you have to add in your baseconfig.php.</li>
+		<li>In the root directory overwrite &quot;.htaccess&quot; file with the new file.</li>
+		<li>In the file &quot;globalvars.php&quot;, the following variables must be added:<br />
+			<ul>
+				<li>$webutler_config['admin_lang'] for the language of the webmaster</li>
+				<li>$webutler_config['defaultlang'] for the standard language, e.g. required if the page is not operated multilingual</li>
+				<li>Also the config was extended with a few ini_set functions:<br />
+				<ul>
+					<li>webutler_setinivalues('session.use_cookies', 1);</li>
+					<li>webutler_setinivalues('session.cookie_httponly', 1);</li>
+					<li>webutler_setinivalues('session.use_only_cookies', 1);</li>
+					<li>webutler_setinivalues('display_errors', 0);</li>
+					<li>webutler_setinivalues('display_startip_errors', 0);</li>
+				</ul>
+			</li>
+			</ul><br />
+			The variables can simply be copied from the new globalvars.php out.
+		</li>
+		<li>The file /settings/modulebox.php was simplified. There are now no more explanatory text, only the specification of module name and link.</li>
+	</ol>
+</div>
+</body>
+</html>

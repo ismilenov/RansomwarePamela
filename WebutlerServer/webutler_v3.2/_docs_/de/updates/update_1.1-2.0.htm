@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Update</title>
+    <!--
+        **************************************
+            Webutler V2.0 - www.webutler.de
+            Copyright (c) 2008 - 2011
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		h3 {
+            font-size: 11px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'updates/update_1.1-2.0.htm');
+					localStorage.setItem('flink', 'update_2');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Update V1.1 » V2.0</h1>
+	<p>Ein großer Versionssprung mit großen Veränderungen. Der Webutler V2 hat sich von einem Online HTML-Editor zu einem kleinen CMS entwickelt. Das Grundgedanke eine unkomplizierte, individuelle Seitengestaltung zu ermöglichen wurde jedoch beibehalten.
+</p>
+	<p>Für ein besseres Handling und um den Überblick zu behalten, waren ein paar Umstrukturierungen und Umbennenungen notwendig. Einige Erweiterungen erforderten auch neue Verzeichnisse. Der Webutler benutzt immernoch den alten FCKeditor. Die neue Version, der CKEditor, hat leider noch nicht alle für den Webutler notwendigen Features, so daß ein Update noch nicht möglich war.
+</p>
+	<h2>Was ist zu tun?</h2>
+	<p>Aufgrund der umfangreichen Änderungen ist ein wenig Handarbeit angesagt.
+</p>
+	<h3>Vorbereitung</h3>
+	<ol>
+      <li>die neue Version lokal entpacken</li>
+      <li>die Demodateien aus folgenden Verzeichnissen löschen</li>
+         <ul>
+          <li>/content/blocks (alles außer der .htaccess)</li>
+          <li>/content/menus (alles außer der .htaccess)</li>
+          <li>/content/pages (alles außer der .htaccess)</li>
+          <li>/content/layouts (alles außer der .htaccess)</li>
+          <li>/content/media/image</li>
+          <li>/content/media/file</li>
+          <li>/content/media/flash</li>
+          <li>/content/media/track</li>
+         </ul>
+     </ol>
+	<p>Das /content-Verzeichnis der alten Version vom Webspace runterladen und die Dateien wiefolgt in die neuen Verzeichnisse verschieben:
+</p>
+	<ol>
+      <li>Dateien aus /content/menus (alt) nach /content/menus (neu)</li>
+      <li>Dateien aus /content/pages (alt) nach /content/pages (neu)</li>
+      <li>Dateien aus /content/templates nach /content/layouts</li>
+      <li>Dateien aus /content/media/image (alt) nach /content/media/image (neu)</li>
+         <ul>
+          <li>Wer die Lightbox für vorhandene Bilder verwenden möchte, muß ein Unterverzeichnis /.box im Bildverzeichnis anlegen und eine vergrößerte Ansicht des Bildes in dieses Verzeichnis speichern</li>
+          <li>Beispiel: /bildpfad/bild.jpg (klein), /bildpfad/.box/bild.jpg (groß)</li>
+          <li>Bei neuen Bildern geschieht dies automatisch</li>
+         </ul>
+      <li>Dateien aus /content/media/file (alt) nach /content/media/file (neu)</li>
+      <li>Dateien aus /content/media/flash (alt) nach /content/media/flash (neu)</li>
+      <li>Die Datei /content/style/style.css (alt) nach /content/style (neu), die vorhandene überschreiben</li>
+     </ol>
+	<p>Desweiteren sind noch die Verzeichnisse /content/blocks und /content/media/track hinzugekommen, welche für das Update aber keine Rolle spielen. Wenn alle Dateien verschoben wurden, kann das vom Webspace geladene /content-Verzeichnis gelöscht werden.<br />
+	<strong>Wichtig!</strong> Die Dateinamen in /content/pages dürfen keine Bindestriche mehr enthalten. Der Bindestrich wird für die Trennung von GET-Variablen verwendet/benötigt.
+</p>
+	<h3>Aktualisierungen</h3>
+	<p>Alle Dateien aus /content/pages und /content/layouts mit einem lokalen HTML-Editor öffnen und die Inhalte per search and replace aktualisieren. In den Menüdateien sollten keine Änderungen notwendig sein.
+</p>
+	<ol>
+      <li>In den Kommentar-Platzhaltern wird aus begin_MENÜNAME » begin_menu_MENÜNAME, aus MENÜNAME » menu_MENÜNAME und aus end_MENÜNAME » end_menu_MENÜNAME</li>
+      <li>für zukünftige Blöcke werden folgende Kommentare gesetzt: begin_block_BLOCKNAME, block_BLOCKNAME und end_block_BLOCKNAME</li>
+      <li>Aus class=&quot;menu_border&quot; wird class=&quot;block_border&quot;, gleiche Markierungsfarbe für Menüs und Blöcke</li>
+     </ol>
+	<h3>Formulare</h3>
+	<p>Wer Formulare und die sendform.php nutzt, muß noch folgende Änderungen in den Formularseiten durchführen:
+</p>
+     <ol>
+      <li>&lt;script src=&quot;scripts/checkform.js&quot; type="text/javascript"&gt;&lt;/script&gt; entfernen,<br />
+      die &quot;checkform.js&quot; wird automatisch geladen</li>
+      <li>Die sendform.php nach dem öffnendem Bodytag in die Seite laden<br />
+      &lt;?PHP include &quot;includes/forms/sendform.php&quot;; ?&gt;</li>
+      <li>Formulare im Action-Attribut nicht mehr an &quot;scripts/sendform.php&quot; sondern an sich selbst schicken<br />
+      &lt;?PHP echo $_SERVER['REQUEST_URI']; ?&gt;</li>
+      <li>Der Submit-Button muß den Namen sendform haben (name=&quot;sendform&quot;)</li>
+      <li>Die sendform.php vom Webspace downloaden und die Absenderdaten in die Datei /includes/forms/config.php eintragen</li>
+     </ol>
+	<h3>Config anpassen</h3>
+	<p>Die Datei /admin/config.inc.php vom Webspace herunterladen und folgende Variablen in die Datei /settings/baseconfig.php eintragen:
+</p>
+	<ol>
+      <li>$server_path » $webutler_config['server_path']</li>
+      <li>$homepage » $webutler_config['homepage']</li>
+      <li>$admin_name » $webutler_config['user_name']</li>
+      <li>$admin_pass » $webutler_config['user_pass']</li>
+      <li>$start » $webutler_config['startseite']</li>
+     </ol>
+	<p>Die Variable $rewrite aus der config.inc.php ist in die Variable $webutler_config['modrewrite'] in der Datei globalvars.php verschoben und ist damit nicht mehr über die Administration einstellbar.
+</p>
+	<h3>Upload und Chmod</h3>
+	<p>Zum Schluß noch alles auf den Webspace laden. Dem Verzeichnis /content und allen Unterverzeichnissen sowie der Datei /settings/baseconfig.php CHMOD 777 geben.
+</p>
+	<p>Besser ist natürlich vor dem hochladen erstmal alles lokal in XAMPP zu testen. Die Variablen $webutler_config['server_path'] und $webutler_config['homepage'] in der baseconfig.php müssen dafür kurzzeitig angepasst werden.
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

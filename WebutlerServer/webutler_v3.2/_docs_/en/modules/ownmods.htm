@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Eigene Module programmieren</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage'] != null)) {
+					localStorage.setItem('furl', 'modules/ownmods.htm');
+					localStorage.setItem('flink', 'ownmods');
+				}
+                top.location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Programming your own module</h1>
+	<p>Almost every customer has at least one special request which is not feasible with HTML. Then offer a solution with PHP. Unlike other systems, you must not pay attention too much in Webutler when programming an extension.
+</p>
+	<h2>Include</h2>
+	<p>An extension is simply loaded via include in a page. Thus, the extension is a part of the page and all paths of enlargement must be adjusted accordingly (modules/__MODULEDIRECTORY__/...).
+</p>
+	<h2>Links and GET parameters</h2>
+	<p>A Webutler page is called with index.php?page=__PAGENAME__. This means that all the links on your extension must also index.php?page=__PAGENAME__ begin. You can set other parameters with &amp;var=value. Who uses the SEO URLs and requires more than 7 GET variables can be used in the globalvars.php the variable $webutler_config['urlgetvars'] enhance and complement the RewriteRules in the root htaccess.
+</p>
+	<h2>Module Search plugin</h2>
+	<p>A separate module can be integrated into the Webutler search function. This, the file search.php must exist and in search.php the searchinmodcontent_ __MODULEDIRECTORY__ function. The function must provide an array of title, content and URL back. Example:<br /><br />
+		<span class="einzug">$result = array('title' =&gt; 'page title',</span><br />
+		<span class="einzug"><span class="einzug"><span class="einzug"><span class="einzug">'contents' =&gt; 'Page content with keyword',</span></span></span></span><br />
+		<span class="einzug"><span class="einzug"><span class="einzug"><span class="einzug">'url' =&gt; 'index.php?page=__PAGENAME__&amp;var=value');</span></span></span></span><br />
+		<span class="einzug">return $result;</span><br /><br />
+		Thus the Webutler search also find the module must be entered in the file /settings/searching.php there.
+</p>
+	<h2>Modul Sitemap</h2>
+	<p>Include your own module in the sitemap works in the same way as the integration into the search. The file sitemap.php must exist in module directory and in the file the function modulessitemap__MODULEDIRECTORY__. The function must provide an array containing the URLs of the module:<br /><br />
+    <span class="einzug">$result = array(</span><br />
+    <span class="einzug"><span class="einzug">[0] =&gt; 'index.php?page=__PAGENAME__&amp;var1=value1',</span></span><br />
+    <span class="einzug"><span class="einzug">[1] =&gt; 'index.php?page=__PAGENAME__&amp;var1=value2',</span></span><br />
+    <span class="einzug"><span class="einzug">[2] =&gt; 'index.php?page=__PAGENAME__&amp;var1=value3&amp;var2=value1'</span></span><br />
+    <span class="einzug">);</span><br />
+    <span class="einzug">return $result;</span><br /><br />
+    In addition, the module must be entered in the file /settings/sitemaps.php.
+</p>
+	<h2>Header data</h2>
+	<p>Javascript, and CSS files of a module can be loaded into the header of the page using $webutlercouple-&gt;autoheaderdata[].<br /><br />
+		<span class="einzug">$webutlercouple-&gt;autoheaderdata[] = '&lt;link href="modulestyles.css" rel="stylesheet" type="text/css" /&gt;';</span><br />
+		<span class="einzug">$webutlercouple-&gt;autoheaderdata[] = '&lt;script src="modulescript.js"&gt;&lt;/script&gt;';</span><br /><br />
+		The title of the Webutler page can be replaced with the variable $webutlercouple-&gt;setnewtitlefrommod by a more specific title from the module.<br /><br />
+		<span class="einzug">$webutlercouple-&gt;setnewtitlefrommod = 'My new page title';</span>
+</p>
+	<h2>Module Login</h2>
+	<p>If you want the module has an administration area, there are 2 ways for a login:
+</p>
+    <ol>
+        <li>For the automatic login of the site operator can use the function $webutlercouple-&gt;checkadmin() checks whether the session data of the webmaster are set.</li>
+        <li>Alternatively, a separate login administration for users who will only have access to the module to be created.</li>
+    </ol>
+	<p>For the realization of a read and/or write access Webutler a registered user following session data of a user can be queried:<br /><br />
+		<span class="einzug">Groups-ID: $_SESSION['userauth']['groupid']</span><br />
+		<span class="einzug">ID of the user: $_SESSION['userauth']['userid']</span><br />
+		<span class="einzug">User name: $_SESSION['userauth']['username']</span><br />
+		<span class="einzug">email address: $_SESSION['userauth']['usermail']</span>
+</p>
+	<p>In the user manager users can be enabled, disabled or deleted. When the state is needed in a module, it must be scanned in the user DB. Return values:<br /><br />
+		<span class="einzug">Enabled: status='enabled'</span><br />
+		<span class="einzug">Disabled: status='disabled'</span><br />
+		<span class="einzug">Deleted: status='deleted'</span>
+</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

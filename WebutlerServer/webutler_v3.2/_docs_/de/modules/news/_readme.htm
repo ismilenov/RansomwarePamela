@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>News-Modul</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'modules/news/_readme.htm');
+					localStorage.setItem('flink', 'news');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>News-Modul</h1>
+	<p>
+	Das Newsmodul wurde mit dem ModMaker erstellt und soll auch ein Beispiel sein, wie ein ModMaker Modul aussieht. Es besitzt einen eigenen Administrationsbereich, der Link zur Administration kann in der Datei &quot;/settings/modulebox.php&quot; eingetragen werden.<br /><br />
+    <span class="einzug">Pfad zur Administration: &quot;news/admin.php&quot;</span><br />
+	<span class="einzug">$webutler_moduleslist[] = array('News', 'news/admin.php');</span><br /><br />
+    Bildgrößen können in der Datei &quot;/data/config.php&quot; geändert werden.<br />
+    Die Datei &quot;/data/news.db&quot; sowie das Verzeichnis &quot;/media&quot; und alle Unterverzeichnisse und Dateien müssen beschreibbar sein, CHMOD laut den Angaben des Providers setzen.<br /><br />
+    Erstellen Sie eine neue Seite und includen Sie die Datei &quot;view.php&quot; in den Inhaltsbereich.<br /><br />
+	<span class="einzug">&lt;?PHP require &quot;modules/news/view.php&quot;; ?&gt;</span>
+	</p>
+	<p>Außerdem gibt es eine &quot;letzte News&quot; Ansicht. Diese kann auf einer beliebigen Seite angezeigt werden, es muß nur die aufzurufende Seite angegeben werden.<br /><br />
+	<span class="einzug">&lt;?PHP</span><br />
+	<span class="einzug"><span class="einzug">$_MMVAR['newsnewest'] = '1';</span></span><br />
+	<span class="einzug"><span class="einzug">$_MMVAR['newsmodpage'] = 'newspage'; //newspage = Name der Seite, die das Modul lädt</span></span><br />
+	<span class="einzug"><span class="einzug">require 'modules/news/view.php';</span></span><br />
+	<span class="einzug">?&gt;</span><br /><br />
+    Die Datenbank des Moduls ist mit Beispieldaten befüllt. Die Datei news.db.bak ist eine leere Datenbank. Zum löschen aller Beispieldaten einfach die Datei /data/news.db löschen und die Datei news.db.bak in news.db umbenennen.<br /><br />
+    Um die News in die Suchfunktion zu integrieren, einfach den Modulnamen und die Modulseite in der Datei /settings/searching.php eintragen:<br /><br />
+	<span class="einzug">$webutler_modulesearches[] = array('news', 'newspage');</span><br /><br />
+    Nach dem gleichen Schema können die News in die Sitemap integriert werden, einfach Modulnamen und Modulseite in die Datei /settings/sitemaps.php eintragen:<br /><br />
+	<span class="einzug">$webutler_modulesitemaps[] = array('news', 'newspage');</span>
+</p>
+	<h2>eigenes News-Modul</h2>
+	<p>Wer mit dem Funktionsumfang nicht zufrieden ist, kann sich mit dem ModMaker einfach ein News-Modul nach seinen eigenen Wünschen zusammen klicken - z.B. mehrsprachig, mit Kategorien oder mehreren Bildern.
+</p>
+</div>
+</body>
+</html>

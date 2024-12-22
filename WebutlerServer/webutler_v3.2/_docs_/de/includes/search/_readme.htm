@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>Modul Suchfunktion</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if (top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'includes/search/_readme.htm');
+					localStorage.setItem('flink', 'search');
+				}
+                top.location = '../../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<h1>Modul Suchfunktion</h1>
+	<p>Die &quot;search.php&quot; in eine neue Seite includen und ein Suchformular auf der Homepage unterbringen, fertig.<br /><br />
+	Ob eine Suchmaschine für eine kleine statische Contentseite sinnvoll ist, lass ich mal dahingestellt.<br /><br />
+	Die Suche ist einfach einzubinden. Für das Suchergebnis muß nur eine neue Seite angelegt werden, z.B. &quot;suchergebnis&quot;, in die die Suchmaschine includet wird:<br /><br />
+    <span class="einzug">&lt;?PHP include &quot;includes/search/search.php&quot;; ?&gt;</span><br /><br />
+	und zwar an die Stelle an der das Ergebnis angezeigt werden soll.<br /><br />
+    Ein zusätzliches Suchformular kann irgendwo auf einer beliebigen Seite untergebracht werden. Im Layout, als Block oder auf einer separaten Seite. Das Suchformular muß folgende Form haben:<br /><br />
+    <span class="einzug">&lt;form action=&quot;index.php?page=___SUCHERGEBNISSEITE___&quot; method=&quot;post&quot;&gt;</span><br />
+    <span class="einzug"><span class="einzug">&lt;input type=&quot;text&quot; name=&quot;query&quot; value=&quot;&quot; /&gt;</span></span><br />
+    <span class="einzug"><span class="einzug">&lt;input type=&quot;submit&quot; name=&quot;search&quot; value=&quot;suchen&quot; /&gt;</span></span><br />
+    <span class="einzug">&lt;/form&gt;</span><br /><br />
+    Im Action-Attribute wird das Formular an die Suchmaschine, also die Seite ___SUCHERGEBNISSEITE___ geschickt. In der Datei &quot;/settings/globalvars.php&quot; kann auch das Standard-Suchformular aktiviert und die Trefferanzahl pro Ergebnisseite eingestellt werden.</p>
+	<h2>Was soll durchsucht werden?</h2>
+    <p>
+    In der Datei &quot;/settings/searching.php&quot; kann eingestellt werden was durchsucht werden soll - <a onclick="top.document.getElementById('readmes').src = 'settings/_readme.htm#searching'; top.document.getElementById('link_search').removeAttribute('class'); top.document.getElementById('link_settings').className = 'aktiv';" href="../../settings/_readme.htm#searching">weitere Infos</a>.</p>
+	<h2>Suchplugin für ein eigenes Modul schreiben</h2>
+    <p>
+    Wenn Sie für ein eigenes Modul ein Suchplugin zur Verfügung stellen möchten, muß die Suchplugin-Datei den Namen &quot;search.php&quot; haben. In der search.php muß die Funktion &quot;searchinmodcontent_ __MODUL_VERZEICHNISNAME__ &quot; vorhanden sein. Die Funktion muß ein Array mit Titel, Inhalt und URL zur Seite zurückliefern.<br /><br />
+    Beispiel:<br />
+    <span class="einzug">$result[]['title']</span><br />
+    <span class="einzug">$result[]['contents']</span><br />
+    <span class="einzug">$result[]['url']</span>
+</p>
+</div>
+</body>
+</html>

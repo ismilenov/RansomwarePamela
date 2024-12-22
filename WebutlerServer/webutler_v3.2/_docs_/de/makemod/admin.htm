@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>ModMaker</title>
+    <!--
+        **************************************
+            Webutler V3.2 - www.webutler.de
+            Copyright (c) 2008 - 2016
+            Autor: Sven Zinke
+            Free for any use
+            Lizenz: GPL
+        **************************************
+    -->
+    <meta charset="utf-8" />
+    <meta content="noindex,nofollow" name="robots" />
+	<style>
+	/* <![CDATA[ */
+		body {
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+            line-height: 16px;
+            background-color: #E9E9E9;
+            margin: 0px;
+            padding: 0px;
+        }
+		#submenu {
+			margin: 0px 0px 25px 0px;
+        }
+		#submenu ul {
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		#submenu ul li {
+		    margin: 0px 15px 0px 0px;
+			padding: 0px;
+			display: inline-block;
+		}
+		#submenu ul li a {
+			font-weight: bold;
+			color: #555;
+		}
+		h1 {
+            font-size: 15px;
+        }
+		h2 {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+		div#layer {
+            width: 650px;
+            margin: 0px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        span.einzug {
+            margin-left: 30px;
+			display: block;
+        }
+    /* ]]> */
+	</style>
+	<script>
+	/* <![CDATA[ */
+        window.onload = function() {
+            if(top == self) {
+				if(('localStorage' in window) && (window['localStorage']!= null)) {
+					localStorage.setItem('furl', 'makemod/admin.htm');
+					localStorage.setItem('flink', 'makemod');
+				}
+                location = '../_start.htm';
+			}
+        }
+    /* ]]> */
+    </script>
+</head>
+<body>
+<div id="layer">
+	<div id="submenu">
+		<ul>
+			<li><a href="_readme.htm">ModMaker</a></li>
+			<li><a href="defines.htm">Felder definieren</a></li>
+			<li><a href="admin.htm">Administration</a></li>
+			<li><a href="view.htm">Datenausgabe</a></li>
+			<li><a href="templates.htm">Templates</a></li>
+			<li><a href="install.htm">Installation</a></li>
+		</ul>
+	</div>
+	<h1>ModMaker - Administration des Moduls</h1>
+	<p>Unter dem Reiter <strong>Administration</strong> wird der Aufbau des Moduls festgelegt. Folgende Einstellmöglichkeiten können vergeben werden.
+</p>
+	<p><strong>Login für Redakteure</strong><br />
+    <span class="einzug">Eine Benutzergruppe des Usermoduls kann als Redakteure festgelegt werden und erhält damit Zugriff auf die Administration des Moduls.</span>
+</p>
+	<p><strong>Schreibrechte setzen</strong><br />
+    <span class="einzug">Die Anzeige der Besucher-Eingabemaske kann auf Benutzergruppen des Usermoduls beschränkt werden.</span>
+</p>
+	<p><strong>Mehrsprachige Eingabe</strong><br />
+    <span class="einzug">Das Modul soll in mehreren Sprachen benutzt werden. Dafür wird eine Sprachen-Auswahlliste erzeugt. Wenn die Seiten für alle Sprachen identisch sein sollen, wird alternativ pro Texteingabe ein Feld für jede Sprache gesetzt.</span>
+</p>
+	<p><strong>Kategorien anbieten</strong><br />
+    <span class="einzug">Die Themen und/oder Beiträge des Moduls sind über Kategorien aufrufbar. Kategorien haben separate Templates und können mit Bild und/oder Beschreibung versehen werden. Eine Verschachtelung als Kategoriebaum sowie die Abbildung als Menü sind möglich.</span>
+</p>
+	<p><strong>Kategorien als Einstiegspunkte für Multipage-Support</strong><br />
+    <span class="einzug">Kategorien können als Einstiegspunkte genutzt werden, um ein Modul auf verschiedenen Seiten nutzen zu können. Wenn dieser Punkt gewählt wird, muß die Variable &quot;basecat&quot; in der Seite gesetzt sein - <a href="install.htm#multipage">weitere Infos</a>.</span>
+</p>
+	<p><strong>Themen anbieten</strong><br />
+    <span class="einzug">Bei der Wahl dieses Punktes werden Beiträge unter einem Thema zusammengefasst. Für die abweichende Darstellung des Themen-Startbeitrages stehen die Templates topicslist_startdata.tpl und topic_startdata.tpl zur Verfügung.</span>
+</p>
+	<p><strong>Optionengruppen erstellen</strong><br />
+    <span class="einzug">Optionengruppen sind frei gestaltbare Listen, die in Datensätzen ausgegeben werden können. Das Prinzip ist das gleiche wie bei Checkboxen, nur flexibler. Hat man z.B. einen Katalog mit Produkten aus Holz, Metall und Plastik, könnte eine Optionengruppe verschiedene Holzmaserungen, eine Optionengruppe verschiedene Metalloberflächen und eine weitere Farben von Kunststoffen abbilden - inklusive Bildern. Je nach Produkt wird dann die passende Optionengruppe in der Administration ausgewählt und im Datensatz abgebildet.</span>
+</p>
+</div>
+</body>
+</html>
